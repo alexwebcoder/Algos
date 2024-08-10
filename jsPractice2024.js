@@ -584,3 +584,62 @@ console.log(add_numbers(4, 7))
 const arr = [0, "nice", function bad_hairday () { return "YOLO" }];
 
 console.log(arr[2]())
+
+const your_name = function(){
+  return 'Snoop Dogg'
+}
+
+var result;
+if (undefined) {
+  result = function () { return "blah blah blah"; }();
+} else {
+  result = function () { return "meow meow meow"; }();
+}
+console.log(result);
+
+console.log(Math.round(4.87))
+
+const oneTwo = [1, 2];
+console.log(oneTwo === oneTwo)
+
+const weird = [1, 40, 'bob', [], false, 89];
+
+//return sum of just the numbers in this array
+function sumThis(arr) {
+return  arr.filter((item) => typeof item === 'number')
+     .reduce((acc, current) => acc + current)
+}
+
+console.log(sumThis(weird));
+//130
+
+function sumThisAgain(arr){
+  let result = 0;
+
+  for(let i = 0; i < arr.length; i++){
+    if(typeof arr[i] === 'number'){
+      result += arr[i]
+    }
+  }
+  return result;
+}
+
+console.log(sumThisAgain(weird));
+
+let heaven = [34, [], "Bodacious", "barbecues", "begin", "whatever", "By", "battering", true, "bacon"];
+
+//concatenate all the elements that begin with letter 'b' and print it to the console
+function concatLetterB(arr){
+  let letterB = '';
+  for(let i = 0; i < arr.length; i++){
+    if(typeof arr[i] === 'string'){
+      arr[i] = arr[i].toLowerCase()
+    }
+    if(arr[i][0] === 'b'){
+      letterB += `${arr[i]} `
+    }
+  }
+  return letterB;
+}
+
+console.log(concatLetterB(heaven));
