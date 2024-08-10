@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    width: 100%;
+    padding: 100px;
+}
+
+.one {
+    background-color: rgb(111, 145, 175);
+}
+
+.two {
+    background-color: rgb(157, 214, 216);
+}
+
+.three {
+    background-color: cornflowerblue;
+}

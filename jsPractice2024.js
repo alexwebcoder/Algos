@@ -699,3 +699,43 @@ let circle = {
 circle.circumference = function(){return 2 * Math.PI * this.radius}
 
 console.log(circle.circumference())
+
+//twoSum
+
+function twoSumm(arr, target) {
+  const previousValues = {};
+
+  for (let i = 0; i < arr.length; i++){
+    if(target - arr[i] in previousValues){
+        return [previousValues[target - arr[i]], i]
+    } previousValues[arr[i]] = i;
+  }
+}
+
+console.log(twoSumm([2, 3, 4, 5, 7, 9, 9], 18))
+//5, 6
+
+//diff two arrays
+
+function diffTwoArrays(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+
+  function findDiff(first, second){
+    return [...first].filter((item) => !second.has(item));
+  }
+
+  return [...findDiff(set1, set2), ...findDiff(set2, set1)]
+}
+
+console.log(diffTwoArrays([2, 3, 4, 5, 6, 7, 8], [2, 3, 4, 9, 19]))
+//5, 6, 7, 8, 9, 19
+
+const divs = document.querySelectorAll('div')
+function logText(e){
+  console.log(this.classList.value)
+  // e.stopPropagation();
+}
+
+//the once option removes the event listener to make sure the function just runs once.
+divs.forEach(div => div.addEventListener('click', logText, {capture: false, once:true}))
