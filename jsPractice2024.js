@@ -605,6 +605,7 @@ console.log(oneTwo === oneTwo)
 const weird = [1, 40, 'bob', [], false, 89];
 
 //return sum of just the numbers in this array
+//didn't need filter method just use reduce and check typeof like on line 652.
 function sumThis(arr) {
 return  arr.filter((item) => typeof item === 'number')
      .reduce((acc, current) => acc + current)
@@ -643,3 +644,58 @@ function concatLetterB(arr){
 }
 
 console.log(concatLetterB(heaven));
+
+//add the sum of the numbers in the array and not the other elements
+
+const strangeArray = [4, [], {}, '5', 6, 99, 'dolphin', false];
+
+function addThisUp(arr){
+ return arr.reduce((acc, item) => typeof item === 'number' ? acc + item : acc, 0)
+}
+
+console.log(addThisUp(strangeArray))
+//109
+
+let mug = {
+  capacity: "10 fluid ounces",
+  customer_message: function (desired_size) {
+    if (desired_size > 10) { return "This mug is not large enough for you" };
+  }
+}
+console.log(mug.customer_message(13));
+
+function global_function () { return "I can be called anywhere" };
+let an_obj = {
+  something: global_function
+}
+console.log(an_obj.something());
+
+let ideal_scene = {
+  status: "chillin'",
+  location: "somewhere with good waves",
+  thoughts: "bling bling"
+}
+delete ideal_scene.thoughts
+console.log(ideal_scene.thoughts);
+
+let ruff_ryders = {
+  dmx: {
+    birthplace: "Mount Vernon, NY"
+  }
+}
+console.log(ruff_ryders.lox && ruff_ryders.lox.birthplace);
+
+let a = {
+  x: "y"
+}
+
+console.log("x" in a);
+
+let circle = {
+  radius: 10,
+}
+
+// Add a circumference method to the following circle object that returns the circumference of the circle (Pi equals Math.PI).
+circle.circumference = function(){return 2 * Math.PI * this.radius}
+
+console.log(circle.circumference())
