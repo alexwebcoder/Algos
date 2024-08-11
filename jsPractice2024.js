@@ -457,11 +457,11 @@ myFunction()
 // console.log(blockScopedVar)//will throw reference error because it is trying to access a variable that has local scope and block level scope and this console.log is outside of the function
 
 
-const full_name = function(first_name, last_name){
-  return `${first_name} ${ last_name}`
+const fullName = function(firstName, lastName){
+  return `${firstName} ${ lastName}`
 }
 
-console.log(full_name('Alex', 'DeLeon'));
+console.log(fullName('Alex', 'DeLeon'));
 
 
 // Create a function “isAnagram” that takes in two strings, this function will determine if the two strings are anagrams of each other. If so return True, else false
@@ -731,6 +731,8 @@ function diffTwoArrays(arr1, arr2) {
 console.log(diffTwoArrays([2, 3, 4, 5, 6, 7, 8], [2, 3, 4, 9, 19]))
 //5, 6, 7, 8, 9, 19
 
+//event capturing and bubbling example
+
 const divs = document.querySelectorAll('div')
 function logText(e){
   console.log(this.classList.value)
@@ -739,3 +741,95 @@ function logText(e){
 
 //the once option removes the event listener to make sure the function just runs once.
 divs.forEach(div => div.addEventListener('click', logText, {capture: false, once:true}))
+
+const alex = {
+  firstName: 'Alex',
+  lastName: 'DeLeon',
+  myName() {
+    return `My name is ${this.firstName} ${this.lastName}!`
+  }
+}
+
+console.log(alex.myName());
+
+function Mammal(){
+  this.warmBlooded = true;
+  this.scaly = false;
+}
+
+const fido = new Mammal();
+const spot = new Mammal();
+console.log(spot)
+
+console.log(fido.scaly)
+
+let myCalculator = {
+  square(x) {
+    return x * x
+  }
+}
+
+console.log(myCalculator.square(5));
+
+function Person(firstName, lastName){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.fullName = function(){
+    return `${firstName} ${lastName}`
+  };
+}
+
+const jimmy = new Person('jimmy','wynn');
+console.log(jimmy.fullName())
+
+const wilson = {
+  firstName: 'Ricky',
+  lastName: 'Wilson',
+  fullName() {
+    return `Just call me ${this.firstName} ${this.lastName} please.`
+  }
+}
+
+console.log(wilson.fullName());
+
+function Hat(){
+  this.brand = `shhh can't tell`;
+}
+
+let myHat = new Hat();
+console.log(myHat.brand)
+
+function Shape(side, name){
+  this.side = side;
+  this.name = name;
+  this.area = function(){
+    return this.side * this.side;
+  }
+}
+//adding a method using the prototype object
+
+Shape.prototype.speak = function(){
+  return `I'm a ${this.name}`
+}
+const pentagon = new Shape(5, 'Pentagon');
+console.log(pentagon.area(), pentagon.speak());
+
+function Employee(name, daysWorked, vacationDaysPerYear, vacationDaysTaken){
+  this.name = name;
+  this.daysWorked = daysWorked;
+  this.vacationDaysPerYear = vacationDaysPerYear;
+  this.vacationDaysTaken = vacationDaysTaken;
+  this.vacationDaysLeft = function(){
+    return this.vacationDaysPerYear - this.vacationDaysTaken
+  }
+}
+
+Employee.prototype.bestWorker = function(){
+  return `${this.name} has worked ${this.daysWorked} days and is the best worker.`
+}
+
+const bestEmployee = new Employee('Alex', 50, 14, 2)
+
+console.log(bestEmployee.bestWorker())
+
+console.log(bestEmployee.vacationDaysLeft())
