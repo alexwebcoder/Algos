@@ -367,6 +367,7 @@ console.log(findLongestStr('Today is Monday', 'hello', 'oh', 'The quick brown fo
 
 //remove all the elements from the initial array that are the same value as the arguements
 //remove any number from the first argument that is the same as any of the othe arguments
+//remove from the array what is not in the arguements and return that
 
 function destroyer(arr, ...theArgs) {
  return arr.filter(item => !theArgs.includes(item));
@@ -800,7 +801,22 @@ let myHat = new Hat();
 console.log(myHat.brand)
 
 function Shape(side, name){
-  this.side = side;
+  this.side = side;function whatIsInAName(collection, source) {
+  // "What's in a name? that which we call a rose
+  // By any other name would smell as sweet.”
+  // -- by William Shakespeare, Romeo and Juliet
+  const souceKeys = Object.keys(source);
+
+  // filter the collection
+  return collection.filter(obj => {
+    for (let i = 0; i < sourceKeys.length; i++) {
+      if (obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
   this.name = name;
   this.area = function(){
     return this.side * this.side;
@@ -833,3 +849,22 @@ const bestEmployee = new Employee('Alex', 50, 14, 2)
 console.log(bestEmployee.bestWorker())
 
 console.log(bestEmployee.vacationDaysLeft())
+
+
+//write a function that takes an array of objects and a source object
+//filter the array of objects to return only objects that have matching key-value pairs as specified by the source object
+
+function whatIsInAName(collection, source){
+  const sourceKeys = Object.keys(source);
+
+  return collection.filter(obj => {
+    for(let i = 0; i < sourceKeys.length; i++){
+      if(obj[sourceKeys[i]] !== source[sourceKeys[i]]){
+         return false;
+      }
+    }
+    return true;
+  })
+}
+
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
