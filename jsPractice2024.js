@@ -889,3 +889,38 @@ function spinalCase(str){
 
 console.log(spinalCase('thisIsSpinalTap'))
 console.log(spinalCase('The_Andy_Griffith_Show'))
+
+//global exection context is created when a script is loaded and executed by the JS engine(when the script starts running)
+//global exection context has two main phases (creation and execution phases)
+//During the creation phase the global object(window), the this keyword and memory space is set up
+//During the execution phase, code runs line by line and functions are invoked and put on top of the stack. When it finishes it is popped off the stack
+
+function A(){
+  b();
+  let c = 'C';
+  console.log(c)
+}
+
+function b(){
+  let d = 'D';
+  console.log(d)
+}
+
+let d = 'D2'
+A();
+console.log(d)
+console.log(d)
+
+//D, C, D2
+
+//the inner function is defined within the same lexical scope since it is called within the outer function
+//the inner function has access to the outer functions scope
+function outer(){
+  console.log('i am outer')
+  inner()
+  function inner(){
+    console.log('i am inner')
+  }
+}
+
+outer()
