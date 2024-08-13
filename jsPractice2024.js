@@ -868,3 +868,24 @@ function whatIsInAName(collection, source){
 }
 
 console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+
+function whatIsInAName(collection, source) {
+  const sourceKeys = Object.keys(source);
+
+  return collection
+    .filter(obj => sourceKeys
+      .every(key => obj[key] === source[key]));
+}
+
+console.log(whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }));
+
+//convert a string to spinal case (all lowercase with dashes inbetween the words)
+function spinalCase(str){
+  return str
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase()
+}
+
+console.log(spinalCase('thisIsSpinalTap'))
+console.log(spinalCase('The_Andy_Griffith_Show'))
