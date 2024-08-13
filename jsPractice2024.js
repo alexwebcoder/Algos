@@ -924,3 +924,64 @@ function outer(){
 }
 
 outer()
+
+function twoSumFunction(arr, target){
+  const previousValues = {};
+
+  for(let i = 0; i < arr.length; i++){
+    if(target - arr[i] in previousValues){
+      return [previousValues[target - arr[i]], i]
+    }
+    previousValues[arr[i]] = i
+  }
+}
+
+console.log(twoSumFunction([2, 3, 4, 6, 9, 11], 20))
+//4, 5
+
+//return the first non repeating character
+
+function findFirstNonRepeat(str){
+  let firstNonRepeat = '';
+  for(let i = 0; i < str.length; i++){
+    if(str.indexOf(str[i]) === str.lastIndexOf(str[i])){
+      firstNonRepeat += str[i]
+      return firstNonRepeat
+    }
+  }return null;
+}
+
+console.log(findFirstNonRepeat('aabbccddeeffgghi'))
+//h
+
+function firstNonRepeat(str){
+  return str
+           .split('')
+           .filter(item => str.indexOf(item) === str.lastIndexOf(item))[0]
+}
+console.log(firstNonRepeat('aabbccdeeffg'))
+
+//return first non repeat with regix
+
+function hasRepeats (str) {
+  return /(.).*\1/.test(str);
+}
+
+console.log(hasRepeats('zzwwviipp'))
+
+function firstNoRepeat(str){
+  return str
+           .split('')
+           //find element will return the first element that passes the test
+           .find((e, i, a) => a.indexOf(e) === a.lastIndexOf(e))
+}
+
+console.log(firstNoRepeat('aabbccddeefgh'))
+
+function pigLatin(str){
+ if(str.match(/^[aeiou]/)) return str + 'way';
+ const consonants = str.match(/^[^aeiou]+/)[0];
+ return str.substring(consonants.length) + consonants + 'ay';
+}
+
+console.log(pigLatin('dapple'))
