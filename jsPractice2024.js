@@ -961,7 +961,7 @@ function firstNonRepeat(str){
 }
 console.log(firstNonRepeat('aabbccdeeffg'))
 
-//return first non repeat with regix
+//return first non repeat with regex
 
 function hasRepeats (str) {
   return /(.).*\1/.test(str);
@@ -985,3 +985,117 @@ function pigLatin(str){
 }
 
 console.log(pigLatin('dapple'))
+
+function translatePigLatin(str) {
+  return str
+    .replace(/^[aeiou]\w*/, "$&way")
+    .replace(/(^[^aeiou]+)(\w*)/, "$2$1ay");
+}
+
+console.log(translatePigLatin("econsonant"));
+
+//pigLatin
+
+function pigLatin2(str){
+  return str
+    .replace(/^[aeiou]\w*/, "$&way")
+    .replace(/(^[^aeiou]+)(\w*)/, "$2$1ay");
+}
+console.log(pigLatin2('and'))
+
+const regExpLiteral = /pattern/;
+
+//regex practice
+
+const string = 'The Quick brown fox jumped over the lazy dog.';
+
+console.log((/Dog/i).test(string))
+
+console.log(/\d/.test(''))
+
+
+function waitThreeSeconds(){
+  let ms = 3000 + new Date().getTime();
+  while (new Date() < ms){}
+  console.log('finished function')
+}
+
+function clickHandler() {
+  console.log('click event!');
+}
+
+document.addEventListener('click', clickHandler)
+
+// waitThreeSeconds();
+console.log('finished execution');
+
+//regex
+
+console.log(/[0123456789]/.test('in 1992'))
+
+console.log(/\d\d-\d\d-\d\d\d\d/.test('07-06-1967')) //true
+
+console.log(/[^\d]/.test('1d'))
+
+let stringDog = 'There is a stray dvg Dog outside';
+
+console.log(stringDog.match(/dog/ig))
+console.log(stringDog.match(/d.g/ig))
+console.log(stringDog.match(/d[v]g/ig))
+
+let dogString = 'the dog, whose name is dag, dug and i told him not to dig'
+
+//set of characters that you want to match
+console.log(dogString.match(/d[oui]g/gi))
+
+//set of characters that you don't want to match
+console.log(dogString.match(/d[^oui]g/gi))
+
+//match characters that appear consecutively on a line (no brackets)
+
+let mississippi = 'Mississippi';
+
+console.log(mississippi.match(/s+/gi))
+
+//match characers that appear 0 or more times
+
+let bigA = 'Aaaaagh';
+
+console.log(bigA.match(/A*/gi))
+
+//greedy match finds the longest possible part of the string that fits the regex pattern (*) and lazy match (?) will find the shortest substring
+
+let titanic = 'Titanic';
+
+console.log(titanic.match(/t[a-z]?i/gi))
+
+let text = '<h1>Winter is coming</h1>'
+console.log(text.match(/.*/gi))
+//['<h1>Winter is coming</h1>', '']
+
+//. matches any character including empty space
+//* matches zero or more occurance of .
+//? matches few characters as possible to meet the pattern
+
+//extract individual html tags from a string
+console.log(text.match(/<.*?>/gi))
+
+
+let reCriminals = /C+/;
+
+let firstString = 'ff Ricky is first and can be found.'
+let firstRegex = /^Ricky/gi;
+
+console.log(firstRegex.test(firstString))
+
+console.log(firstString.match(firstRegex))
+
+//if you want to match characters, put them in brackets
+
+let ricky = 'I am Ricky and will return r, i, c, k, y';
+let rickyRegix = /[ricky]/gi
+
+let newRicky = ricky.match(rickyRegix)
+let uniqueRicky = [...new Set(newRicky.map(char => char.toLowerCase()))];
+let sorted = ['r', 'i', 'c', 'k', 'y']
+console.log(uniqueRicky.sort((a, b) => sorted.indexOf(a) - sorted.indexOf(b)))
