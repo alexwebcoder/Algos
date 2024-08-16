@@ -1099,3 +1099,88 @@ let newRicky = ricky.match(rickyRegix)
 let uniqueRicky = [...new Set(newRicky.map(char => char.toLowerCase()))];
 let sorted = ['r', 'i', 'c', 'k', 'y']
 console.log(uniqueRicky.sort((a, b) => sorted.indexOf(a) - sorted.indexOf(b)))
+
+function greet(){
+  console.log('hello')
+}
+
+greet.language = 'spanish';
+
+console.log(greet.language)
+
+
+let story = 'This is the never ending story.'
+
+console.log(story.match(/story.$/gi))
+
+let findLettersNumbersUnderscores = 'letters 44_ + sss%'
+
+
+// /\w+/ will find letters numbers and underscores and a capital w (/\W+/)will find everything else
+//this is a shortcut for [A-Za-z0-9_]
+console.log(findLettersNumbersUnderscores.match(/\W+/gi))
+
+// /\d/g is the shortcut for finding all digits
+//it is the same as using [0-9]
+// /\D/g is for all non digits and is equal to [^0-9]
+
+let numberStr = 'I told him 9 times on the 4th of July'
+console.log(numberStr.match(/\d/g).length)
+
+//how many digits in a string
+
+function howManyDigits(str){
+  return str
+           .match(/\d/g).length
+}
+
+console.log(howManyDigits('I was there 4,300 times in 6 months. 432343333'))
+
+
+
+let username = "Z97";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let resultA = userCheck.test(username);
+console.log(resultA)
+
+let testing = 'ssssss'
+let regexTest = /^[a-z][a-z]+\d*$/ig
+// makes sure that a string starts with a letter, is at least two letters and the plus sign allows for more than two letters
+
+console.log(regexTest.test(testing))
+console.log(testing.match(regexTest))
+
+// \d$ says there needs to be one digit at the end 
+// \d*$ can end with digits or have no digits at all (the * matches 0 or more of the preceding element)
+// \d{2}$ says there needs to be three digits at the end
+//+ sign looks for more of the preceding characters
+
+//letters and numbers only
+//numbers have to be at the end
+//has to be at least 2 characters long and must be letters if 2 characters
+
+//matches whitespace /\s/g
+
+//to return at least 4 z between the ha and the ah
+let haStr = "Hazzzzah";
+let haRegex = /haz{4,}ah/ig; 
+let resultB = haRegex.test(haStr);
+
+let favWord = "favorite";
+let favRegex = /favou?rite/i; // the question mark is saying that the previous letter is optional
+let resultC = favRegex.test(favWord);
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/g;//match q only if it is followed by u, but don't return u
+let qRegex = /q(?!u)/g;//match q only if it is not followed by u, and don't return u
+console.log(quit.match(quRegex));
+console.log(noquit.match(qRegex));
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/; //checks that the string has 3 to 6 word characters and makes sure a non digit is before a digit (the asterisk allows for any number of non digit characters in front of the digit)
+console.log(checkPass.test(password));
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/i; // 6 characters long and 2 digits have to follow the characters
+let resultD = pwRegex.test(sampleWord);
