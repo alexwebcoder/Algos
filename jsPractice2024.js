@@ -1116,7 +1116,7 @@ console.log(story.match(/story.$/gi))
 let findLettersNumbersUnderscores = 'letters 44_ + sss%'
 
 
-// /\w+/ will find letters numbers and underscores and a capital w (/\W+/)will find everything else
+// /\w+/ will find letters numbers and underscores and a capital w (/\W+/)will find non word characters like punctuation, whitespace, quotes and symbols
 //this is a shortcut for [A-Za-z0-9_]
 console.log(findLettersNumbersUnderscores.match(/\W+/gi))
 
@@ -1184,3 +1184,18 @@ console.log(checkPass.test(password));
 let sampleWord = "astronaut";
 let pwRegex = /(?=\w{6})(?=\w*\d{2})/i; // 6 characters long and 2 digits have to follow the characters
 let resultD = pwRegex.test(sampleWord);
+
+//string manipulation
+//splitting a string into a character array
+let ourString = 'Today is Thursday';
+let array1 = ourString.split(' ');
+console.log(array1)
+let array2 = Array.from(ourString);
+console.log(array2)
+let array3 = [...ourString]
+console.log(array3)
+
+const sentence = "Remove&all% the whitespace &and ((punctuation";
+const wordsArray = sentence.split(/\W+/).join(' ');
+console.log(wordsArray)
+// Output: ['Convert', 'this', 'string', 'into', 'an', 'array', 'of', 'words']
