@@ -961,6 +961,17 @@ function firstNonRepeat(str){
 }
 console.log(firstNonRepeat('aabbccdeeffg'))
 
+
+function firstNotRepeatCharacter(str){
+  return str
+           .split('')
+           .find(item => str.indexOf(item) === str.lastIndexOf(item))
+}
+
+console.log(firstNotRepeatCharacter('aaabcccdefg'))
+
+console.log('hello'.lastIndexOf('h'))
+
 //return first non repeat with regex
 
 function hasRepeats (str) {
@@ -1199,3 +1210,42 @@ const sentence = "Remove&all% the whitespace &and ((punctuation";
 const wordsArray = sentence.split(/\W+/).join(' ');
 console.log(wordsArray)
 // Output: ['Convert', 'this', 'string', 'into', 'an', 'array', 'of', 'words']
+
+
+function firstNoRepeater(str){
+  return str
+           .split(' ')
+           .find(item => str.indexOf(item) === str.lastIndexOf(item))
+}
+
+console.log(firstNoRepeater('apple apple pear banana banana orange'))
+
+//regex
+
+let matchDigits = /(789)/ig
+let sevenEightNine = '59878123';
+
+console.log(matchDigits.test(sevenEightNine))
+
+let regexChallenge = /^[A-Z][a-z]{3}-[0-9]{4}!/
+
+console.log(regexChallenge.test('Aabc-1234'))
+
+// The string should start with either "http" or "https".
+// It should be followed by "://".
+// Then, it should have one or more lowercase letters (a-z) or digits (0-9).
+// Next, there should be an optional port number that starts with a colon (:), followed by exactly 2 to 4 digits.
+// Finally, the string should end with an optional forward slash (/).
+
+const regexChallengeTwo = /^(https?:\/\/)[a-z0-9.-]+(:\d{2,4})?\/?$/
+                      
+console.log(regexChallengeTwo.test('https://example.com:8080'))
+
+let myString = 'Eleanor Roosevelt'//true
+let myString2 = 'Franklin D. Roosevelt'//true
+let myString3 = 'FranklinRoosevelt'//false
+let myString4 = 'Franklin P. Roosevelt'//true
+let myString5 = 'Eleanor FannieMae Roosevelt'//true
+let myRegex = /(Eleanor|Franklin) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/ig
+console.log(myRegex.test(myString5));
+console.log(myString5.match(myRegex))
