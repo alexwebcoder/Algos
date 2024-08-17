@@ -1249,3 +1249,28 @@ let myString5 = 'Eleanor FannieMae Roosevelt'//true
 let myRegex = /(Eleanor|Franklin) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/ig
 console.log(myRegex.test(myString5));
 console.log(myString5.match(myRegex))
+
+//find string of only the same number
+ let repeatedWord = 'row row row'
+ let repeatNumber = '42 42 42'
+ let reRegex = /^(\d+) \1 \1$/g;
+ console.log(repeatNumber.match(reRegex))
+ console.log(repeatedWord.match(/^(\w+) \1 \1$/g))
+
+ // the ^ and $ signs test the entire string from beginning to end. The + sign makes sure at least on digit is present
+
+ let bear = 'beam';
+ let bearRegex = /^bea.$/g //the ^ and $ make sure that it is only 4 letters
+
+ console.log(bear.match(bearRegex))
+
+ // . is for any character execpt for newline \w is for letters, numbers and underscores
+
+ let oneTwoThree = "one two three";
+let fixRegex = /(one) (two) (three)/; // Change this line
+let replaceText = "$2 $1 $3"; // Change this line
+console.log(oneTwoThree.replace(fixRegex, replaceText));
+
+let hello = '   Hello, World!  ';
+let wsRegex = /^\s+|\s+$/ig;
+console.log(hello.replace(wsRegex, ''))
