@@ -1274,3 +1274,34 @@ console.log(oneTwoThree.replace(fixRegex, replaceText));
 let hello = '   Hello, World!  ';
 let wsRegex = /^\s+|\s+$/ig;
 console.log(hello.replace(wsRegex, ''))
+
+let newArr = ('hello'.split(''))
+ newArr.shift()
+let newStr = newArr.join('')
+ console.log(`${newStr}ay`)
+
+ function translatePigLatin(str) {
+  let consonantCluster = str.match(/^[^aeiou]+/gi);
+  if(consonantCluster){
+     let newStr = str.slice(consonantCluster[0].length);
+     return `${newStr}${consonantCluster[0]}ay`
+  }else{
+    return `${str}way`
+  }
+}
+
+console.log(translatePigLatin('glove'));
+
+
+function translatePigLatin(str) {
+  return str
+    .replace(/^[aeiou]\w*/, "$&way")
+    .replace(/(^[^aeiou]+)(\w*)/, "$2$1ay");
+}
+
+
+translatePigLatin("consonant");
+
+// \w matches word characters. * matches zero or more of the preceding element. \w* matches 0 or more word characters. \w+ needs at least one character after to match
+
+console.log('a'.replace(/^[aeiou]\w*/g, `way$&`)) //appends the string to the matched portion
