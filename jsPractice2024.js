@@ -1280,6 +1280,16 @@ let newArr = ('hello'.split(''))
 let newStr = newArr.join('')
  console.log(`${newStr}ay`)
 
+//  - If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it.
+// // - If a word begins with a vowel, just add way at the end.
+// translatePigLatin("california") should return the string aliforniacay.
+// Waiting:translatePigLatin("paragraphs") should return the string aragraphspay.
+// Waiting:translatePigLatin("glove") should return the string oveglay.
+// Waiting:translatePigLatin("algorithm") should return the string algorithmway.
+// Waiting:translatePigLatin("eight") should return the string eightway.
+// Waiting:Should handle words where the first vowel comes in the middle of the word. translatePigLatin("schwartz") should return the string artzschway.
+// Waiting:Should handle words without vowels. translatePigLatin("rhythm") should return the string rhythmay.
+
  function translatePigLatin(str) {
   let consonantCluster = str.match(/^[^aeiou]+/gi);
   if(consonantCluster){
@@ -1300,8 +1310,11 @@ function translatePigLatin(str) {
 }
 
 
-translatePigLatin("consonant");
 
 // \w matches word characters. * matches zero or more of the preceding element. \w* matches 0 or more word characters. \w+ needs at least one character after to match
 
-console.log('a'.replace(/^[aeiou]\w*/g, `way$&`)) //appends the string to the matched portion
+console.log('apple'.replace(/^[aeiou]\w*/g, `$&'s are good`)) //appends the string to the matched portion
+
+console.log('dog'.replace(/(^[^aeiou]*)(\w+)/, '$&for'))
+
+console.log(translatePigLatin("california"));
