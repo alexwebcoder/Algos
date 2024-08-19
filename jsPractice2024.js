@@ -1318,3 +1318,64 @@ console.log('apple'.replace(/^[aeiou]\w*/g, `$&'s are good`)) //appends the stri
 console.log('dog'.replace(/(^[^aeiou]*)(\w+)/, '$&for'))
 
 console.log(translatePigLatin("california"));
+
+
+//find and replace
+
+function myReplace(str, before, after) {
+ //test before text to see if it starts with an uppercase letter
+ //if true, the first letter of the after string goes to uppercase and concatenates from the second letter on
+ //otherwise, the first letter of the after string goes to lowercase and concatenates from the second letter on
+
+ const checkCaseOfAfter = /^[A-Z]/.test(before)
+                          ? after[0].toUpperCase() + after.slice(1)
+                          : after[0].toLowerCase() + after.slice(1)
+
+  return str
+           .replace(new RegExp(before, 'gi'), checkCaseOfAfter)
+}
+
+console.log(myReplace("I think we should look up there", "up", "Down"));
+
+const re = /ab+c/i
+console.log(re.test('abc'))
+
+const baReg = /b(ac){2,3}d/
+
+console.log(baReg.test('bacacacacd'))
+
+const allWithApp = /^(app).*/g
+
+console.log(allWithApp.test('appear'))
+console.log('apple'.match(allWithApp))
+
+const endsWithDot = /\w+\.{3}$/
+
+console.log(endsWithDot.test('apples...'))
+
+
+// function returnThreeDots(arr){
+//  return arr
+//           .filter(item => item.match(/\w+\.{3}$/))
+// }
+
+// console.log(returnThreeDots(['apples...', 'pears...','lemons..', 'bananas...', 'oranges.', 'grapes...', '...']))
+
+//test is more efficient for filtering because it returns a boolean instead of an array
+function returnThreeDots(arr){
+  return arr.filter(item => /\w+\.{3}/.test(item))
+       
+}
+
+console.log(returnThreeDots(['apples...', 'pears...','lemons..', 'bananas...', 'oranges.', 'grapes...', '...']))
+
+function endsWithThreeDots(arr){
+ return arr.filter(item => item.endsWith('...') & item.length > 3);
+}
+
+console.log(endsWithThreeDots(['apples...', 'pears...','lemons..', 'bananas...', 'oranges.', 'grapes...', '...']))
+ 
+const strTwo = "slap two";
+const matchTwo = strTwo.match(/\w+\s\w+/gi);
+
+console.log(matchTwo);
