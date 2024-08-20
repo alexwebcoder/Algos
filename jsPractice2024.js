@@ -1379,3 +1379,50 @@ const strTwo = "slap two";
 const matchTwo = strTwo.match(/\w+\s\w+/gi);
 
 console.log(matchTwo);
+
+
+let newRegex = /^[A-Z]\w+/gi
+
+console.log(newRegex.test('124'))
+
+// assumes word senses. Within
+// does the clustering. In the
+// but when? It was hard to tell
+// he arrive." After she had
+// mess! He did not let it
+// it wasn't hers!' She replied
+// always thought so.) Then
+
+// \w+(\s\w+)?(\W+)?(\s\w+\W)((\s?\w+?)(\w+\s?\w+))?
+
+let bRegex = /ab+c?/
+console.log(bRegex.test('abbb'))
+
+let regexC = /<[^>]+>/
+console.log(regexC.test('</closetag>'))
+
+const anonymous = function () {
+  console.log('hi')
+}
+
+function log(){
+  console.log('hello')
+  eat()
+}
+function eat(){
+  console.log(this)
+  this.newVariable = 'win'
+}
+
+log()
+console.log(newVariable)
+
+let dog = {
+  name: 'johnnie',
+  greet() {
+    this.name = 'rhendie'
+    console.log(this)
+  }
+}
+
+dog.greet()
