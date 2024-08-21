@@ -1426,3 +1426,29 @@ let dog = {
 }
 
 dog.greet()
+
+function myReplace(str, before, after) {
+  const testCasing = /^[A-Z]/g.test(before)
+   ? after[0].toUpperCase() + after.slice(1)
+   : after[0].toLowerCase()  + after.slice(1)
+ 
+   return str
+            .replace(new RegExp(before, 'gi'), testCasing)
+ }
+ 
+ console.log(myReplace("Let us go to the store", "store", "mall"));
+
+
+ console.log(/^[A-Z]/.test('splellngi'))
+ 
+ let phoneRegex = /^\d{3}-\d{3}-\d{4}$/
+
+ console.log(phoneRegex.test('310-888-7656'))
+
+ let fiveWordRegex = /^\w{5}$/g
+let fiveLetterWord = 'hello'
+ console.log(fiveLetterWord.match(fiveWordRegex))
+
+ let wordBoundry = /\b\w+\b/g;
+ let wordString = 'My dog is here today. We are glad.'
+ console.log(wordString.match(wordBoundry))
