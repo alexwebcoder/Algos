@@ -36,6 +36,7 @@ let items = ['goal', 'new', 'user', 'sit', 'eat', 'dinner'];
 
 console.log(items.filter(item => !item.match(/e/)))
 console.log(items.filter(item => !item.includes('e')))
+console.log(items.filter(item => !/e/.test(item)))
 
 // Replace only the first occurrence of 5 with five for the given string.
 
@@ -98,7 +99,7 @@ console.log(filterAW(itemsAgain))
 
 let moreItems = ['goal', 'new', 'user', 'sit', 'eat', 'dinner']
 function filterMas(arr){
-    return arr.filter(item => /e.*n|n.*e/.test(item))
+    return arr.filter(item => /e/.test(item) && /n/.test(item))
 }
 console.log(filterMas(moreItems))
 
@@ -117,3 +118,43 @@ function replaceGiven(str){
 }
 console.log(replaceGiven(givenString))
 const testReg = /\d*/g
+
+let cat = 'cat'
+let cater = 'cater'
+console.log(cat == cater)
+
+function addDollarSign(arr){
+ return  arr.map(item => item.toString().replace(/^/, '$').replace(/$/, ' Sale'))
+}
+
+console.log(addDollarSign([4.99, 3.99, 1.99, 29.99]))
+
+function addDollarTwo(arr){
+    return arr.map(item => `$${item} Sale`)
+}
+
+console.log(addDollarTwo([4.99, 3.99, 1.99, 29.99]))
+
+let multiLineText = `first line
+top of the second line
+pare
+third line top`;
+//matches any line ending in are
+//m is for match any line in a multi line string.
+console.log(/are$/m.test(multiLineText)); // Output: true
+
+// \b is for matching word boundaries...where a word character is next to a non word character.
+let words = 'par spar apparent spare part'
+
+console.log(words.replace(/\bpar/g, 'X')) //replace par at the start of a word
+console.log(words.replace(/par\b/g, 'X'))//replace par at the end of a word
+console.log(words.replace(/\bpar\b/g, 'X'))//replace par only if it is not part of another word
+
+console.log(words)
+console.log(words.replace(/\b/g, '"').replace(/\s/g, ','))
+
+let output = `'output=num1+35*42/num2'`;
+
+output = output.replace(/\b/g, ' ')
+output = output.trim()
+console.log(output)
