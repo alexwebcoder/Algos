@@ -167,3 +167,64 @@ let bb = 10;
 
 console.log(aa)
 console.log(bb)
+
+// Find Max and Min of the array, try to do it O(n)
+
+// const numbers = [1, 5, 3, 9, 2]; console.log(findMinAndMax(numbers)); // Output: [1, 9 ]
+
+function findMaxandMin(arr){
+    let minValue = arr[0];
+    let maxValue = arr[0]
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] < minValue){
+            minValue = arr[i]
+        }
+        if(arr[i] > maxValue){
+            maxValue = arr[i]
+        }
+    }
+    console.log(minValue) 
+    console.log(maxValue) 
+    return [minValue, maxValue];
+}
+
+console.log(findMaxandMin([91, 5, 3, 9, 2]))
+
+
+function returnLowestHighest(arr){
+    let lowest = arr[0];
+    let highest = arr[0];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] < lowest){
+           lowest = arr[i]
+        }
+        if(arr[i] > highest){
+          highest = arr[i]
+        }
+    }
+    return [lowest, highest]
+}
+
+console.log(returnLowestHighest([4, 5, 7, 1, 99]))
+
+function findLowestHighestAgain(arr){
+    let lowest = arr[0];
+    let highest = arr[0];
+
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] < lowest){
+            lowest = arr[i]
+        }
+        if(arr[i] > highest) {
+            highest = arr[i]
+        }
+    }
+    return [lowest, highest]
+}
+
+console.log(findLowestHighestAgain([55, 2, 3, 100]))
+
+
+function lowestAndHighest(arr){
+    arr.filter(item => item )
+}

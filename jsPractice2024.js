@@ -1477,3 +1477,33 @@ let fiveLetterWord = 'hello'
   }
   return null; // Return null if no duplicates are found
 }
+
+function funcA(m,n) {
+  return m * n;
+}
+
+function funcB(m,n) {
+  return funcA(m,n);
+}
+
+function getResult(num1, num2) {
+  return funcB(num1, num2)
+}
+
+var res = getResult(5,6);
+
+console.log(res); // 30
+
+
+
+function myReplace(str, before, after) {
+  let checkCaps = /^[A-Z]/.test(before)
+                  ? after[0].toUpperCase() + after.slice(1)
+                  : after[0].toLowerCase() + after.slice(1)
+  return str.replace(new RegExp(before, 'gi'), checkCaps)
+}
+
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")); 
+
+const help = []
+console.log(help)
