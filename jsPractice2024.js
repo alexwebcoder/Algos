@@ -1453,4 +1453,27 @@ let fiveLetterWord = 'hello'
  let wordString = 'My dog is here today. We are glad.'
  console.log(wordString.match(wordBoundry))
 
+ function removeFirstDupe(arr){
+  return arr.find(item => arr.indexOf(item) !== arr.lastIndexOf(item))
+ }
+
+ console.log(removeFirstDupe([2, 4, 4, 5, 5, 6, 8, 9, 9]))
  
+
+ function removeMultis(arr){
+  const array = [...new Set(arr)]
+  return array
+ }
+
+ console.log(removeMultis([ 5, 7, 7, 9, 9, 9]))
+
+ function findFirstDuplicate(arr) {
+  const seen = new Set();
+  for (const num of arr) {
+      if (seen.has(num)) {
+          return num;
+      }
+      seen.add(num);
+  }
+  return null; // Return null if no duplicates are found
+}

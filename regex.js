@@ -158,3 +158,12 @@ let output = `'output=num1+35*42/num2'`;
 output = output.replace(/\b/g, ' ')
 output = output.trim()
 console.log(output)
+
+//array destructuring
+let aa = 5;
+let bb = 10;
+
+[aa, bb] = [bb, aa]
+
+console.log(aa)
+console.log(bb)
