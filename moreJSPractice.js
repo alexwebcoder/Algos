@@ -61,3 +61,40 @@ function myReplace(str, before, after) {
   }
 
   numberOfMeetingRooms(intervals)
+
+  let regex = /^[A-Z]\*$/
+
+  //get all elements that have tt
+ const ttWords = ['cattle', 'attempt', 'tattle', 'puddle', 'riddle'];
+console.log(ttWords.filter(item => /tt/.test(item))) ;
+
+//check if all elements have a tt or a dd
+//if checking for every use every for any use some
+console.log(ttWords.every(item => /tt|dd/.test(item)))
+console.log(ttWords.some(item => /em/.test(item)))
+const pat = new RegExp('dog', 'gi');
+console.log(pat)
+let greeting = 'hi';
+greeting = 'yo'
+const pattern1 = new RegExp(`${greeting}`)
+console.log(pattern1)
+const numbersCommas = '1,2,3,4,5';
+
+console.log(numbersCommas.replace(/,/, '-'))
+console.log(numbersCommas.split(',').join('-'))
+
+const numberWithDash = numbersCommas.split(',')
+const result = numberWithDash[0] + '-' + numberWithDash.slice(1).join(',')
+console.log(result)
+
+let patterTwo = /two/gi
+let two1 = 'Their artwork is exceptional';
+let two2 = 'one plus tw0 is not three';
+let two3 = 'TRUSTWORTHY'
+
+console.log(patterTwo.test(two3))
+//filter all items that do not contain an e
+let items = ['goal', 'new', 'user', 'sit', 'eat', 'dinner'];
+
+console.log(items.filter(item => !/e/.test(item)))
+console.log(items.filter(item => !item.includes('e')))
