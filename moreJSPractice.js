@@ -284,3 +284,32 @@ function sumTwoRange(arr){
 }
 
 console.log(sumTwoRange([4, 8]))
+
+let animalWords = 'elephant lion elephant are rope not';
+console.log(animalWords.replace(/on|ant/, 'X'))
+
+// filter all elements that start with den or end with ly
+
+let stuff = ['lovely', '1\ndentist', '2 lonely', 'eden', 'fly\n', 'dent']
+
+console.log(stuff.filter(item => /^den|ly$/.test(item)))
+
+// filter all elements having a line starting with den or ending with ly
+let givenArray = ['lovely', '1\ndentist', '2 lonely', 'eden', 'fly\nfar', 'dent']
+
+console.log(givenArray.filter(item => /^den|ly$/gm.test(item)))
+
+// replace all occurrences of removed or reed or received or refused with X
+
+let s1 = 'creed refuse removed read'
+let s2 = 'refused reed redo received'
+console.log(s1.replace(/re(mov|ceiv|fus|)ed/g, 'X'))
+console.log(s2.replace(/re(mov|ceiv|fus|)ed/g, 'X'))
+
+// replace late or later or slated with A
+
+let str11 = 'plate full of slate'
+let str12 = "slated for later, don't be late"
+
+console.log(str11.replace(/slated|late(r|)/gm, 'A'))
+console.log(str12.replace(/slated|late(r|)/gm, 'A'))
