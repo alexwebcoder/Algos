@@ -56,11 +56,18 @@ function myReplace(str, before, after) {
     //iterate over each start time
     //and check each meeting start time to see if it overlaps with the previous meetings end time
     for(let i = 0; i < starts.length; i++){
-
+      //if a meeting starts after or when another ends (checks if current start time is greater than or equal to the earliest end time)
+      if(starts[i] >= ends[endPointer]){
+        //if true, we can use the same room as the meeting that just ended, so we move the end pointer to the next meeting that ends
+        endPointer++
+      }else{
+         rooms++
+      }
     }
+    return rooms
   }
 
-  numberOfMeetingRooms(intervals)
+  console.log(numberOfMeetingRooms(intervals))
 
   let regex = /^[A-Z]\*$/
 
@@ -202,3 +209,78 @@ console.log(itemsH.filter(item => /^h/.test(item)).map(item => item.replace(/e/g
 
 //need the m flag to enable matching at the end of a line separator
 console.log(/end$/m.test('bend it\nand send\n'))
+
+const timeIntervals = [[3, 9], [3, 9], [10, 29], [12, 30], [5, 13]]
+
+function howManyRooms(arr){
+   if(arr.length === 0) return 0
+
+   const starts = arr.map(item => item[0]);
+   const ends = arr.map(item => item[1])
+
+   starts.sort((a, b) => a - b)
+   ends.sort((a, b) => a - b)
+   console.log(starts)
+   console.log(ends)
+
+   let rooms = 0;
+   let endPointer = 0;
+   
+   for(let i = 0; i < starts.length; i++) {
+     if(starts[i] >= ends[endPointer]){
+       endPointer++
+     }else{
+      rooms++
+     }
+   }
+   return rooms
+}
+
+console.log(howManyRooms(timeIntervals))
+
+function numberOfRooms(arr){
+
+  if(arr.length === 0) return 0;
+
+  const starts = arr.map(item => item[0]);
+  const ends = arr.map(item => item[1]);
+
+  starts.sort((a, b) => a - b);
+  ends.sort((a, b) => a - b)
+
+  let rooms = 0;
+  let endPointer = 0;
+
+  for(let i = 0; i < starts.length; i++){
+    if(starts[i] >= ends[endPointer]){
+      endPointer ++
+    } else {
+      rooms++
+    }
+  }
+  return rooms
+}
+
+console.log(numberOfRooms([[2, 5],[3, 5],[4, 5]]))
+
+//sum of the two numbers plus all the numbers in between
+function sumAll(arr) {
+  let sumBetween = 0;
+  for(let i = Math.min(...arr); i <= Math.max(...arr); i++){
+    sumBetween += i
+  }
+  return sumBetween
+}
+
+console.log(sumAll([1, 4]));
+
+function sumTwoRange(arr){
+  let sumOfRange = 0;
+  for(let i = Math.min(...arr); i <= Math.max(...arr); i++){
+    sumOfRange += i
+    console.log(sumOfRange)
+  }
+  return sumOfRange;
+}
+
+console.log(sumTwoRange([4, 8]))
