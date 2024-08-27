@@ -313,3 +313,49 @@ let str12 = "slated for later, don't be late"
 
 console.log(str11.replace(/slated|late(r|)/gm, 'A'))
 console.log(str12.replace(/slated|late(r|)/gm, 'A'))
+
+let arrayOne = [4, 5, 7, 8, 9, 11];
+let arrayTwo = [4, 55, 73, 8, 95, 11];
+
+function diffTwoArrays(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+
+  function diffCheck(first, second){
+  return  [...first].filter(item => !second.has(item))
+  }
+  
+  return [...diffCheck(set1, set2), ...diffCheck(set2, set1)]
+}
+
+console.log(diffTwoArrays(arrayOne, arrayTwo))
+
+//return the length of the longest word in the string
+function findLongestWordLength(str) {
+  let splitted = str.split(' ');
+  let longest = splitted[0];
+
+  for(let i = 0; i < splitted.length; i++){
+    if(splitted[i].length > longest.length){
+      longest = splitted[i]
+    }
+  }
+  return longest
+}
+ 
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+//return length of longest word with reduce method
+function findLongestWordLength(str) {
+  return str.split(' ').reduce((maxLength, currentNum) => currentNum.length > maxLength ? currentNum.length : maxLength, 0)
+}
+
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+//find length of longest word with Math.max
+
+function lengthOfLongest(str){
+  return Math.max(...str.split(' ').map(item => item.length))
+}
+
+console.log(lengthOfLongest('Tell them djodijdkjdkkdjkdkdkdkd was here'))
