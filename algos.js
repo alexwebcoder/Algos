@@ -127,3 +127,57 @@ console.log(deepValues); // [1, 2, 3, 4, 5, 6]
 const myArray = [[[[['My value']]]]];
 const unwrappedValue = myArray.flat(Infinity)[0];
 console.log(unwrappedValue); // "My value"
+
+// Given a DNA strand (a string) composed of the characters "A", "T", "C", and "G", write a function that returns a 2D array where each element is an array containing a character from the input string and its corresponding DNA base pair.
+
+// Base Pairing Rules:
+
+// "A" pairs with "T"
+// "T" pairs with "A"
+// "C" pairs with "G"
+// "G" pairs with "C"
+
+function dnaPairs(str) {
+  const pairs = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C'
+  }
+
+  return str.split('').map(char => [char, pairs[char]])
+}
+
+console.log(dnaPairs('GCG'))
+// GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+// ("ATCGA") should return [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]].
+// ("TTGAG") should return [["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]].
+// ("CTCTA") should return [["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].
+
+function dnaPairsA(str){
+  const pairs = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C'
+  }
+  let result = [];
+ 
+  for(let i = 0; i < str.length; i++){
+    const char = str[i];
+    const pair = pairs[char];
+    result.push([char, pair])
+  }
+
+  return result
+}
+
+console.log(dnaPairsA('GCG'))
+
+//find missing letter from the string and return it
+
+function missingLetter(str){
+  
+}
+
+console.log(missingLetter('abcde'))
