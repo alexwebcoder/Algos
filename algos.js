@@ -174,10 +174,94 @@ function dnaPairsA(str){
 
 console.log(dnaPairsA('GCG'))
 
-//find missing letter from the string and return it
+//find missing letter in a sequence of consecutive letters
 
 function missingLetter(str){
+  //loop through each charater of the string
+  for (let i = 0; i < str.length - 1; i++){
+    //get the character codes
+    let currentCharCode = str.charCodeAt(i);
+    let nextCharCode = str.charCodeAt(i + 1);
+    //the output for nextCharCode should be currentCharCode + 1, if it isn't, then a lette is missing
+    if(nextCharCode !== currentCharCode +1){
+      return String.fromCharCode(currentCharCode + 1)
+    }
+  }
+  return null
+}
+
+console.log(missingLetter('abde'))
+
+function findMissingLetter(str){
+  for(let i = 0; i < str.length -1; i++){
+    let currentCharCode = str.charCodeAt(i);
+    let nextCharCode = str.charCodeAt(i + 1);
+    if(nextCharCode !== currentCharCode + 1){
+     return String.fromCharCode(currentCharCode + 1)
+    }
+  } return null
+}
+
+console.log(findMissingLetter('abcdefgijklmn'))
+
+//rest parameter gathers any number of arrays into a single array
+//flat method flattens them into one
+
+function uniteUnique(...arr){
+  let newArray = arr.flat()
+  let finalArray = [...new Set(newArray)]
+  console.log(finalArray)
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+function uniteUnique(...arr) {
+  return [
+    ...new Set(arr.flat())
+  ]
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+// Check the assertion tests for examples.
+
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].
+// uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
+// uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].
+// uniteUnique([1, 3, 2], [5, 4], [5, 6]) should return [1, 3, 2, 5, 4, 6].
+// uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].
+
+//remove dupes
+
+console.log([4, 4, 33, 2, 2, 44, 55, 55].filter((item, index, arr) => arr.indexOf(item) === index ))
+
+// convert all the html entities
+// convertHTML("Dolce & Gabbana") should return the string Dolce &amp; Gabbana.
+// convertHTML("Hamburgers < Pizza < Tacos") should return the string Hamburgers &lt; Pizza &lt; Tacos.
+// convertHTML("Sixty > twelve") should return the string Sixty &gt; twelve.
+// convertHTML('Stuff in "quotation marks"') should return the string Stuff in &quot;quotation marks&quot;.
+// convertHTML("Schindler's List") should return the string Schindler&apos;s List.
+// convertHTML("<>") should return the string &lt;&gt;.
+// convertHTML("abc") should return the string abc.
+
+function convertHTML(str){
+  const entities = {
+    '&' : '&amp;',
+    '<' : '&lt;',
+    '>' : '&gt;',
+    '"' : '&quot;',
+    "'" : '&apos;',
+    '<>': '&lt;&gt;',
+  }
+
+  return str.replace(/[&<>"']/g, item => entities[item])
   
 }
 
-console.log(missingLetter('abcde'))
+console.log(convertHTML("Dolce & Gabbana"))
