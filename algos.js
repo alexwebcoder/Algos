@@ -265,3 +265,89 @@ function convertHTML(str){
 }
 
 console.log(convertHTML("Dolce & Gabbana"))
+
+
+
+function sumOfTwo(arr){
+  let sum = 0;
+  for(let i = Math.min(...arr); i <= Math.max(...arr); i++){
+    console.log(i)
+    sum += i
+    console.log(sum)
+  }
+  return sum
+}
+
+console.log(sumOfTwo([5,10]))
+
+//look through an array of objects(first argument)
+//and return an array of all objects that have matching name value pairs as the second argument
+//each name value pair of the sourch argument has to be present in the object from the collection in order for it to be included in the returned array
+
+function whatsInAName(collection, source){
+  //extract all the keys into an array
+  const sourceKeys = Object.keys(source);
+  console.log(sourceKeys)
+
+  return collection
+                  .filter(obj => sourceKeys
+                  .every(key => obj[key] === source[key]))
+}
+
+console.log(whatsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+
+console.log(a); // What will this log?
+var a = 5;
+console.log(a); // What will this log?
+
+
+// bar(); // What will this do?
+
+console.log(bar)
+var bar = function() {
+  console.log('Function is not hoisted!');
+};
+
+console.log(x); // What will this log?
+var x = 1;
+
+let y = 2;
+console.log(y); // What will this log?
+
+
+var e = 25;
+console.log(e); // What will this log?
+
+var e = 30;
+console.log(e); // What will this log?
+
+let f = 35;
+console.log(f); // What will this log?
+
+// Uncommenting the line below will throw an error. Why?
+    f = 40;
+console.log(f); // What will this log?
+
+
+function hoistingExample() {
+  console.log(g); // What will this log?
+  
+  var g = 50;
+
+  function g() {
+    console.log('Function g is called');
+  }
+
+  console.log(g); // What will this log?
+}
+
+hoistingExample();
+
+function spinalCase(str) {
+  return str
+            .replace(/\s+|_/g, '-')
+            .replace(/[a-z][A-Z]/g, $1-$2)
+            .toLowerCase()
+}
+
+spinalCase('This Is Spinal Tap');
