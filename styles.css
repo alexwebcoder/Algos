@@ -2,19 +2,22 @@
     box-sizing: border-box;
 }
 
+
+.parent {
+    /* height: 300px; */
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
 div {
-    width: 100%;
-    padding: 100px;
+   border:1px solid black;
+   font-size: 20px;
+   /* flex: 1 1 80px; */
+   flex:1 1 0;
 }
 
-.one {
-    background-color: rgb(111, 145, 175);
-}
-
-.two {
-    background-color: rgb(157, 214, 216);
-}
-
-.three {
-    background-color: cornflowerblue;
-}
