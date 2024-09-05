@@ -346,8 +346,32 @@ hoistingExample();
 function spinalCase(str) {
   return str
             .replace(/\s+|_/g, '-')
-            .replace(/[a-z][A-Z]/g, $1-$2)
+            .replace(/[a-z][A-Z]/g, '$1-$2')
             .toLowerCase()
 }
 
 spinalCase('This Is Spinal Tap');
+
+function pairElement(str) {
+  const pairs = {
+    "G": "C",
+    "C": "G",
+    "A": "T",
+    "T": "A"
+  }
+  console.log(pairs)
+  return str
+           .split('')
+           .map(item => [item, pairs[item]])
+}
+
+console.log(pairElement("GCG"));
+
+
+function uniteUnique(...arr) {
+     return arr.flat()
+               .filter((item, index, arr)=> arr.indexOf(item) !== -1)
+}
+
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
