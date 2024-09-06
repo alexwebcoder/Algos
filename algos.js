@@ -375,3 +375,48 @@ function uniteUnique(...arr) {
 
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+
+function convertHTML(str) {
+  const pairs = {
+    "&":"&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  }
+  console.log(str.replace(/[&<>""']/g, item => pairs[item]))
+}
+
+convertHTML("Dolce & Gabbana");
+
+// find two numbers in an array that add up to a specific target sum.
+// Given an array of integers and a target sum, determine the indices of the two numbers in the array that add up to the target sum.
+// [2, 7, 11, 15], target = 9 returns [0, 1]
+
+function twoSum(arr, target){
+  const alreadySeen = {};
+  
+  for (let i = 0; i < arr.length; i++){
+   if(target - arr[i] in alreadySeen){
+    return [alreadySeen[target - arr[i]], i]
+   } else{
+    alreadySeen[arr[i]] = i;
+   }
+  }
+}
+
+console.log(twoSum([2, 7, 11, 15], 9))
+
+// Objective: Given an array of strings, group the anagrams together. Two strings are anagrams if they contain the same characters but in a different order.
+
+// Example:
+
+// Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
+// Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+
+function anagramCheck(arr){
+ return arr.map(item => item.split('').sort().join(''))
+}
+
+console.log(anagramCheck(["eat", "tea", "tan", "ate", "nat", "bat"]))
