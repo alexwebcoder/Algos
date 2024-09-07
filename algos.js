@@ -420,3 +420,22 @@ function anagramCheck(arr){
 }
 
 console.log(anagramCheck(["eat", "tea", "tan", "ate", "nat", "bat"]))
+
+// The purpose of this function is to group words that are anagrams of each other into subarrays.
+
+const anagramChecker = (arr) => {
+ const anagramMap = {}
+  arr.forEach(word => {
+  const sortedWord = word.split('').sort().join('');
+  if(anagramMap[sortedWord]){
+   anagramMap[sortedWord].push(word);
+  } else {
+    anagramMap[sortedWord] = [word]
+  }
+ })
+ console.log(anagramMap)
+ console.log(Object.values(anagramMap))
+
+}
+
+anagramChecker(["eat", "tea", "tan", "ate", "nat", "bat"])

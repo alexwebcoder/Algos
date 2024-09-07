@@ -20,20 +20,23 @@ header {
     border: 3px solid brown;
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* flex-wrap: wrap; */
 }
 
 .nav-list li {
     border: 3px solid green;
     /* width: max-content; */
     /* flex-shrink: 1; */
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 .columns {
     border: 2px solid red;
     display: flex;
     gap: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card {
@@ -45,6 +48,15 @@ header {
     /* width: min-content;
     flex-grow: 1; */
     /* width: 100%; */
+}
+
+
+
+
+@media(min-width: 750px){
+    .columns {
+        flex-direction: row;
+    }
 }
 
 
