@@ -439,3 +439,159 @@ const anagramChecker = (arr) => {
 }
 
 anagramChecker(["eat", "tea", "tan", "ate", "nat", "bat"])
+
+
+
+function longestWordString(str){
+  let wordArray = str.split(' ');
+  let longest = wordArray[0];
+
+  for(let i = 0; i < wordArray.length; i++){
+    if(wordArray[i].length > longest.length){
+      longest = wordArray[i]
+    }
+  }
+  return longest
+}
+
+console.log(longestWordString('Hello I am theeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee longest woooooorrrrrd'))
+
+
+function longestWordString2(str){
+  let wordArray = str.split(' ');
+
+  let longestLength = Math.max(...wordArray.map(item => item.length))
+  return wordArray.filter(item => item.length === longestLength)
+
+}
+
+console.log(longestWordString2('Hello I am the longest woooooorrrrrd'))
+
+
+function longestWord(str){
+  const words = str.split(' ');
+  let longest = words[0];
+
+  for(let i = 0; i < words.length; i++) {
+    if(words[i].length > longest.length){
+      longest = words[i]
+    }
+  }
+  return longest;
+}
+
+console.log(longestWord('I am alwayyyyyyyyyyyys the longesfffffffffffffffffffffffffffffffft word'))
+
+
+function longestWord2(str) {
+  const words = str.split(' ');
+  const longestWordLength = Math.max(...words.map(item => item.length))
+  console.log(longestWordLength)
+  return words.filter(item => item.length === longestWordLength)[0]
+}
+
+console.log(longestWord2('Who is going to beeeeeeeeeeeee the longest.'))
+
+function longestWord3(str){
+  return str.split(' ').reduce((longest, current) => longest.length > current.length ? longest : current)
+}
+
+console.log(longestWord3('Who will be the longesttttttt word todayyyyyyyyyyy.'))
+
+// create a function that runs console log of 'first'
+
+// create a function that returns a promise object, which will return a log of 'second'
+
+// create a function that runs settime function that logs 'third'
+
+// create another function that runs console log of 'fourth'
+
+
+// run your logs, before hitting RUN let me know what you expect to be logged
+
+
+function logOfFirst(){
+  console.log('first')
+}
+
+function newPromise(){
+  const myPromise = new Promise((resolve, reject)=>{
+    let success = true;
+    if(success){
+     resolve ('second')
+    }else {
+      reject('operation error')
+    }
+  })
+  return myPromise
+}
+function runSetTimeOut(){
+  setTimeout(() => {
+    console.log('third')
+  }, 5000)
+}
+
+
+function runFourth(){
+  console.log('fourth')
+}
+
+
+logOfFirst();
+runSetTimeOut();
+newPromise()
+
+.then((data) =>{
+  console.log(data)
+});
+
+runFourth();
+//first
+//fourth
+//second
+//third
+
+// create a function that runs console log of 'first'
+
+// create a function that returns a promise object, which will return a log of 'second'
+
+// create a function that runs settime function that logs 'third'
+
+// create another function that runs console log of 'fourth'
+
+
+// run your logs, before hitting RUN let me know what you expect to be logged
+
+
+function logOfFirst(){
+  console.log('first')
+}
+
+function newPromise(){
+    return new Promise((resolve, reject)=> resolve ('second'));
+}
+function runSetTimeOut(){
+  setTimeout(() => {
+    console.log('third')
+  }, 0)
+}
+
+
+function runFourth(){
+  console.log('fourth')
+}
+
+
+logOfFirst();
+runSetTimeOut();
+newPromise()
+
+.then((data) =>{
+  console.log(data)
+});
+
+runFourth();
+//first
+//fourth
+//second
+//third
