@@ -570,6 +570,7 @@ function logOfFirst(){
 function newPromise(){
     return new Promise((resolve, reject)=> resolve ('second'));
 }
+
 function runSetTimeOut(){
   setTimeout(() => {
     console.log('third')

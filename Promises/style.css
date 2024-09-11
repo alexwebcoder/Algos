@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: navy;
+    min-height: 100dvh;
+    font-family: arial, sans-serif;
+    text-align: center;
+}
+
+.content {
+    font-weight: 900;
+    color: firebrick;
+    padding: 40px;
+    background-color: #fff;
+    width: 80%;
+    margin: 25px auto;
+}
+
+.content h1 {
+    margin-bottom: 10px;
+}
+
+.even-columns, .grid-ish, .content-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.even-columns > *, .grid-ish > *, .content-sidebar > * {
+    padding: 25px;
+    background-color: dodgerblue;
+    border: 1px solid navy;
+}
+
+.even-columns > * {
+    flex:1;
+}
+
+.grid-ish > * {
+    flex: 1 1 10em;
+}
+
+
+
+.content-sidebar > *:nth-child(1){
+    flex-grow: 3;
+}
+
+.content-sidebar > *:nth-child(2){
+    flex-grow: 1;
+}
