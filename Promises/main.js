@@ -272,11 +272,11 @@ displayImagesNow()
 const numbers = [1, 2, 3, 4, 5];
 
 const [a, b, c, ...d] = numbers;
-console.log(d)
+// console.log(d)
 
 const duplicateKey = {a: 'one', b: 'two', a: 'three'}
 
-console.log(duplicateKey)
+// console.log(duplicateKey)
 
 const A = {}
 const B = {key: 'B'};
@@ -285,24 +285,59 @@ const C = {key: 'C'};
 A[B] = 123
 A[C] = 456
 
-console.log(A[B])
+// console.log(A[B])
 
 //splice modifies original array
 //first arg is the index, second is the delete count
 //from first index, remove x amount of items
 //third index is what you want to add. you can add as many as you like
 let array = [1, 2, 3, 4, 5];
-console.log(array.splice(1, 1))
-console.log(array)
+// console.log(array.splice(1, 1))
+// console.log(array)
 
 let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
-console.log(days.splice(4, 1, 'funday', 'viernes', 'any day of the week'))
-console.log(days)
+// console.log(days.splice(4, 1, 'funday', 'viernes', 'any day of the week'))
+// console.log(days)
 
 
 //slice keeps original array intact
 //slice as 2 arguments. starting index and ending index (non inclusive)
 let array2 = [1, 2, 3, 4, 5];
-console.log(array2.slice(2,3))
-console.log(array2)
+// console.log(array2.slice(2,3))
+// console.log(array2)
+
+console.log('X');
+
+setTimeout(() => {
+  console.log('Y');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('A');
+  setTimeout(() => {
+    console.log('B');
+  }, 0);
+}).then(() => {
+  console.log('C');
+});
+
+console.log('Z');
+
+setTimeout(() => {
+  console.log('D');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('E');
+});
+
+// X, Z, A, E, C, Y, D, B
+
+// setTimeout(() => console.log('Outside Timeout'), 0);
+
+// Promise.resolve().then(() => {
+//   setTimeout(() => console.log('Inside Promise Timeout'), 0);
+// });
+
+// console.log('Synchronous Log');
