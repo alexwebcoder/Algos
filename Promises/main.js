@@ -307,31 +307,30 @@ let array2 = [1, 2, 3, 4, 5];
 // console.log(array2.slice(2,3))
 // console.log(array2)
 
-console.log('X');
+// console.log('X');
 
-setTimeout(() => {
-  console.log('Y');
-}, 0);
+// setTimeout(() => {
+//   console.log('Y');
+// }, 0);
 
-Promise.resolve().then(() => {
-  console.log('A');
-  setTimeout(() => {
-    console.log('B');
-  }, 0);
-}).then(() => {
-  console.log('C');
-});
+// Promise.resolve().then(() => {
+//   console.log('A');
+//   setTimeout(() => {
+//     console.log('B');
+//   }, 0);
+// }).then(() => {
+//   console.log('C');
+// });
 
-console.log('Z');
+// console.log('Z');
 
-setTimeout(() => {
-  console.log('D');
-}, 0);
+// setTimeout(() => {
+//   console.log('D');
+// }, 0);
 
-Promise.resolve().then(() => {
-  console.log('E');
-});
-
+// Promise.resolve().then(() => {
+//   console.log('E');
+// });
 // X, Z, A, E, C, Y, D, B
 
 // setTimeout(() => console.log('Outside Timeout'), 0);
@@ -341,3 +340,203 @@ Promise.resolve().then(() => {
 // });
 
 // console.log('Synchronous Log');
+
+
+// console.log("Start");
+
+// setTimeout(() => {
+//   console.log("Timeout 1");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log("Promise 1");
+// });
+
+// console.log("Middle");
+
+// setTimeout(() => {
+//   console.log("Timeout 2");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log("Promise 2");
+// });
+
+// console.log("End");
+
+
+// Start, Middle, End, Promise 1, Promise 2, Timeout 1, Timeout 2
+
+// console.log("Start");
+
+// setTimeout(() => {
+//   console.log("Timeout 1");
+// }, 10);
+
+// Promise.resolve().then(() => {
+//   console.log("Promise 1");
+  
+//   setTimeout(() => {
+//     console.log("Timeout 2");
+//   }, 20);
+  
+//   Promise.resolve().then(() => {
+//     console.log("Promise 2");
+//   });
+// });
+
+// setTimeout(() => {
+//   console.log("Timeout 3");
+// }, 0);
+
+// console.log("End");
+
+
+//Start, End, Promise 1, Promise 2, Timeout 3, Timeout 2, Timeout 1
+
+const nested = [1, 2, 3, [4, 5, [6, 7], 8, 9]]
+// console.log(nested.flat(Infinity))
+
+function flatten(arr){
+    const flat = [];
+    arr.forEach(element => {
+        if(Array.isArray(element)){
+          flat.push(...flatten(element))
+        }else{
+            flat.push(element)
+        }
+    });
+    return flat;
+}
+
+// console.log(flatten(nested))
+
+// console.log("Start");
+
+// setTimeout(() => {
+//   console.log("Timeout 1"); //1st to macrotask queue
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log("Promise 1");
+
+//   setTimeout(() => {
+//     console.log("Timeout 2"); //2nd to macrotask queue
+//   }, 0);
+// });
+
+// (async () => {
+//   console.log("Async 1");
+
+//   await Promise.resolve();
+  
+//   console.log("Async 2");
+
+//   setTimeout(() => {
+//     console.log("Timeout 3");
+//   }, 0);
+// })();
+
+// Promise.resolve().then(() => {
+//   console.log("Promise 2");
+// });
+
+// console.log("End");
+
+// Start, Async 1, End, Promise 1, Async 2, Promise 2, Timeout 1, Timeout 2, Timeout 3
+
+// console.log('Starting...');
+
+// setTimeout(function() {
+//   console.log('Timeout callback');
+// }, 0);
+
+// console.log('Ending?');
+
+// var name = "Victor";
+
+// function first() {
+//   var a = "Hi!";
+//   second();
+//   console.log(`${a} ${name}`);
+// }
+
+// function second() {
+//   var b = "Hey!";
+//   third();
+//   console.log(`${b} ${name}`);
+// }
+
+// function third() {
+//   var c = "Hello!";
+//   console.log(`${c} ${name}`);
+// }
+
+// first();
+
+// Hello Victor, Hey Victor, Hi Victor
+
+// function fetchImages(){
+//     fetch('https://dog.ceo/api/breeds/image/random/5')
+//       .then(response => {
+//         if(!response.ok){
+//           throw new Error('response not 200 - 299')
+//         }return response.json()
+//       })
+//       .then(data => {
+//         console.log(data)
+//       })
+//       .catch(error => {
+//         console.log('This is the error:', error)
+//       })
+// }
+
+// fetchImages()
+
+Promise.resolve().then(()=> console.log('immediately resolved promise'))
+
+
+
+
+
+// function fetchUserData() {
+//     fetch('https://jsonplaceholder.typicode.com/users')
+//       .then(resolve => {
+//         if(!resolve.ok){
+//             throw new Error('Did not resolve ok')
+//         } return resolve.json();
+//       })
+//       .then(data => {
+//         console.log(data)
+//       })
+//       .catch(error => {
+//         console.log('There was an error', error)
+//       })
+// }
+
+// fetchUserData()
+
+
+
+function getUserData(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response =>{
+        // console.log(response)
+        if(!response.ok){
+            throw new Error('The response was not ok')
+        } return response.json()
+    })
+    .then(data => {
+       const userNames = data.map(user => user.address)
+    //    console.log(userNames)
+    console.log(data)
+        return data
+    })
+    .catch(error => {
+        throw error;
+    })
+}
+
+getUserData()
+
+//making api calls in a form with promises
