@@ -539,4 +539,18 @@ function getUserData(){
 
 getUserData()
 
+
+function translatePigLatin(str){
+    if(str[0] === 'a' || str[0] === 'e'|| str[0] ==='i'|| str[0] ==='o'|| str[0] ==='u') {
+        return `${str}way`
+    }
+    else{
+        let firstLetter = str[0];
+        return str.split('').slice(1).join('') + firstLetter+'ay'
+    }
+    
+}
+
+console.log(translatePigLatin('california'))
+
 //making api calls in a form with promises
