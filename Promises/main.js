@@ -493,7 +493,7 @@ function flatten(arr){
 
 // fetchImages()
 
-Promise.resolve().then(()=> console.log('immediately resolved promise'))
+// Promise.resolve().then(()=> console.log('immediately resolved promise'))
 
 
 
@@ -537,7 +537,7 @@ function getUserData(){
     })
 }
 
-getUserData()
+// getUserData()
 
 
 function translatePigLatin(str){
@@ -551,6 +551,86 @@ function translatePigLatin(str){
     
 }
 
-console.log(translatePigLatin('california'))
+// console.log(translatePigLatin('california'))
 
 //making api calls in a form with promises
+
+
+// console.log('Start');
+
+// setTimeout(() => {
+//   console.log('Timeout 1');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 1');
+//   setTimeout(() => {
+//     console.log('Timeout 2');
+//   }, 0);
+// }).then(() => {
+//   console.log('Promise 2');
+// });
+
+// console.log('Middle');
+
+// setTimeout(() => {
+//   console.log('Timeout 3');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 3');
+// });
+
+// console.log('End');
+
+//Start, Middle, End, Promise 1, Promise 3, Promise 2, Timeout 1, Timeout 3, Timeout 2
+
+// console.log('Step 1');
+
+// setTimeout(() => {
+//   console.log('Timeout A');
+// }, 500);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise X');
+//   return Promise.resolve();
+// }).then(() => {
+//   console.log('Promise Y');
+// });
+
+// setTimeout(() => {
+//   console.log('Timeout B');
+// }, 0);
+
+// console.log('Step 2');
+
+// Promise.resolve().then(() => {
+//   console.log('Promise Z');
+// });
+
+// console.log('Step 3');
+//Step 1, Step 2, Step 3, Promise X, Promise Z, Promise Y, Timeout B, Timeout A
+
+
+
+function getThePics(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+       .then(response => {
+        console.log(response)
+        if(!response.ok){
+             throw new Error('Response not ok')
+        } return response.json()
+       })
+       .then(data => {
+           const emails = data.map(item => item.email);
+           console.log(emails)
+           return data
+       })
+       .catch(error => {
+        console.log('Here is the error:', error)
+        throw error
+       })
+}
+
+getThePics()
+
