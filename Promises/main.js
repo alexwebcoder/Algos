@@ -632,5 +632,128 @@ function getThePics(){
        })
 }
 
-getThePics()
+// getThePics()
 
+// console.log('First');
+
+// setTimeout(() => {
+//   console.log('Timeout 1');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 1');
+//   return Promise.resolve();
+// }).then(() => {
+//   console.log('Promise 2');
+//   setTimeout(() => {
+//     console.log('Timeout 2');
+//   }, 0);
+// });
+
+// console.log('Second');
+
+// setTimeout(() => {
+//   console.log('Timeout 3');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 3');
+// });
+
+// console.log('Third');
+//First, Second, Third, Promise 1, Promise 3, Promise 2, Timeout 1, Timeout 3, Timeout 2
+
+// console.log('A');
+
+// setTimeout(() => {
+//   console.log('Timeout 1');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 1');
+//   return Promise.resolve();
+// }).then(() => {
+//   console.log('Promise 2');
+// });
+
+// setTimeout(() => {
+//   console.log('Timeout 2');
+// }, 50);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 3');
+// });
+
+// setTimeout(() => {
+//   console.log('Timeout 3');
+// }, 0);
+
+// console.log('B');
+
+//A, B, Promise 1, Promise 3, Promise 2, Timeout 1, Timeout 3, Timeout 2
+
+// console.log('Start');
+
+// setTimeout(() => {
+//   console.log('Timeout 1');
+// }, 10);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 1');
+//   setTimeout(() => {
+//     console.log('Timeout 2');
+//   }, 0);
+// }).then(() => {
+//   console.log('Promise 2');
+// });
+
+// setTimeout(() => {
+//   console.log('Timeout 3');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('Promise 3');
+// });
+
+// console.log('End');
+
+// Start, End, Promise 1, Promise 3, Promise 2, Timeout 3, Timeout 2, Timeout 1
+
+// function removeAndSubarray(arr, start, count) {
+//  let newArray = arr.splice(start, count).slice(0);
+//  return newArray
+// }
+
+// const arr = [10, 20, 30, 40, 50, 60, 70];
+
+// console.log(removeAndSubarray(arr, 2, 3))
+// console.log(arr)
+
+// function spliceAndSlice(arr, start, count, start2, end2) {
+//   let slicedArray = arr.splice(start, count).slice(start2, end2);
+//   return slicedArray;
+// }
+
+// const arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+
+// console.log(spliceAndSlice(arr, 2, 4, 1, 3))
+
+function getPics(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
+            if(!response.ok){
+                throw new Error;
+            } else{
+               return response.json()
+            }
+        })
+        .then((data)=>{
+            console.log(data)
+            return data
+        })
+        .catch(error => {
+            throw error;
+        })
+}
+
+getPics()
