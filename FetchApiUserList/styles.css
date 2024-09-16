@@ -26,10 +26,15 @@ html {
     position: relative;
 }
 
+.li-parent {
+    list-style: none;
+    padding: 15px;
+}
+
 
 button {
     position: absolute;
-    bottom: 0;
+    bottom: -58px;
     padding: 10px;
     background-color: dodgerblue;
     font-size: 18px;
@@ -38,7 +43,6 @@ button {
     cursor: pointer;
     border-radius: 100vw;
     border: 0;
-    margin-bottom: 10px;
 
 }
 

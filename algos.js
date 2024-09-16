@@ -596,3 +596,11 @@ runFourth();
 //fourth
 //second
 //third
+
+let d = 'dog';
+let c = 'cat';
+[d, c] = [c, d]
+console.log(c);
+console.log(d)
+const arr = [1, 2, 3, 4];
+console.log(a)

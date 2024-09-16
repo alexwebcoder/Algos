@@ -757,3 +757,37 @@ function getPics(){
 }
 
 getPics()
+
+Promise.resolve(15).then(value => console.log(`${value}`))
+
+const obj = { aa: 1, bb: 2 };
+const { aa, bb } = obj;
+console.log(aa)
+
+const dogs = ['spaniel', 'lab', 'poodle', 'german shephard', 'greyhound'];
+
+[dogs[2], dogs[4]] = [dogs[4], dogs[2]]
+
+console.log(dogs)
+
+
+
+
+
+
+
+
+
+
+
+const fruit = ['lemon', 'orange', 'apple', 'pineapple', 'grapes', 'tangerine'];
+
+[fruit[0],fruit[5]] = [fruit[5], fruit[0]]
+console.log(fruit)
+
+const names = ['Alex', 'Chris', 'Taylor'];
+const roles = ['Developer', 'Designer', 'Manager'];
+
+const combined = names.map((ele, index) => [ele, roles[index]])
+
+console.log(combined); // Output: [['Alex', 'Developer'], ['Chris', 'Designer'], ['Taylor', 'Manager']]
