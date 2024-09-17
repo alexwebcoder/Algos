@@ -1,10 +1,13 @@
+const h1 = document.createElement('h1');
+h1.textContent = 'Fetch and Display User Data';
 const button = document.createElement('button');
 button.textContent = 'Get User Data'
 const paragraph = document.createElement('p')
 paragraph.textContent = 'Loading...'
 const App = document.getElementById('app');
 App.appendChild(paragraph)
-App.appendChild(button)
+App.insertAdjacentElement('beforebegin', h1);
+App.insertAdjacentElement('afterend', button)
 
 
 
@@ -24,9 +27,23 @@ function fetchUserData(){
         const nameEmail = data.map(({name, email}) => ({name, email}));
 
         nameEmail.forEach(({name, email}) => {
+           
             const li = document.createElement('li');
-            li.textContent = `Name: ${name}, Email: ${email}`;
-            ul.appendChild(li)
+
+          const nameSpan = document.createElement('span');
+          nameSpan.classList.add('label');
+          nameSpan.textContent = 'Name: ';
+          li.appendChild(nameSpan);
+          li.appendChild(document.createTextNode(name));
+          
+          const emailSpan = document.createElement('span');
+          emailSpan.classList.add('label');
+          emailSpan.textContent = ' Email: ';
+          li.appendChild(emailSpan);
+          li.appendChild(document.createTextNode(email));
+
+          ul.appendChild(li);
+
         })
         return nameEmail;
      })
