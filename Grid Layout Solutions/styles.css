@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: arial, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+header, footer {
+    background-color: #00308F;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+main > h2 {
+    margin-bottom: 20px;
+}
+
+header {
+    font-size: 20px;
+}
+
+.main-layout {
+    display: grid;
+    border: 3px solid limegreen;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+article {
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
