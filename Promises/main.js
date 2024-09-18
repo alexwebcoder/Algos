@@ -738,39 +738,37 @@ function getThePics(){
 
 // console.log(spliceAndSlice(arr, 2, 4, 1, 3))
 
-function getPics(){
-    fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => {
-            if(!response.ok){
-                throw new Error;
-            } else{
-               return response.json()
-            }
-        })
-        .then((data)=>{
-            console.log(data)
-            return data
-        })
-        .catch(error => {
-            throw error;
-        })
-}
+// function getPics(){
+//     fetch('https://jsonplaceholder.typicode.com/users')
+//         .then(response => {
+//             if(!response.ok){
+//                 throw new Error;
+//             } else{
+//                return response.json()
+//             }
+//         })
+//         .then((data)=>{
+//             console.log(data)
+//             return data
+//         })
+//         .catch(error => {
+//             throw error;
+//         })
+// }
 
-getPics()
+// getPics()
 
-Promise.resolve(15).then(value => console.log(`${value}`))
+// Promise.resolve(15).then(value => console.log(`${value}`))
 
-const obj = { aa: 1, bb: 2 };
-const { aa, bb } = obj;
-console.log(aa)
+// const obj = { aa: 1, bb: 2 };
+// const { aa, bb } = obj;
+// console.log(aa)
 
-const dogs = ['spaniel', 'lab', 'poodle', 'german shephard', 'greyhound'];
+// const dogs = ['spaniel', 'lab', 'poodle', 'german shephard', 'greyhound'];
 
-[dogs[2], dogs[4]] = [dogs[4], dogs[2]]
+// [dogs[2], dogs[4]] = [dogs[4], dogs[2]]
 
-console.log(dogs)
-
-
+// console.log(dogs)
 
 
 
@@ -780,14 +778,94 @@ console.log(dogs)
 
 
 
-const fruit = ['lemon', 'orange', 'apple', 'pineapple', 'grapes', 'tangerine'];
 
-[fruit[0],fruit[5]] = [fruit[5], fruit[0]]
-console.log(fruit)
 
-const names = ['Alex', 'Chris', 'Taylor'];
-const roles = ['Developer', 'Designer', 'Manager'];
+// const fruit = ['lemon', 'orange', 'apple', 'pineapple', 'grapes', 'tangerine'];
 
-const combined = names.map((ele, index) => [ele, roles[index]])
+// [fruit[0],fruit[5]] = [fruit[5], fruit[0]]
+// console.log(fruit)
 
-console.log(combined); // Output: [['Alex', 'Developer'], ['Chris', 'Designer'], ['Taylor', 'Manager']]
+// const names = ['Alex', 'Chris', 'Taylor'];
+// const roles = ['Developer', 'Designer', 'Manager'];
+
+// const combined = names.map((ele, index) => [ele, roles[index]])
+
+// console.log(combined); // Output: [['Alex', 'Developer'], ['Chris', 'Designer'], ['Taylor', 'Manager']]
+
+
+function first() {
+    console.log("First");
+  }
+  
+  function second() {
+    setTimeout(() => console.log("Second"), 0);
+  }
+  
+  function third() {
+    return new Promise((resolve) => {
+      console.log("Third");
+      resolve("Third Promise Resolved");
+    });
+  }
+  
+  function fourth() {
+    console.log("Fourth");
+  }
+  
+  function fifth() {
+    setTimeout(() => console.log("Fifth"), 100);
+  }
+  
+  function sixth() {
+    console.log("Sixth");
+  }
+  
+  async function execute() {
+    first();
+    second();
+    await third().then(console.log);
+    fourth();
+    fifth();
+    sixth();
+  }
+  
+//   execute();
+  // First, Fourth, Sixth, Third, Third Promise Resolved, Second, Fifth
+
+
+  function alpha() {
+    console.log("Alpha");
+  }
+  
+  function beta() {
+    setTimeout(() => console.log("Beta"), 50);
+  }
+  
+  function gamma() {
+    console.log("Gamma");
+    return Promise.resolve("Gamma Promise Resolved");
+  }
+  
+  function delta() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Delta");
+        resolve("Delta Promise Resolved");
+      }, 0);
+    });
+  }
+  
+  function epsilon() {
+    console.log("Epsilon");
+  }
+  
+  async function executeFlow() {
+    alpha();
+    await gamma();
+    epsilon();
+    await delta();
+    beta();
+  }
+  
+  executeFlow();
+  // Alpha, Gamma, Epsilon, Delta, Beta
