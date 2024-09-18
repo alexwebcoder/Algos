@@ -793,41 +793,41 @@ function getThePics(){
 // console.log(combined); // Output: [['Alex', 'Developer'], ['Chris', 'Designer'], ['Taylor', 'Manager']]
 
 
-function first() {
-    console.log("First");
-  }
+// function first() {
+//     console.log("First");
+//   }
   
-  function second() {
-    setTimeout(() => console.log("Second"), 0);
-  }
+//   function second() {
+//     setTimeout(() => console.log("Second"), 0);
+//   }
   
-  function third() {
-    return new Promise((resolve) => {
-      console.log("Third");
-      resolve("Third Promise Resolved");
-    });
-  }
+//   function third() {
+//     return new Promise((resolve) => {
+//       console.log("Third");
+//       resolve("Third Promise Resolved");
+//     });
+//   }
   
-  function fourth() {
-    console.log("Fourth");
-  }
+//   function fourth() {
+//     console.log("Fourth");
+//   }
   
-  function fifth() {
-    setTimeout(() => console.log("Fifth"), 100);
-  }
+//   function fifth() {
+//     setTimeout(() => console.log("Fifth"), 100);
+//   }
   
-  function sixth() {
-    console.log("Sixth");
-  }
+//   function sixth() {
+//     console.log("Sixth");
+//   }
   
-  async function execute() {
-    first();
-    second();
-    await third().then(console.log);
-    fourth();
-    fifth();
-    sixth();
-  }
+//   async function execute() {
+//     first();
+//     second();
+//     await third().then(console.log);
+//     fourth();
+//     fifth();
+//     sixth();
+//   }
   
 //   execute();
   // First, Fourth, Sixth, Third, Third Promise Resolved, Second, Fifth
@@ -867,5 +867,27 @@ function first() {
     beta();
   }
   
-  executeFlow();
+  // executeFlow();
   // Alpha, Gamma, Epsilon, Delta, Beta
+  // https://jsonplaceholder.typicode.com/users
+
+
+  function fetchUserInfo(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+         .then(response => {
+          if(!response.ok){
+            throw new Error ('Response was not ok')
+          } return response.json()
+         })
+         .then(data => {
+          const nameAddress = data.map(({name, address}) => ({name, address}))
+          console.log(nameAddress);
+          return data;
+         })
+         .catch(error => {
+          console.log('There was an error:', error)
+          throw error;
+         })
+  }
+
+  fetchUserInfo()

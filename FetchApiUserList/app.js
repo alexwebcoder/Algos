@@ -28,14 +28,14 @@ function fetchUserData(){
 
         nameEmail.forEach(({name, email}) => {
            
-            const li = document.createElement('li');
+         const li = document.createElement('li');
 
-          const nameSpan = document.createElement('span');
-          nameSpan.classList.add('label');
-          nameSpan.textContent = 'Name: ';
-          li.appendChild(nameSpan);
-          li.appendChild(document.createTextNode(name));
-          
+         const nameSpan = document.createElement('span');
+         nameSpan.classList.add('label');
+         nameSpan.textContent = 'Name: ';
+         li.appendChild(nameSpan);
+         li.appendChild(document.createTextNode(name))
+
           const emailSpan = document.createElement('span');
           emailSpan.classList.add('label');
           emailSpan.textContent = ' Email: ';
@@ -54,4 +54,3 @@ function fetchUserData(){
 
 
 button.addEventListener('click', fetchUserData)
-
