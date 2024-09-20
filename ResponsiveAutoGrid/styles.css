@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+header {
+    background-color: firebrick;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+}
+
+
+footer {
+    background-color: lightblue;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+}
+
+section:nth-child(1){
+    background-color: orange;
+}
+
+section:nth-child(2){
+    background-color: yellow;
+}
+
+section:nth-child(3) {
+    background-color: lightgreen;
+}
+
+header, section, footer {
+    padding: 1em;
+}
