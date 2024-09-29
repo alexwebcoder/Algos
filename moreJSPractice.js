@@ -368,11 +368,12 @@ console.log(lengthOfLongest('Tell them djodijdkjdkkdjkdkdkdkd was here'))
 const numz = [4, 5, 17, 31, 2, 5, 12];
 const k = 3;
 
-function slidingWindow(arr, k){
+
+function slidingWindow(arr, k) {
   let windowSum = 0;
   let maxSum = 0;
 
-  for (let i = 0; i < k; i++){
+  for(let i = 0; i < k; i++){
     windowSum += arr[i];
   }
 
@@ -385,5 +386,31 @@ function slidingWindow(arr, k){
   return maxSum;
 }
 
-
 console.log(slidingWindow(numz, k))
+
+
+const x = 3; 
+
+let y = 4; 
+
+function update(arg) { 
+  
+  return Math.random() + y * arg; } 
+
+y = 2;
+
+const resulto = update(x); 
+
+console.log(resulto)
+
+// const x = 2; 
+// let y = 4; 
+// function update(arg) { 
+//   return Math.random() + y * arg; 
+// } 
+// y = 2; 
+// const arg = 3; // This ensures the result is between 6 and 7
+// const result = update(x);
+
+
+console.log(1 < 0 < 3)

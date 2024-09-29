@@ -25,3 +25,128 @@ function fibonacci(n) {
 }
 
 console.log(calculateFib(7));
+
+
+// Given an array of integers, find the maximum sum of any contiguous subarray of size k
+
+function slidingWindow(arr, k) {
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for (let i = 0; i < k; i++) {
+        windowSum += arr[i];
+    }
+
+    maxSum = windowSum;
+
+    for(let i = k; i < arr.length; i++) {
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, windowSum);
+    }
+  return maxSum;
+  
+}
+
+
+const arrayIntegers = [4, 5, 7, 23, 54, 15, 23, 8, 11];
+const k = 3;
+
+console.log(slidingWindow(arrayIntegers, k))
+
+
+function slidingWindow2(arr, k) {
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for(let i = 0; i < k; i++){
+        windowSum += arr[i]
+    }
+
+    maxSum = windowSum;
+
+    for(let i = k; i < arr.length; i++) {
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, windowSum)
+    }
+
+    return maxSum;
+}
+
+console.log(slidingWindow2(arrayIntegers, k))
+
+
+
+function slidingWindow3(arr, j) {
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for (let i = 0; i < j; i++){
+        windowSum += arr[i]
+    }
+
+    maxSum = windowSum;
+
+    for(let i = j; i < arr.length; i++) {
+        windowSum = windowSum - arr[i - j] + arr[i];
+        maxSum = Math.max(windowSum, maxSum);
+    }
+
+    return maxSum
+}
+
+const someNumbers = [4, 5, 17, 8, 33, 14, 20];
+const j = 2;
+
+console.log(slidingWindow3(someNumbers, j))
+//47
+
+
+function slidingWindow4(arr, k) {
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for(let i = 0; i < k; i++){
+        windowSum += arr[i]
+    }
+
+    maxSum = windowSum;
+
+    for(let i = k; i < arr.length; i++) {
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, windowSum)
+    }
+
+    return maxSum;
+}
+
+const numbers = [13, 15, 20, 8, 24, 7, 5]
+console.log(slidingWindow4(numbers, k))
+//52
+
+
+
+
+
+function slidingWindow5(arr, k){
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for(let i = 0; i < k; i++){
+        windowSum += arr[i];
+    }
+
+    maxSum = windowSum;
+
+    for(let i = k; i < arr.length; i++){
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, windowSum)
+    }
+
+    return maxSum;
+}
+
+const numbers1 = [4, 22, 33, 15, 18, 40]
+
+//73
+
+console.log(slidingWindow5(numbers1, k))
