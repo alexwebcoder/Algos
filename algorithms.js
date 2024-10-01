@@ -150,3 +150,43 @@ const numbers1 = [4, 22, 33, 15, 18, 40]
 //73
 
 console.log(slidingWindow5(numbers1, k))
+
+
+
+
+function slidingWindow6(arr, k) {
+    let windowSum = 0;
+    let maxSum = 0;
+
+    for (let i = 0; i < k; i++) {
+        windowSum += arr[i]
+    }
+    maxSum = windowSum;
+
+    for(let i = k; i < arr.length; i++) {
+        windowSum = windowSum - arr[i - k] + arr[i];
+        maxSum = Math.max(windowSum, maxSum);
+    }
+    return maxSum;
+}
+
+const myArray = [4, 2, 3, 7, 8, 9, 1]
+//24
+
+console.log(slidingWindow6(myArray, k))
+
+// Find the smallest subarray with a sum greater than or equal to a given number
+// function will take in an array and a number
+//the sum of the sub array needs to be equal to or greater than the target number
+
+
+
+function smallestSubarry(arr, num) {
+  let currentSum = 0;
+  let start = 0;
+  for (let i = 0; i < arr.length; i++){
+
+  }
+}
+
+// console.log(smallestSubarry(myArray, 4))

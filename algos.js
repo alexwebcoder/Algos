@@ -618,3 +618,27 @@ function sumRange(arr){
 }
 
 console.log(sumRange([1, 4]))
+
+// Given an array of integers, find the maximum sum of any contiguous subarray of size k
+
+
+const integers = [4, 5, 7, 3, 9, 44, 33, 50];
+const k = 3;
+
+function smallestSubarray(arr, k) {
+  let windowSum = 0;
+  let maxSum = 0;
+
+  for(let i = 0; i < k; i++){
+    windowSum += arr[i]
+  }
+  maxSum = windowSum;
+  for(let i = k; i < arr.length; i++){
+    windowSum = windowSum - arr[i - k] + arr[i];
+    maxSum = Math.max(windowSum, maxSum)
+  }
+  return maxSum;
+}
+
+console.log(smallestSubarray(integers, k))
+//127
