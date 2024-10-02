@@ -642,3 +642,27 @@ function smallestSubarray(arr, k) {
 
 console.log(smallestSubarray(integers, k))
 //127
+
+
+// Given an array of integers, find the maximum sum of any contiguous subarray of size k
+
+const arrayOfIntegers = [33, 22, 14, 8, 7, 5, 21];
+
+function findMaxSum(arr, k) {
+  let windowSum = 0;
+  let maxSum = 0;
+
+  for(let i = 0; i < k; i++){
+    windowSum += arr[i];
+  }
+
+  maxSum = windowSum;
+
+  for(let i = k; i < arr.length; i++) {
+    windowSum = windowSum - arr[i - k] + arr[i];
+    maxSum = Math.max(windowSum, maxSum)
+  }
+  return maxSum;
+}
+
+console.log(findMaxSum(arrayOfIntegers, k))
