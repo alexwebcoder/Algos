@@ -658,10 +658,11 @@ function findMaxSum(arr, k) {
 
   maxSum = windowSum;
 
-  for(let i = k; i < arr.length; i++) {
+  for(let i = k; i < arr.length; i++){
     windowSum = windowSum - arr[i - k] + arr[i];
-    maxSum = Math.max(windowSum, maxSum)
+    maxSum = Math.max(windowSum, maxSum);
   }
+
   return maxSum;
 }
 
