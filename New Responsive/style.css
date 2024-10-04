@@ -9,6 +9,26 @@ body {
     font-size: 1.3rem;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.button {
+  background-color: #38CFD9;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 100vh;
+  text-decoration: none;
+  padding: .75em 2em;
+  display: inline-block;
+}
+
+.button:hover, .button:focus {
+    opacity: .75;
+}
+
 h1 {
     font-size: 3rem;
     margin-bottom: 3rem;
@@ -35,19 +55,10 @@ p {
   width: 62%;
 }
 
-.button {
-  background-color: #38CFD9;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 100vh;
-  text-decoration: none;
-  padding: .75em 2em;
-  display: inline-block;
+.aside-width {
+    width: 32%;
 }
 
-.button:hover, .button:focus {
-    opacity: .75;
-}
 
 .row {
     display: flex;
@@ -82,6 +93,3 @@ aside ul {
     list-style: none;
 }
 
-.bottom .text-wrapper {
-    width: unset;
-}
