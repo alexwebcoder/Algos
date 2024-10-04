@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 body {
@@ -37,6 +38,44 @@ h1 {
 p {
     margin-bottom: 3em;
     font-size: 1.5rem;
+}
+
+.header {
+    background-color: #136C72;
+    padding: 1em 0;
+}
+
+.header .row {
+    justify-content: unset;
+    align-items: center;
+}
+
+.header a {
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 1em;
+}
+
+ .header .logo {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.header li:last-child a {
+    padding: .25em .75em;
+    color: #136C72;
+    background-color: #FFF;
+    border-radius: 100vw;
+    margin-right: 0;
+}
+
+.header li:nth-child(1) {
+    margin-right: auto;
+}
+
+.header li:nth-child(5) {
+    margin-left: auto;
 }
 
 .hero {
