@@ -90,11 +90,11 @@ p {
     margin: 0 auto;
 }
 
-.text-wrapper {
+.hero__text-wrapper {
   width: 62%;
 }
 
-.aside-width {
+.hero__aside-width {
     width: 32%;
 }
 
@@ -104,16 +104,16 @@ p {
     justify-content: space-between;
 }
 
-.hero.bottom {
+.hero.hero--secondary {
     background-color: unset;
 }
 
-.bottom h1 {
+.hero--secondary h1 {
     font-size: 2.3rem;
     color: #136C72;
 }
 
-.bottom p {
+.hero--secondary p {
     color: #3A3A3A;
 }
 
@@ -124,7 +124,7 @@ aside {
     text-align: center;
 }
 
-.bottom aside p {
+.hero--secondary aside p {
     color: #fff;
 }
 

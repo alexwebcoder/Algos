@@ -3,43 +3,42 @@
     <head>
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-       <meta http-equiv="X-UA-Compatible" content="IE=Edge">
        <link rel="stylesheet" href="style.css">
        <title>Responsive</title>
     </head>
     <body>
         <header class="header">
-            <nav class="container">
+            <nav class="container" aria-label="Main navigation">
                 <ul class="row">
-                    <li><a class="logo" href="#">CRL</a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a class="logo" href="#" aria-label="Go to CRL homepage">CRL</a></li>
+                    <li><a href="#" aria-label="Go to homepage">Home</a></li>
+                    <li><a href="#" aria-label="Learn more about us">About</a></li>
+                    <li><a href="#" aria-label="Contact us">Contact</a></li>
+                    <li><a href="#" aria-label="Sign in to your account">Sign In</a></li>
+                    <li><a href="#" aria-label="Create a new account">Sign Up</a></li>
                 </ul>
             </nav>
         </header>
-        <section class="hero">
+        <section class="hero hero--primary">
             <div class="container row">
-                <article class="text-wrapper">
+                <article class="hero__text-wrapper">
                     <h1>Responsive layouts work well when done right</h1>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea distinctio sit nemo alias eos odit, quos et quae consequuntur obcaecati.</p>
-                    <a class="button" href="#">I Want to Learn</a>
+                    <a class="button" href="#"  aria-label="Learn about responsive layouts">I Want to Learn</a>
                 </article>
-                <figure class="aside-width">
-                    <img src="https://unsplash.it/386/292" alt="">
+                <figure class="hero__aside-width">
+                    <img src="https://unsplash.it/386/292" alt="a placeholder image from unsplash">
                 </figure>
             </div>
         </section>
-        <main class="hero bottom">
+        <main class="hero hero--secondary">
             <div class="container row">
-                <article class="text-wrapper">
+                <article class="hero__text-wrapper">
                     <h1>Quality designs made custom, on demand, just for you</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam molestias necessitatibus excepturi repudiandae molestiae eveniet hic, delectus, ipsum eius deleniti quae quam minima voluptas accusamus saepe dolores! Ut numquam dolorem possimus adipisci fugiat saepe deserunt, maiores pariatur animi, quod fuga facilis excepturi vitae? Natus alias cum, mollitia accusamus consectetur explicabo.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam molestias necessitatibus excepturi repudiandae molestiae eveniet hic, delectus, ipsum eius deleniti quae quam minima voluptas accusamus saepe dolores! Ut numquam dolorem possimus adipisci fugiat saepe deserunt, maiores pariatur animi, quod fuga facilis excepturi vitae? Natus alias cum, mollitia accusamus consectetur explicabo.</p>
                 </article>
-                <aside class="aside-width">
+                <aside class="hero__aside-width">
                     <ul>
                         <li><h2>Cheap</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium distinctio, voluptatum magnam ipsa esse voluptatibus voluptate. Ratione.</p></li>
                         <li><h2>Quick</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium distinctio, voluptatum magnam ipsa esse voluptatibus voluptate. Ratione.</p></li>
