@@ -132,3 +132,34 @@ aside ul {
     list-style: none;
 }
 
+
+@media(max-width: 800px){
+    .row {
+        display: block;
+        margin: 0 auto;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    ul li, .logo {
+        margin-bottom: 1em;
+        display: block;
+    }
+
+
+    .hero__aside-width, .hero__text-wrapper {
+        width: auto;
+    }
+    
+    .hero--primary .hero__aside-width, .hero__text-wrapper {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button {
+        margin: 0 auto 2em auto;
+    }
+}
