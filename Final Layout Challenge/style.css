@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.row {
+    display: flex;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.bold-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+
+.center {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero {
+    padding: 100px 0;
+}
+
+.hero--primary {
+    background-color: #3b4050;
+    color: #fff;
+}
+
+.hero--secondary {
+ background-color: #eff1f9;
+ color: #000;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
