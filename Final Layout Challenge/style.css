@@ -29,11 +29,36 @@ img {
     display: block;
 }
 
+header {
+    background-color: #2e323f;
+    padding: 1.5em 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.14rem;
+}
+
+header li:first-child a {
+    font-size: 2rem;
+}
+
+header ul {
+    gap: 3rem;
+    align-items: center;
+}
+
+header ul li:first-child {
+  margin-right: auto;
+}
+
 .hero {
     padding: 100px 0;
 }
 
-.hero--primary {
+.hero--primary, .hero--quaternary {
     background-color: #3b4050;
     color: #fff;
 }
@@ -43,7 +68,7 @@ img {
     line-height: 1;
 }
 
-.hero--primary a {
+.hero--primary a, header li:last-child a {
    background-color: #A59678;
    text-transform: uppercase;
    color: #fff;
@@ -55,8 +80,12 @@ img {
    align-self: flex-start;
 }
 
+header li:last-child a {
+  margin-top: 0;
+}
+
 .hero--primary .container {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .hero--primary article {
@@ -73,12 +102,72 @@ h1 span {
 }
 
 .hero--secondary {
- background-color: #eff1f9;
+ background-color: #e5e7f1;
  color: #000;
+ font-size: 1.14rem;
+}
+
+.hero--secondary h2, .hero--ternary h1, .hero--ternary h2 {
+    color: #a59678;
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+}
+
+.hero--secondary .container, .hero--ternary .container {
+    gap: 85px;
+}
+
+.hero--ternary .container {
+    justify-content: space-between;
+}
+
+.hero--ternary h1 {
+ font-size: 2.3rem;
+}
+
+.hero--ternary h2, .hero--quaternary h1 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.hero--quaternary h1 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.hero--ternary p {
+    font-size: 1.35rem;
+}
+
+.hero--ternary article p {
+    font-size: 1.14rem;
+}
+
+.hero--ternary section {
+    width: 62%;
+}
+
+.hero--ternary .container div {
+    color: #fff;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 32%;
+}
+
+.hero--ternary article {
+    background-color: #3b4050;
+    padding: 2em 3em;
+
 }
 
 .container {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+figure {
+    margin: 3rem 0;
 }
