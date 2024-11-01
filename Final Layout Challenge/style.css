@@ -38,6 +38,40 @@ img {
     color: #fff;
 }
 
+.hero--primary h1 {
+    font-size: 5.65rem;
+    line-height: 1;
+}
+
+.hero--primary a {
+   background-color: #A59678;
+   text-transform: uppercase;
+   color: #fff;
+   text-decoration: none;
+   border-radius: 100vw;
+   padding: .2em 1.5em;
+   margin-top: 1rem;
+   display: inline-block;
+   align-self: flex-start;
+}
+
+.hero--primary .container {
+    margin-bottom: 4rem;
+}
+
+.hero--primary article {
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+h1 span {
+    color: #A59678;
+}
+
+.twenty-four-pixel {
+    font-size: 1.5rem;
+}
+
 .hero--secondary {
  background-color: #eff1f9;
  color: #000;
