@@ -107,7 +107,7 @@ h1 span {
  font-size: 1.14rem;
 }
 
-.hero--secondary h2, .hero--ternary h1, .hero--ternary h2 {
+.hero--secondary h2, .hero--ternary h1, .hero--ternary h2, .hero--quaternary h2  {
     color: #a59678;
     margin-bottom: 1rem;
     font-size: 1.9rem;
@@ -135,7 +135,7 @@ h1 span {
     margin-bottom: 4rem;
 }
 
-.hero--ternary p {
+.hero--ternary p, .hero--quaternary h2 {
     font-size: 1.35rem;
 }
 
@@ -160,6 +160,26 @@ h1 span {
     background-color: #3b4050;
     padding: 2em 3em;
 
+}
+
+.hero--quaternary .row {
+    justify-content: space-between;
+}
+
+.hero--quaternary article:first-of-type {
+    width: 32%;
+    line-height: 1.5;
+}
+
+.hero--quaternary article:nth-of-type(2) {
+    width: 56%;
+}
+
+.hero--quaternary a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    display: block;
 }
 
 .container {
