@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    border: 5px solid green;
+    background-color: #9ad839;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.row {
+    display: flex;
+}
+
+header, footer {
+    border: 5px solid blue;
+    background-color: lightblue;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+    min-height: 25vh;
+}
+
+header > * {
+    background-color: peachpuff;
+    flex: 1;
+    border: 5px solid orange;
+    min-height: 100px;
+    display: flex;
+    padding: 15px;
+}
+
+header > * > * {
+    background-color: pink;
+    border: 5px solid red;
+    flex: 1;
+}
+
+.container--secondary {
+  gap: 20px;
+  min-height: 50vh;
+}
+
+.container--secondary section:nth-of-type(1), .container--secondary section:nth-of-type(2) {
+    min-height: 200px;
+    background-color: pink;
+    border: 5px solid red;
+    flex: 1;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+.container--secondary section:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+section:nth-of-type(2) > * {
+    background-color: pink;
+    flex: 1;
+}
+
+section:nth-of-type(2) > article:first-child, section:nth-of-type(2) > article:last-child  {
+    border: 5px solid red;
+}
+
+footer {
+    min-height: 25vh;
+    margin-bottom: 0;
+}
+
+footer > * {
+    background-color: peachpuff;
+    border: 5px solid peru;
+    flex: 1;
+}
+
+footer > *:nth-child(1), footer > :nth-child(4) {
+    background-color: lavender;
+    border: 5px solid purple;
+    flex-grow: 2;
+}
