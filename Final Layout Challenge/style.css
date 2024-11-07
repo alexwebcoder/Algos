@@ -65,7 +65,8 @@ header ul li:first-child {
 
 .hero--primary h1 {
     font-size: 5.65rem;
-    line-height: 1;
+    line-height: 1.1;
+    margin-bottom: 5rem;
 }
 
 .hero--primary a, header li:last-child a {
@@ -86,6 +87,7 @@ header li:last-child a {
 
 .hero--primary .container {
     margin-bottom: 5rem;
+    flex-direction: column;
 }
 
 .hero--primary article {
@@ -190,4 +192,14 @@ h1 span {
 
 figure {
     margin: 3rem 0;
+}
+
+@media(min-width:1000px){
+    .hero--primary .container {
+        flex-direction: unset;
+    }
+
+    .hero--primary h1 {
+        margin-bottom: 0;
+    }
 }
