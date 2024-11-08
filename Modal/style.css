@@ -9,6 +9,13 @@ body {
     background-color: gray;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
 }
 
 .row {
@@ -16,14 +23,13 @@ body {
 }
 
 .modal {
-    width: 80%;
+    width: 40%;
     max-width: 1100px;
-    margin: 10% auto 0 auto;
     background-color: #fff;
-    height: 500px;
     align-items: flex-start;
     padding: 1em;
-    gap: 15px;
+    gap: 1em;
+    border-radius: 10px;
 }
 
 .modal div:first-child {
@@ -31,19 +37,44 @@ body {
     font-size: 2rem;
     font-weight: 900;
     height: 50px;
-    width: 110px;
+    width: 50px;
     border-radius: 50%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .container {
     flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid black;
-    height: 100%;
-    /* min-height: 100vh; */
+    gap: 1em;
 }
 
-.container > * {
-    flex: 1;
+header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > button {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.button-container button {
+    padding: .5em 1em;
+    background-color: blue;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+}
+
+.button-container button:last-child {
+    background-color: unset;
+    color: blue;
+    border: 1px solid;
 }
