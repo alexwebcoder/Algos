@@ -96,6 +96,7 @@ header a {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.14rem;
+    white-space: nowrap;
 }
 
 header li:first-child a {
@@ -192,7 +193,7 @@ h1 span {
 }
 
 .hero--quaternary h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 4rem;
 }
 
@@ -225,15 +226,15 @@ h1 span {
 
 .hero--quaternary .row {
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .hero--quaternary article:first-of-type {
-    width: 32%;
     line-height: 1.5;
 }
 
 .hero--quaternary article:nth-of-type(2) {
-    width: 56%;
+    margin-top: 2rem;
 }
 
 .hero--quaternary a {
@@ -261,25 +262,43 @@ figure {
     .hero--primary h1 {
         font-size: 5.65rem;
     }
-
+    
     header ul {
         flex-direction: row;
     }
-
+    
     header ul li:first-child {
         margin-right: auto;
-      }
-
-      .hero--primary a {
+    }
+    
+    .hero--primary a {
         font-size: 1.5rem;
     }
-
+    
     nav {
         display: block;
+        overflow: visible;
     }
-
+    
     .hamburger {
         display: none;
+    }
+    
+    .hero--quaternary h1 {
+            font-size: 4rem;
+        }
+
+    .hero--quaternary article:first-of-type {
+        width: 32%;
+    }
+
+    .hero--quaternary article:nth-of-type(2) {
+        width: 56%;
+        margin-top: 0;
+    }
+
+    .hero--quaternary .row {
+        flex-direction: row;
     }
 }
 
