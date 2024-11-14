@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.light-italic {
+    font-weight: 300;
+    font-size: 2.25rem;
+}
+
+/* .regular {
+    font-weight: 400;
+} */
+
+.row {
+    display: flex;
+}
+
+.hero__primary-header-text {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #f9faf8;
+    line-height: 1.1;
+    margin-bottom: .5rem;
+}
+
+.hero__secondary-header-text {
+    font-size: 2.25rem;
+    font-weight: 900;
+    width: fit-content;
+    margin: 0 auto 3rem auto;
+}
+
+.hero {
+    padding: 100px 0;
+}
+
+.hero--secondary {
+    padding: 40px 0 100px 0;
+    color: #1f2937;
+    text-align: center;
+}
+
+
+.hero--secondary img {
+    border: 3px solid #3882f6;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hero--header li:first-child {
+    margin-right: auto;
+}
+
+.hero--header .logo {
+    font-size: 1.5rem;
+    color: #f9faf8;
+}
+
+.hero--header, .hero--footer {
+    padding: 25px 0;
+}
+
+.hero--header .row {
+    align-items: center;
+    gap: 20px;
+}
+
+.hero--primary .row {
+    justify-content: space-between;
+}
+
+.hero--secondary .container, .hero--ternary .container {
+    max-width: 900px;
+    width: 70%;
+}
+
+.hero--secondary .container > .row {
+    gap: 40px;
+}
+
+.hero--primary button {
+    background-color: #3882f6;
+    color: #fff;
+    padding: .75em 3em;
+    border-radius: 1rem;
+    margin-top: .75rem;
+    border: none;
+    cursor: pointer;
+}
+
+.hero__secondary-text {
+    color: #e5e7eb;
+    font-size: 1.125rem;
+}
+
+.hero__section-width {
+ width: 49%;
+}
+
+figure.row {
+    flex-direction: column;
+    gap:10px;
+}
+
+.hero--primary, .hero--header, .hero--footer {
+    background-color: #1f2937;
+}
+
+.hero--ternary {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+blockquote {
+    flex-direction: column;
+}
+
+blockquote p:nth-of-type(2) {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 40px;
+    font-size: 1.125rem;
+    font-weight: 900;
+}
+
