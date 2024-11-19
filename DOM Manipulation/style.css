@@ -9,8 +9,10 @@
     font-size: 1rem;
     min-height: 100dvh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
   
   p, button {
@@ -22,9 +24,9 @@
     width: 30%;
     max-width: 500px;
     border: 2px solid dodgerblue;
-    margin: 1rem auto 0 auto;
     text-align: center;
     padding: 2em;
+    margin-top: 1rem;
   }
   
   button {
@@ -46,10 +48,17 @@
     padding: 2em;
     border-radius: 5px;
     min-width: 200px;
-    min-height: 100px;
+    min-height: 128px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
+  }
+
+  /* canvas styles */
+
+  canvas {
+    border: 1px solid black;
   }
 
   @media(max-width:800px){

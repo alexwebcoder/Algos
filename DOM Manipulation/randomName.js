@@ -30,8 +30,6 @@ function outputName() {
     lastRandomIndex = randomIndex;
     display.textContent = names[randomIndex];
   });
-  
-   
 }
 
-outputName()
+outputName();
