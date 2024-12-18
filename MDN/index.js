@@ -84,10 +84,12 @@ for(const product of products){
    total += price;
 
 //number 5
-   let itemText = `${name}--$${price}`;
+   const itemText = `${name}--$${price}`;
    const listItem = document.createElement('li');
    listItem.textContent = itemText;
    list.appendChild(listItem);
 }
+
+totalBox.textContent = 'Total: $' + total.toFixed(2);
 
 
