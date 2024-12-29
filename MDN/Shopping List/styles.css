@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+  }
+
+  li button {
+    font-size: 12px;
+    margin-left: 20px;
+    color: #666;
+  }
+
+  p {
+    color: purple;
+    margin: 0.5em 0;
+  }
