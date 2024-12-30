@@ -58,15 +58,51 @@ const phonebook = [
     { name : 'Jada', number : '2282' },
 ]
 
-   for(const member of phonebook){
-    for (const [key, value] of Object.entries(member)){
-        console.log(`${key}, ${value}`);
-    }
-   }
 
 function searchName(name) {
+    // for(const member of phonebook){
+    //     if(member.name === name){
+    //         para.textContent = `${member.name} ${member.number}`;
+    //         break;
+    //     }
+    //    }
 
-
+    for(let i = 0; i < phonebook.length; i ++){
+      if(name === phonebook[i].name){
+        para.textContent = `${phonebook[i].name} ${phonebook[i].number}`;
+        break;
+      } else{
+        para.textContent = `Name not found!`
+      }
+    }
 }
+searchName(name);
+
 const sectionTwo = document.querySelector('.preview-phone');
 sectionTwo.appendChild(para);
+
+//loops assignment 3
+
+
+let i = 500;
+    const paraTwo = document.createElement('p');
+
+    function isPrime(num) {
+      for(let i = 2; i < num; i++) {
+        if(num % i === 0) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+      while(i >= 2){
+       if(isPrime(i)){
+        paraTwo.textContent += `${i}, `;
+       } 
+       i--
+      }
+
+    const sectionThree = document.querySelector('.preview-prime');
+    sectionThree.appendChild(paraTwo);
