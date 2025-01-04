@@ -39,3 +39,35 @@ input.addEventListener('change', ()=>{
     }
 
 });
+
+const numbers = [44, 33, 55, 77, 100, 22, 5];
+
+function findLargestNumber(array) {
+
+ const para = document.createElement('p');
+ para.classList.add('largest-number');
+ document.body.appendChild(para);
+
+ if(array.length === 0){
+     console.log('empty')
+     return para.textContent = 'The array cannot be empty'
+    }
+
+    
+    let largestNo = array[0];
+
+    for(let i = 0; i < array.length; i++){
+        if(!Array.isArray(array)){
+            return para.textContent = 'You must input an array!'
+        }
+        if(typeof array[i] !== 'number'){
+           return para.textContent = 'Each item has to be a number!'
+        }
+        if(array[i] > largestNo){
+            largestNo = array[i]
+        }
+    }
+     return para.textContent = largestNo;
+}
+
+findLargestNumber(numbers)
