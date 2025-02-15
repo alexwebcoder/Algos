@@ -12,20 +12,26 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="column" id="left-column">
-        <div class="draggable" data-match="fruit">Banana</div>
-        <div class="draggable" data-match="beverage">Soda</div>
-        <div class="draggable" data-match="animal">Horse</div>
-        <div class="draggable" data-match="car">Porsche</div>
-    </div>
+<div class="game-container flex">
+    <section class="nickname-container flex">
+        <h1 class="column-title capitalized">Nicknames</h1>
+        <div class="column nicknames" id="left-column">
+            <div class="draggable" data-match="fruit">Banana</div>
+            <div class="draggable" data-match="beverage">Soda</div>
+            <div class="draggable" data-match="animal">Horse</div>
+            <div class="draggable" data-match="car">Porsche</div>
+        </div>
+    </section>
 
-    <div class="column" id="right-column">
-        <div class="dropzone" data-match="beverage">Beverage</div>
-        <div class="dropzone" data-match="animal">Animal</div>
-        <div class="dropzone" data-match="fruit">Fruit</div>
-        <div class="dropzone" data-match="car">Car</div>
-    </div>
+    <section class="player-container flex">
+        <h1 class="column-title capitalized">Players</h1>
+        <div class="column" id="right-column">
+            <div class="dropzone" data-match="beverage">Beverage</div>
+            <div class="dropzone" data-match="animal">Animal</div>
+            <div class="dropzone" data-match="fruit">Fruit</div>
+            <div class="dropzone" data-match="car">Car</div>
+        </div>
+    </section>
 </div>
 
 <script src="script.js"></script>
