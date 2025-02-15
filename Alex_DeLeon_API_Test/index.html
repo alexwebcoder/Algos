@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+      <script src="index.js" type="module"></script>
+      <script src="chart.js" type="module"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   </head>
+   <body>
+      <div class="page-container">
+         <header class="header">
+            <nav class="bold">
+               <ul class="flex">
+                  <li class="logo"><a href="#"><img src="./assets/images/headerIcons/TestLogo.svg" alt="Tech Care Logo"></a></li>
+                  <li class="overview"><a class="flex" href="#"><img src="./assets/images/headerIcons/home_FILL0_wght300_GRAD0_opsz24.svg" alt="home icon">Overview</a></li>
+                  <li class="patients"><a class="flex" href="#"><img src="./assets/images/headerIcons/group_FILL0_wght300_GRAD0_opsz24.svg" alt="group icon">Patients</a></li>
+                  <li class="schedule"><a class="flex" href="#"><img src="./assets/images/headerIcons/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="calandar icon">Schedule</a></li>
+                  <li class="message"><a class="flex" href="#"><img src="./assets/images/headerIcons/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="chat bubble icon">Message</a></li>
+                  <li class="transactions"><a class="flex" href="#"><img src="./assets/images/headerIcons/credit_card_FILL0_wght300_GRAD0_opsz24.svg" alt="credit card icon">Transactions</a></li>
+                  <li class="senior-doctor"><a class="flex" href="#"><img src="./assets/images/headerIcons/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png" alt="image of senior woman doctor"></a></li>
+                  <li class="doctor-text">
+                     <a href="#">
+                     Dr.Jose Simmons<br>General Practioner
+                     </a>
+                  </li>
+                  <li class="settings"><a href="#"><img src="./assets/images/headerIcons/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="settings icon"></a></li>
+                  <li class="view-more"><a href="#"><img src="./assets/images/headerIcons/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt="view more icon"></a></li>
+               </ul>
+            </nav>
+         </header>
+         <aside class="patient-container">
+            <header class="patients-header flex">
+               <h2 class="card-title">Patients</h2>
+               <img src="./assets/images/asideIcons/search_FILL0_wght300_GRAD0_opsz24.svg" alt="search icon">
+            </header>
+            <div class="custom-scrollbar">
+               <ul class="patients-list">
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%208.png" alt="Emily Williams" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Emily Williams</h2>
+                        <p class="regular light-color">Female, 18</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%201.png" alt="Ryan Johnson" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Ryan Johnson</h2>
+                        <p class="regular light-color">Male, 45</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%203.png" alt="Brandon Mitchell" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Brandon Mitchell</h2>
+                        <p class="regular light-color">Male, 36</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex jessica-taylor">
+                     <img src="./assets/images/asideIcons/Layer%202-1.png" alt="Jessica Taylor" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Jessica Taylor</h2>
+                        <p class="regular light-color">Female, 28</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%206.png" alt="Samantha Johnson" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Samantha Johnson</h2>
+                        <p class="regular light-color">Female, 56</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%2012.png" alt="Ashley Martinez" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Ashley Martinez</h2>
+                        <p class="regular light-color">Female, 54</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%2010.png" alt="Olivia Brown" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Olivia Brown</h2>
+                        <p class="regular light-color">Female, 32</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%209.png" alt="Tyler Davis" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Tyler Davis</h2>
+                        <p class="regular light-color">Male, 19</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%204.png" alt="Kevin Anderson" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Kevin Anderson</h2>
+                        <p class="regular light-color">Male, 30</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%205.png" alt="Dylan Thompson" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Dylan Thompson</h2>
+                        <p class="regular light-color">Male, 36</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/Layer%207.png" alt="Nathan Evans" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Nathan Evans</h2>
+                        <p class="regular light-color">Male, 58</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+                  <li class="patient-item flex">
+                     <img src="./assets/images/asideIcons/pexels-photo-1222271.png" alt="Mike Nolan" class="patient-photo">
+                     <div class="patient-info flex">
+                        <h2 class="bold">Mike Nolan</h2>
+                        <p class="regular light-color">Male, 31</p>
+                     </div>
+                     <button><img src="./assets/images/asideIcons/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="ellipse"></button>
+                  </li>
+               </ul>
+            </div>
+         </aside>
+         <main class="main">
+            <div class="diagnotic-history">
+               <h1 class="card-title">Diagnostic History</h1>
+               <div class="blood-pressure-container flex">
+                  <!-- Left container with Blood Pressure chart -->
+                  <div class="chart-container">
+                     <h2 class="bold">Blood Pressure</h2>
+                     <canvas id="bloodPressureChart"></canvas>
+                  </div>
+                  <!-- Right container with Systolic and Diastolic information -->
+                  <div class="info-container flex">
+                     <!-- Systolic container -->
+                     <div class="info-box flex systol">
+                        <h3 class="bold">Systolic</h3>
+                        <p class="systolic-reading bold"></p>
+                        <p class="systlolic-diagnosis flex"><img src="./assets/images/bloodPressureChartIcons/ArrowUp.svg" alt="up arrow icon"><span class="sys-levels"></span></p>
+                     </div>
+                     <!-- Diastolic container -->
+                     <div class="info-box flex dias">
+                        <h3 class="bold">Diastolic</h3>
+                        <p class="diastolic-reading bold"></p>
+                        <p class="diastolic-diagnosis flex"><img src="./assets/images/bloodPressureChartIcons/ArrowDown.svg" alt="down arrow icon"><span class="dia-levels"></span></p>
+                     </div>
+                  </div>
+               </div>
+               <!-- Diagnostic container -->
+               <div class="medical-data">
+                  <div class="respiratory">
+                     <img src="./assets/images/medicalIcons/respiratory%20rate.svg" alt="lung icon">
+                     <p class="category medium">Respiratory Rate</p>
+                     <p class="result resp-rate extra-bold"></p>
+                     <p class="diagnosis res-level"></p>
+                  </div>
+                  <div class="temperature">
+                     <img src="./assets/images/medicalIcons/temperature.svg" alt="thermometer icon">
+                     <p class="category medium">Temperature</p>
+                     <p class="result temp extra-bold"></p>
+                     <p class="diagnosis temp-level"></p>
+                  </div>
+                  <div class="heart-rate">
+                     <img src="./assets/images/medicalIcons/HeartBPM.svg" alt="heart icon">
+                     <p class="category medium">Heart Rate</p>
+                     <p class="result heart extra-bold"></p>
+                     <p class="diagnosis heart-level bpm-level"></p>
+                  </div>
+               </div>
+            </div>
+            <section class="diagnostic-list-section">
+               <h2 class="section-title extra-bold">Diagnostic List</h2>
+               <div class="diagnostic-list">
+                  <div class="diagnostic-headers">
+                     <div class="diagnostic-header diagnostic-header-problem bold">Problem/Diagnosis</div>
+                     <div class="diagnostic-header diagnostic-header-description bold">Description</div>
+                     <div class="diagnostic-header diagnostic-header-status bold">Status</div>
+                  </div>
+                  <div class="custom-scrollbar">
+                     <div class="diag-item-parent">
+                        <div class="diagnostic-item">
+                           <div class="diagnostic-problem regular"></div>
+                           <div class="diagnostic-description regular"></div>
+                           <div class="diagnostic-status regular"></div>
+                        </div>
+                        <div class="diagnostic-item">
+                           <div class="diagnostic-problem regular"></div>
+                           <div class="diagnostic-description regular"></div>
+                           <div class="diagnostic-status regular"></div>
+                        </div>
+                        <div class="diagnostic-item">
+                           <div class="diagnostic-problem regular"></div>
+                           <div class="diagnostic-description regular"></div>
+                           <div class="diagnostic-status regular"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </main>
+         <!-- Patient info container -->
+         <aside class="patient-details">
+            <div class="patient-profile">
+               <img src="./assets/images/patientDetailIcons/placeHolder.png" alt="placeholder image" class="profile-photo profile-photo-blank">
+               <h2 class="patient-name"></h2>
+               <div class="profile-info">
+                  <p class="patient-dob flex">
+                     <img src="./assets/images/patientDetailIcons/BirthIcon.svg" alt="Calendar Icon" class="icon"> 
+                     <span class="dob-text flex">
+                     <span class="medium">Date of Birth:</span>
+                     <span class="dob-value bold"></span>
+                     </span>
+                  </p>
+                  <p class="patient-gender flex">
+                     <img src="./assets/images/patientDetailIcons/FemaleIcon.svg" alt="Gender Icon" class="icon">
+                     <span class="gender-text flex">
+                     <span class="medium">Gender:</span>
+                     <span class="gender-value bold"></span>
+                     </span>
+                  </p>
+                  <p class="patient-contact flex">
+                     <img src="./assets/images/patientDetailIcons/PhoneIcon.svg" alt="Phone Icon" class="icon">
+                     <span class="contact-text flex">
+                     <span class="medium">Contact Info:</span>
+                     <span class="contact-value bold"></span>
+                     </span> 
+                  </p>
+                  <p class="patient-emergency flex">
+                     <img src="./assets/images/patientDetailIcons/PhoneIcon.svg" alt="Emergency Icon" class="icon">
+                     <span class="emergency-text flex">
+                     <span class="medium">Emergency Contacts:</span> 
+                     <span class="emergency-value bold"></span>
+                     </span> 
+                  </p>
+                  <p class="patient-insurance flex">
+                     <img src="./assets/images/patientDetailIcons/InsuranceIcon.svg" alt="Insurance Icon" class="icon">
+                     <span class="provider-text flex">
+                     <span class="medium">Insurance Provider:</span> 
+                     <span class="insurance-value bold"></span>
+                     </span>
+                  </p>
+               </div>
+               <button class="show-info-btn">Show All Information</button>
+            </div>
+            <div class="lab-results-section">
+               <h3 class="lab-results-header extra-bold">Lab Results</h3>
+               <div class="custom-scrollbar">
+                  <ul class="lab-results">
+                     <li class="flex">
+                        <span class="lab-result-title"></span>
+                        <button class="download-btn" aria-label="Download Blood Tests">
+                        <img src="./assets/images/labResultsIcons/download_FILL0_wght300_GRAD0_opsz24%20(1).png" alt="download-icon">
+                        </button>
+                     </li>
+                     <li class="flex">
+                        <span class="lab-result-title"></span>
+                        <button class="download-btn" aria-label="Download CT Scans">
+                        <img src="./assets/images/labResultsIcons/download_FILL0_wght300_GRAD0_opsz24%20(1).png" alt="download-icon">
+                        </button>
+                     </li>
+                     <li class="flex">
+                        <span class="lab-result-title"></span>
+                        <button class="download-btn" aria-label="Download Radiology Reports">
+                        <img src="./assets/images/labResultsIcons/download_FILL0_wght300_GRAD0_opsz24%20(1).png" alt="download-icon">
+                        </button>
+                     </li>
+                     <li class="flex">
+                        <span class="lab-result-title"></span>
+                        <button class="download-btn" aria-label="Download X-Rays">
+                        <img src="./assets/images/labResultsIcons/download_FILL0_wght300_GRAD0_opsz24%20(1).png" alt="download-icon">
+                        </button>
+                     </li>
+                     <li class="flex">
+                        <span class="lab-result-title"></span>
+                        <button class="download-btn" aria-label="Download Urine Test">
+                        <img src="./assets/images/labResultsIcons/download_FILL0_wght300_GRAD0_opsz24%20(1).png" alt="download-icon">
+                        </button>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </aside>
+      </div>
+   </body>
+</html>
