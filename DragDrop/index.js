@@ -61,13 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     target.appendChild(draggedItem);
                     draggedItem.style.position = "static";
                     draggedItem.style.transform = "none";
-                    draggedItem.style.width = "auto";
+                    draggedItem.style.width = "100%"
                     draggedItem.style.zIndex = "auto";
 
                     draggedItem.style.backgroundColor = "transparent";
                     draggedItem.style.border = "none";
+                    draggedItem.style.borderRadius = 0;
+                    draggedItem.style.borderTop = "3px solid #1b3a6b";
                     draggedItem.style.padding = 0;
-                    draggedItem.style.marginBottom = 0;
+                    // draggedItem.style.marginBottom = 0;
 
                     sound.play();
                     dropped = true;
