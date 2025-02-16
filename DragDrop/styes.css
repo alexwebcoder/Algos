@@ -72,8 +72,8 @@
               margin: 0 10px 0 10px;
             }
           
-            .column-title {
+            .column-title, .column {
               font-size: 1.2rem;
             }
-          
+
           }

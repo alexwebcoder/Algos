@@ -67,11 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     draggedItem.style.backgroundColor = "transparent";
                     draggedItem.style.border = "none";
                     draggedItem.style.borderRadius = 0;
-                    draggedItem.style.borderTop = "3px solid #1b3a6b";
+                    draggedItem.style.borderTop = "3px solid #FFF";
                     draggedItem.style.padding = 0;
-                    // draggedItem.style.marginBottom = 0;
+                    draggedItem.style.marginBottom = 0;
+                    draggedItem.style.color = "#FFF";
 
                     sound.play();
+                    target.style.border = "3px solid green";
+                    target.style.backgroundColor = "green";
+                    target.style.color = "#FFF";
                     dropped = true;
                 }
             }
