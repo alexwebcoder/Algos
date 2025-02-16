@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     draggedItem.style.backgroundColor = "transparent";
                     draggedItem.style.border = "none";
-                    draggedItem.style.paddingTop = 0;
+                    draggedItem.style.padding = 0;
+                    draggedItem.style.marginBottom = 0;
 
                     sound.play();
                     dropped = true;
