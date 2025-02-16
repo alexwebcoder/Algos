@@ -70,17 +70,23 @@
           display: none;
           transition: opacity 1s ease-in-out;
           border: 3px solid #1b3a6b;
-          color: #1b3a6b;
+          color: #FFF;
           text-align: center;
           text-transform: uppercase;
           padding: 20px;
           font-size: 20px;
           border-radius: 10px;
+          background-color: #000;
       }
 
       .nickname-container,
 .round-complete {
     transition: opacity 1s ease-in-out;
+}
+
+.round-complete img {
+  max-width: 10%;
+  display: block;
 }
 
 .nickname-container.hidden {
