@@ -96,6 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         item.style.top = "auto";
         item.style.width = "auto";
         item.style.zIndex = "auto";
+
+        item.style.backgroundColor = "transparent";
+        item.style.border = "3px solid #1b3a6b";
         originalParent.insertBefore(item, originalParent.children[index]);
     }
 });
