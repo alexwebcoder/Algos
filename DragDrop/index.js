@@ -140,23 +140,47 @@ document.addEventListener("DOMContentLoaded", () => {
     function onFinalMatch() {
         const nicknameContainer = document.querySelector('.nickname-container');
         const roundComplete = document.querySelector('.round-complete');
+        const gameContainer = document.querySelector('.game-container'); // Ensure this is selecting correctly
     
+        console.log("Game Container:", gameContainer); // Debugging
+        
         // Fade out the nickname container
         nicknameContainer.classList.add('hidden');
     
         // Fade in the round completion message
         roundComplete.classList.add('visible');
+    
+        // Ensure all matches are correct before adding class
+        const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
+            const droppedItem = target.children[0];
+            return droppedItem && droppedItem.dataset.match === target.dataset.match;
+        });
+    
+        console.log("All matched correctly?", allMatched); // Debugging
+    
+        if (allMatched) {
+            console.log("Before adding class:", gameContainer.classList);
+            gameContainer.classList.add('round-complete-active'); // Add class to game-container
+            console.log("After adding class:", gameContainer.classList);
+        }
     }
+    
+    
     
     
     
 
-function checkIfRoundComplete() {
-    const allMatched = Array.from(targets).every(target => target.children.length > 0); // Check if all items are matched
-    if (allMatched) {
-        onFinalMatch();  // Call the function to show the round completion container
+    function checkIfRoundComplete() {
+        const allMatched = Array.from(targets).every(target => {
+            const droppedItem = target.children[0]; // Get the first (and only) child
+            return droppedItem && droppedItem.dataset.match === target.dataset.match; // Ensure it matches
+        });
+    
+        if (allMatched) {
+            onFinalMatch();  // Call the function to show the round completion container
+        }
     }
-}
+    
 
 
 

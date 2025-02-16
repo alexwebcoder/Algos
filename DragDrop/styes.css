@@ -61,6 +61,10 @@
             user-select: none;
         }
 
+        .round-complete-active {
+          flex-direction: column;
+        }
+
         .round-complete {
           opacity: 0;
           display: none;
