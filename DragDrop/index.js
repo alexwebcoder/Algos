@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let offsetX = 0;
     let offsetY = 0;
     let originalWidth = 0;
+    let isDragging = false;  // Flag to track if the item is actually being dragged
+    let moveThreshold = 5;   // Minimum distance to consider it a drag
 
     items.forEach((item, index) => {
         item.style.touchAction = "none";
@@ -28,9 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
             item.style.top = `${offsetY}px`;
             item.style.zIndex = "1000";
             item.classList.add("dragging");
-            item.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
-            item.style.border = "4px solid #0099ff"
-            document.body.style.touchAction = "none"; // Disable scrolling while dragging
+
+            // Prevent scrolling while dragging
+            document.body.style.touchAction = "none"; 
+            
+            // Start listening for movement
             document.addEventListener("pointermove", onPointerMove, { passive: false });
             document.addEventListener("pointerup", onPointerUp);
         });
@@ -38,19 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function onPointerMove(e) {
         if (!draggedItem) return;
-        e.preventDefault();
+
         let deltaX = e.pageX - startX;
         let deltaY = e.pageY - startY;
+
+        // Check if the item has moved more than the threshold
+        if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
+            isDragging = true; // Mark as being dragged
+            draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)"; // Yellow background
+            draggedItem.style.border = "4px solid #0099ff"; // Blue border
+        }
+
         draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
     }
 
     function onPointerUp(e) {
         if (!draggedItem) return;
+        
         document.removeEventListener("pointermove", onPointerMove);
         document.removeEventListener("pointerup", onPointerUp);
-        let dropped = false;
 
+        // If the item was clicked but not dragged, reset the styles
+        if (!isDragging) {
+            draggedItem.style.backgroundColor = "transparent";
+            draggedItem.style.border = "none";
+        }
+
+        let dropped = false;
         const sound = new Audio('Catch-catchers-gloves.mp3');
+        
         targets.forEach(target => {
             let rect = target.getBoundingClientRect();
             if (
@@ -61,9 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     target.appendChild(draggedItem);
                     draggedItem.style.position = "static";
                     draggedItem.style.transform = "none";
-                    draggedItem.style.width = "100%"
+                    draggedItem.style.width = "100%";
                     draggedItem.style.zIndex = "auto";
-
                     draggedItem.style.backgroundColor = "transparent";
                     draggedItem.style.border = "none";
                     draggedItem.style.borderRadius = 0;
@@ -80,11 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+
         if (!dropped) {
             resetItemPosition(draggedItem);
         }
+
         draggedItem.classList.remove("dragging");
+   
+
         draggedItem = null;
+        isDragging = false;  // Reset dragging state
         document.body.style.touchAction = "auto"; // Re-enable scrolling
     }
 
