@@ -61,10 +61,39 @@
             user-select: none;
         }
 
-        .dropzone {
-            /* padding: 10px; */
-        }
+        .round-complete {
+          opacity: 0;
+          display: none;
+          transition: opacity 1s ease-in-out;
+          background-color: green;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          font-size: 20px;
+          border-radius: 10px;
+      }
 
+      .nickname-container,
+.round-complete {
+    transition: opacity 1s ease-in-out;
+}
+
+.nickname-container.hidden {
+   display: none;
+    pointer-events: none; /* Disable interaction while hidden */
+}
+
+.round-complete.visible {
+  opacity: 1;
+  display: block;
+  pointer-events: auto; /* Enable interaction when visible */
+}
+      
+        
+        .round-complete.show {
+          left: 20px; /* Slide in from the left */
+        }
+        
 
         @media(max-width: 768px){
             .game-container, header {

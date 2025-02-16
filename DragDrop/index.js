@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
         draggedItem = null;
         isDragging = false;  // Reset dragging state
         document.body.style.touchAction = "auto"; // Re-enable scrolling
+
+        checkIfRoundComplete();
     }
 
     function resetItemPosition(item) {
@@ -133,4 +135,29 @@ document.addEventListener("DOMContentLoaded", () => {
         item.style.border = "3px solid #1b3a6b";
         originalParent.insertBefore(item, originalParent.children[index]);
     }
+
+
+    function onFinalMatch() {
+        const nicknameContainer = document.querySelector('.nickname-container');
+        const roundComplete = document.querySelector('.round-complete');
+    
+        // Fade out the nickname container
+        nicknameContainer.classList.add('hidden');
+    
+        // Fade in the round completion message
+        roundComplete.classList.add('visible');
+    }
+    
+    
+    
+
+function checkIfRoundComplete() {
+    const allMatched = Array.from(targets).every(target => target.children.length > 0); // Check if all items are matched
+    if (allMatched) {
+        onFinalMatch();  // Call the function to show the round completion container
+    }
+}
+
+
+
 });
