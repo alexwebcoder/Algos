@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         item.style.touchAction = "none";
         item.dataset.index = index;
         item.addEventListener("pointerdown", (e) => {
+            if (item.classList.contains("locked")) {
+                e.preventDefault(); // Prevent dragging if locked
+                return;
+            }
+
             e.preventDefault(); // Prevent scrolling on mobile
             draggedItem = item;
             originalParent = item.parentElement;
@@ -96,16 +101,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     target.style.backgroundColor = "green";
                     target.style.color = "#FFF";
                     dropped = true;
+
+                    // Lock the item only if dropped correctly
+                    draggedItem.classList.add("locked");
+                    draggedItem.classList.remove("dragging");
                 }
             }
         });
 
         if (!dropped) {
+            // If the drop was incorrect, reset item position and remove 'locked' class
             resetItemPosition(draggedItem);
+            draggedItem.classList.remove("locked");
         }
-
-        draggedItem.classList.remove("dragging");
-   
 
         draggedItem = null;
         isDragging = false;  // Reset dragging state
