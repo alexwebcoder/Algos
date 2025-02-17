@@ -162,6 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Before adding class:", gameContainer.classList);
             gameContainer.classList.add('round-complete-active'); // Add class to game-container
             console.log("After adding class:", gameContainer.classList);
+
+            const winSound = new Audio('calvaryCharge.mp3'); // Adjust path if needed
+            winSound.play();
         }
     }
     
