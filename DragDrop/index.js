@@ -29,16 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
             offsetX = rect.left;
             offsetY = rect.top;
             originalWidth = rect.width;
-            item.style.position = "absolute";
-            item.style.width = `${originalWidth}px`; // Maintain original width
-            item.style.left = `${offsetX}px`;
-            item.style.top = `${offsetY}px`;
-            item.style.zIndex = "1000";
-            item.classList.add("dragging");
 
             // Prevent scrolling while dragging
             document.body.style.touchAction = "none"; 
-            
+
             // Start listening for movement
             document.addEventListener("pointermove", onPointerMove, { passive: false });
             document.addEventListener("pointerup", onPointerUp);
@@ -54,11 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
         // Check if the item has moved more than the threshold
         if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
             isDragging = true; // Mark as being dragged
+
+            // Apply absolute positioning only after moving
+            draggedItem.style.position = "absolute";
+            draggedItem.style.width = `${originalWidth}px`; // Maintain original width
+            draggedItem.style.left = `${offsetX}px`;
+            draggedItem.style.top = `${offsetY}px`;
+            draggedItem.style.zIndex = "1000";
+            draggedItem.classList.add("dragging");
+
             draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)"; // Yellow background
             draggedItem.style.border = "4px solid #0099ff"; // Blue border
         }
 
-        draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        if (isDragging) {
+            draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        }
     }
 
     function onPointerUp(e) {
@@ -136,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
         originalParent.insertBefore(item, originalParent.children[index]);
     }
 
-
     function onFinalMatch() {
         const nicknameContainer = document.querySelector('.nickname-container');
         const roundComplete = document.querySelector('.round-complete');
@@ -167,11 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             winSound.play();
         }
     }
-    
-    
-    
-    
-    
 
     function checkIfRoundComplete() {
         const allMatched = Array.from(targets).every(target => {
@@ -183,8 +182,4 @@ document.addEventListener("DOMContentLoaded", () => {
             onFinalMatch();  // Call the function to show the round completion container
         }
     }
-    
-
-
-
 });
