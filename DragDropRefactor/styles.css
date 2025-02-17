@@ -1,0 +1,143 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+button {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.game-container {
+	justify-content: space-between;
+	gap: 20px;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 35px 20px 20px 20px;
+	background-color: #f9f9f9;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border: 4px solid #d32f2f;
+	width: 80%;
+	display: flex;
+}
+
+.nickname-container,
+.player-container {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.column-title {
+	font-size: 2rem;
+	color: #1b3a6b;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+}
+
+.column {
+	padding: 10px;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.rectangle {
+	border: 3px solid #1b3a6b;
+	margin-bottom: 15px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #1b3a6b;
+	transition: background-color 0.5s ease-in-out;
+	padding: 10px;
+}
+
+.grayed {
+  background-color: #d1d1d1;
+  min-height: 65px;
+  border: none;
+  cursor:default;
+}
+
+.draggable {
+	cursor: grab;
+	user-select: none;
+}
+
+.round-complete-active {
+	flex-direction: column;
+}
+
+.round-complete {
+	opacity: 0;
+	display: none;
+	transition: opacity 1s ease-in-out;
+	border: 3px solid #1b3a6b;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 10px;
+	background-color: #000;
+}
+
+.nickname-container,
+.round-complete {
+	transition: opacity 1s ease-in-out;
+}
+
+.round-complete img {
+	max-width: 6%;
+	display: block;
+}
+
+.nickname-container.hidden {
+	display: none;
+	pointer-events: none;
+	/* Disable interaction while hidden */
+}
+
+.round-complete.visible {
+	opacity: 1;
+	display: block;
+	pointer-events: auto;
+	/* Enable interaction when visible */
+}
+
+
+.round-complete.show {
+	left: 20px;
+	/* Slide in from the left */
+}
+
+
+@media(max-width: 768px) {
+
+	.game-container,
+	header {
+		width: unset;
+		margin: 0 10px 0 10px;
+	}
+
+	.round-complete h1 {
+		font-size: 1.4rem;
+	}
+
+	.column-title,
+	.column {
+		font-size: 1.2rem;
+	}
+
+}
