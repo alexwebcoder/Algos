@@ -8,29 +8,30 @@
     <script src="index.js" type="module"></script>
 </head>
 <body>
-
+    <!-- Grayed out rectangles that will load on page load -->
     <div class="game-container flex">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames" id="left-column">
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Draggable Banana"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Soda"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Horse"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Draggable Porsche"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
             </div>
         </section>
     
         <section class="player-container flex">
             <h1 class="column-title capitalized">Players</h1>
             <div class="column" id="right-column">
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Beverage"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Animal"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Fruit"></div>
-                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Car"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
             </div>
         </section>
     </div>
-  <br>
+
+    <!-- Round 1 that loads on push of start button-->
 <div class="game-container flex">
     <section class="nickname-container flex">
         <h1 class="column-title capitalized">Nicknames</h1>
@@ -57,7 +58,8 @@
         </div>
     </section>
 </div>
-<br>
+
+  <!-- Round 2 that loads when round 1 is completed-->
 <div class="game-container flex">
     <section class="nickname-container flex">
         <h1 class="column-title capitalized">Nicknames</h1>
@@ -71,6 +73,7 @@
 
     <section class="round-complete" aria-live="polite">
         <h1>Round 2 completed</h1>
+        <img src="trophy.png" alt="Trophy" class="trophy-icon">
         <img src="trophy.png" alt="Trophy" class="trophy-icon">
     </section>
 
