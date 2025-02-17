@@ -9,6 +9,28 @@
 </head>
 <body>
 
+    <div class="game-container flex">
+        <section class="nickname-container flex">
+            <h1 class="column-title capitalized">Nicknames</h1>
+            <div class="column nicknames" id="left-column">
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Draggable Banana"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Soda"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Horse"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Draggable Porsche"></div>
+            </div>
+        </section>
+    
+        <section class="player-container flex">
+            <h1 class="column-title capitalized">Players</h1>
+            <div class="column" id="right-column">
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Beverage"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Animal"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Fruit"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Drop here for Car"></div>
+            </div>
+        </section>
+    </div>
+  <br>
 <div class="game-container flex">
     <section class="nickname-container flex">
         <h1 class="column-title capitalized">Nicknames</h1>
@@ -32,6 +54,33 @@
             <div class="dropzone rectangle" data-match="animal" tabindex="0" role="button" aria-label="Drop here for Animal">Animal</div>
             <div class="dropzone rectangle" data-match="fruit" tabindex="0" role="button" aria-label="Drop here for Fruit">Fruit</div>
             <div class="dropzone rectangle" data-match="car" tabindex="0" role="button" aria-label="Drop here for Car">Car</div>
+        </div>
+    </section>
+</div>
+<br>
+<div class="game-container flex">
+    <section class="nickname-container flex">
+        <h1 class="column-title capitalized">Nicknames</h1>
+        <div class="column nicknames" id="left-column">
+            <div class="draggable rectangle" data-match="new-york" tabindex="0" role="button" aria-label="Draggable Banana">New York</div>
+            <div class="draggable rectangle" data-match="st-louis" tabindex="0" role="button" aria-label="Draggable Soda">St. Louis</div>
+            <div class="draggable rectangle" data-match="san-francisco" tabindex="0" role="button" aria-label="Draggable Horse">San Francicsco</div>
+            <div class="draggable rectangle" data-match="los-angeles" tabindex="0" role="button" aria-label="Draggable Porsche">Los Angeles</div>
+        </div>
+    </section>
+
+    <section class="round-complete" aria-live="polite">
+        <h1>Round 2 completed</h1>
+        <img src="trophy.png" alt="Trophy" class="trophy-icon">
+    </section>
+
+    <section class="player-container flex">
+        <h1 class="column-title capitalized">Players</h1>
+        <div class="column" id="right-column">
+            <div class="dropzone rectangle" data-match="st-louis" tabindex="0" role="button" aria-label="Drop here for Beverage">Cardinals</div>
+            <div class="dropzone rectangle" data-match="san-francisco" tabindex="0" role="button" aria-label="Drop here for san-francisco">Giants</div>
+            <div class="dropzone rectangle" data-match="new-york" tabindex="0" role="button" aria-label="Drop here for Fruit">Yankees</div>
+            <div class="dropzone rectangle" data-match="los-angeles" tabindex="0" role="button" aria-label="Drop here for Car">Dodgers</div>
         </div>
     </section>
 </div>

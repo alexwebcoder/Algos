@@ -8,15 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let offsetX = 0;
     let offsetY = 0;
     let originalWidth = 0;
-    let isDragging = false;  // Flag to track if the item is actually being dragged
-    let moveThreshold = 5;   // Minimum distance to consider it a drag
+    let isDragging = false;  
+    let moveThreshold = 5;   
 
     items.forEach((item, index) => {
         item.style.touchAction = "none";
         item.dataset.index = index;
         item.addEventListener("pointerdown", (e) => {
+            // Check if the item has the 'grayed' class
+            if (item.classList.contains("grayed")) {
+                e.preventDefault(); // Prevent dragging if it's grayed
+                return;
+            }
+
             if (item.classList.contains("locked")) {
-                e.preventDefault(); // Prevent dragging if locked
+                e.preventDefault(); 
                 return;
             }
 
@@ -45,20 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
         let deltaX = e.pageX - startX;
         let deltaY = e.pageY - startY;
 
-        // Check if the item has moved more than the threshold
         if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
-            isDragging = true; // Mark as being dragged
+            isDragging = true; 
 
-            // Apply absolute positioning only after moving
             draggedItem.style.position = "absolute";
-            draggedItem.style.width = `${originalWidth}px`; // Maintain original width
+            draggedItem.style.width = `${originalWidth}px`;
             draggedItem.style.left = `${offsetX}px`;
             draggedItem.style.top = `${offsetY}px`;
             draggedItem.style.zIndex = "1000";
             draggedItem.classList.add("dragging");
 
-            draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)"; // Yellow background
-            draggedItem.style.border = "4px solid #0099ff"; // Blue border
+            draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
+            draggedItem.style.border = "4px solid #0099ff";
         }
 
         if (isDragging) {
@@ -72,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.removeEventListener("pointermove", onPointerMove);
         document.removeEventListener("pointerup", onPointerUp);
 
-        // If the item was clicked but not dragged, reset the styles
         if (!isDragging) {
             draggedItem.style.backgroundColor = "transparent";
             draggedItem.style.border = "none";
@@ -107,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     target.style.color = "#FFF";
                     dropped = true;
 
-                    // Lock the item only if dropped correctly
                     draggedItem.classList.add("locked");
                     draggedItem.classList.remove("dragging");
                 }
@@ -115,14 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!dropped) {
-            // If the drop was incorrect, reset item position and remove 'locked' class
             resetItemPosition(draggedItem);
             draggedItem.classList.remove("locked");
         }
 
         draggedItem = null;
-        isDragging = false;  // Reset dragging state
-        document.body.style.touchAction = "auto"; // Re-enable scrolling
+        isDragging = false;  
+        document.body.style.touchAction = "auto"; 
 
         checkIfRoundComplete();
     }
@@ -144,42 +145,33 @@ document.addEventListener("DOMContentLoaded", () => {
     function onFinalMatch() {
         const nicknameContainer = document.querySelector('.nickname-container');
         const roundComplete = document.querySelector('.round-complete');
-        const gameContainer = document.querySelector('.game-container'); // Ensure this is selecting correctly
+        const gameContainer = document.querySelector('.game-container');
     
-        console.log("Game Container:", gameContainer); // Debugging
-        
-        // Fade out the nickname container
         nicknameContainer.classList.add('hidden');
     
-        // Fade in the round completion message
         roundComplete.classList.add('visible');
     
-        // Ensure all matches are correct before adding class
         const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
             const droppedItem = target.children[0];
             return droppedItem && droppedItem.dataset.match === target.dataset.match;
         });
     
-        console.log("All matched correctly?", allMatched); // Debugging
-    
         if (allMatched) {
-            console.log("Before adding class:", gameContainer.classList);
-            gameContainer.classList.add('round-complete-active'); // Add class to game-container
-            console.log("After adding class:", gameContainer.classList);
+            gameContainer.classList.add('round-complete-active'); 
 
-            const winSound = new Audio('calvaryCharge.mp3'); // Adjust path if needed
+            const winSound = new Audio('calvaryCharge.mp3');
             winSound.play();
         }
     }
 
     function checkIfRoundComplete() {
         const allMatched = Array.from(targets).every(target => {
-            const droppedItem = target.children[0]; // Get the first (and only) child
-            return droppedItem && droppedItem.dataset.match === target.dataset.match; // Ensure it matches
+            const droppedItem = target.children[0];
+            return droppedItem && droppedItem.dataset.match === target.dataset.match;
         });
     
         if (allMatched) {
-            onFinalMatch();  // Call the function to show the round completion container
+            onFinalMatch();
         }
     }
 });
