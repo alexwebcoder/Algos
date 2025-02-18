@@ -186,15 +186,20 @@ document.getElementById('startButton').addEventListener('click', () => {
             winSound.play();
             const roundComplete = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
             roundComplete.classList.add('visible');
-
-            const lastContainerShowing = document.querySelector('.game-container:not([style*="display: none"])');
+            const containerJustCompleted = document.querySelector('.game-container:not([style*="display: none"])');
             
-        setTimeout(() => {
-         // roundComplete.classList.remove('visible');
-         lastContainerShowing.style='display:none;';
-         console.log(lastContainerShowing)
-          console.log(roundComplete)
-          }, 8000); 
+            setTimeout(() => {
+               containerJustCompleted.style.display = 'none';
+           
+               const nextContainerToPlay = containerJustCompleted.nextElementSibling; // Get the next game container
+               if (nextContainerToPlay) {
+                   nextContainerToPlay.style.display = 'flex';
+                   console.log("Next round loaded:", nextContainerToPlay);
+               } else {
+                   console.log("No more rounds available.");
+               }
+           }, 8000);
+           
        }
     }
     
