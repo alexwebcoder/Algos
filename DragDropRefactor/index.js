@@ -161,30 +161,39 @@ document.getElementById('startButton').addEventListener('click', () => {
           lastVisible.classList.add('hidden');
        }
  
-       const roundComplete = document.querySelector('.round-complete');
- 
+       
+       
        const visibleGameContainers = document.querySelectorAll(
           '.game-container:not([style*="display: none"])'
-       );
- 
-       visibleGameContainers.forEach(container => {
-          container.classList.add('round-complete-active');
-       });
- 
-       roundComplete.classList.add('visible');
-}
-
-function checkIfRoundComplete() {
-    
-   const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
-      const droppedItem = target.children[0];
-      return droppedItem && droppedItem.dataset.match === target.dataset.match;
-   });
-    
-    if (allMatched) {
-        onFinalMatch();
-        const winSound = new Audio('calvaryCharge.mp3');
-      //   winSound.play();
+         );
+         
+         visibleGameContainers.forEach(container => {
+            container.classList.add('round-complete-active');
+         });
+         
+      }
+      
+      function checkIfRoundComplete() {
+         
+         const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
+            const droppedItem = target.children[0];
+            return droppedItem && droppedItem.dataset.match === target.dataset.match;
+         });
+         
+         if (allMatched) {
+            onFinalMatch();
+            const winSound = new Audio('calvaryCharge.mp3');
+            winSound.play();
+            const roundCompleteShow = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
+            roundCompleteShow.classList.add('visible');
+            
+        setTimeout(() => {
+         const roundCompleteHide = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
+         roundCompleteHide.classList.remove('visible');
+         roundCompleteHide.classList.add('hidden');
+          console.log(roundCompleteHide)
+          }, 8000); 
        }
     }
+    
  });
