@@ -49,11 +49,7 @@ document.querySelectorAll('.draggable, .dropzone').forEach(item => {
        item.style.touchAction = "none";
        item.dataset.index = index;
        item.addEventListener("pointerdown", (e) => {
-          // Check if the item has the 'grayed' class
-          if (item.classList.contains("grayed")) {
-             e.preventDefault(); // Prevent dragging if it's grayed
-             return;
-          }
+        
  
           if (item.classList.contains("locked")) {
              e.preventDefault();
@@ -205,21 +201,18 @@ document.querySelectorAll('.draggable, .dropzone').forEach(item => {
           return droppedItem && droppedItem.dataset.match === target.dataset.match;
        });
  
-       if (allMatched) {
- 
-          const winSound = new Audio('calvaryCharge.mp3');
-          winSound.play();
-       }
-    }
- 
-    function checkIfRoundComplete() {
-       const allMatched = Array.from(targets).every(target => {
-          const droppedItem = target.children[0];
-          return droppedItem && droppedItem.dataset.match === target.dataset.match;
-       });
- 
-       if (allMatched) {
-          onFinalMatch();
+}
+
+function checkIfRoundComplete() {
+    const allMatched = Array.from(targets).every(target => {
+        const droppedItem = target.children[0];
+        return droppedItem && droppedItem.dataset.match === target.dataset.match;
+    });
+    
+    if (allMatched) {
+        onFinalMatch();
+        const winSound = new Audio('calvaryCharge.mp3');
+        winSound.play();
        }
     }
  });
