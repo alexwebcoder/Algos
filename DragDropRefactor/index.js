@@ -184,14 +184,16 @@ document.getElementById('startButton').addEventListener('click', () => {
             onFinalMatch();
             const winSound = new Audio('calvaryCharge.mp3');
             winSound.play();
-            const roundCompleteShow = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
-            roundCompleteShow.classList.add('visible');
+            const roundComplete = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
+            roundComplete.classList.add('visible');
+
+            const lastContainerShowing = document.querySelector('.game-container:not([style*="display: none"])');
             
         setTimeout(() => {
-         const roundCompleteHide = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
-         roundCompleteHide.classList.remove('visible');
-         roundCompleteHide.classList.add('hidden');
-          console.log(roundCompleteHide)
+         // roundComplete.classList.remove('visible');
+         lastContainerShowing.style='display:none;';
+         console.log(lastContainerShowing)
+          console.log(roundComplete)
           }, 8000); 
        }
     }
