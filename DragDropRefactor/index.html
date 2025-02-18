@@ -10,7 +10,7 @@
 <body>
     <button id="startButton">Start Round 1</button>
     <!-- Grayed out rectangles that will load on page load -->
-    <div class="game-container page-load flex" id="round1">
+    <div class="game-container page-load flex" id="emptyRectangles">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames" id="left-column">
@@ -58,6 +58,35 @@
                 <div class="dropzone rectangle" data-match="animal" tabindex="0" role="button" aria-label="Drop here for Animal">Animal</div>
                 <div class="dropzone rectangle" data-match="fruit" tabindex="0" role="button" aria-label="Drop here for Fruit">Fruit</div>
                 <div class="dropzone rectangle" data-match="car" tabindex="0" role="button" aria-label="Drop here for Car">Car</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Round 2 that loads after round 1 completes-->
+    <div class="game-container round-2 flex" id="round2Content" style="display: none;">
+        <section class="nickname-container flex">
+            <h1 class="column-title capitalized">Nicknames</h1>
+            <div class="column nicknames" id="left-column">
+                <div class="draggable rectangle" data-match="one" tabindex="0" role="button" aria-label="Draggable One">One</div>
+                <div class="draggable rectangle" data-match="two" tabindex="0" role="button" aria-label="Draggable Two">Two</div>
+                <div class="draggable rectangle" data-match="three" tabindex="0" role="button" aria-label="Draggable Three">Three</div>
+                <div class="draggable rectangle" data-match="four" tabindex="0" role="button" aria-label="Draggable Four">Four</div>
+            </div>
+        </section>
+
+        <section class="round-complete" aria-live="polite">
+            <h1>Round 2 completed</h1>
+            <img src="trophy.png" alt="Trophy" class="trophy-icon">
+            <img src="trophy.png" alt="Trophy" class="trophy-icon">
+        </section>
+
+        <section class="player-container flex">
+            <h1 class="column-title capitalized">Players</h1>
+            <div class="column" id="right-column">
+                <div class="dropzone rectangle" data-match="four" tabindex="0" role="button" aria-label="Drop here for four">Four</div>
+                <div class="dropzone rectangle" data-match="three" tabindex="0" role="button" aria-label="Drop here for three">Three</div>
+                <div class="dropzone rectangle" data-match="two" tabindex="0" role="button" aria-label="Drop here for two">Two</div>
+                <div class="dropzone rectangle" data-match="one" tabindex="0" role="button" aria-label="Drop here for one">One</div>
             </div>
         </section>
     </div>
