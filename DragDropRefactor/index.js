@@ -195,24 +195,19 @@ document.querySelectorAll('.draggable, .dropzone').forEach(item => {
        });
  
        roundComplete.classList.add('visible');
- 
-       const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
-          const droppedItem = target.children[0];
-          return droppedItem && droppedItem.dataset.match === target.dataset.match;
-       });
- 
 }
 
 function checkIfRoundComplete() {
-    const allMatched = Array.from(targets).every(target => {
-        const droppedItem = target.children[0];
-        return droppedItem && droppedItem.dataset.match === target.dataset.match;
-    });
+    
+   const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
+      const droppedItem = target.children[0];
+      return droppedItem && droppedItem.dataset.match === target.dataset.match;
+   });
     
     if (allMatched) {
         onFinalMatch();
         const winSound = new Audio('calvaryCharge.mp3');
-        winSound.play();
+      //   winSound.play();
        }
     }
  });
