@@ -7,29 +7,6 @@ document.getElementById('startButton').addEventListener('click', () => {
     document.querySelector('.round-1').style.display = 'flex';
  });
 
- // Function to scramble a word consistently
-function scrambleWord(word) {
-    return word.split('').sort(() => 0.5 - Math.random()).join('');
-}
-
-// Get all unique data-match values from both draggable and dropzone items
-const matchValues = new Set([...document.querySelectorAll('.draggable, .dropzone')].map(item => item.getAttribute('data-match')));
-
-// Create a scrambled mapping
-const scrambledMapping = {};
-matchValues.forEach(value => {
-    scrambledMapping[value] = scrambleWord(value);
-});
-
-// Apply the scrambled mapping to both draggable and dropzone items
-document.querySelectorAll('.draggable, .dropzone').forEach(item => {
-    const originalMatch = item.getAttribute('data-match');
-    if (originalMatch && scrambledMapping[originalMatch]) {
-        item.setAttribute('data-match', scrambledMapping[originalMatch]);
-    }
-});
-
-
  
  
  document.addEventListener("DOMContentLoaded", () => {
