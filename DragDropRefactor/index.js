@@ -164,8 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
       // Find the currently visible game container
       const currentContainer = gameContainers.find(container => container.style.display !== 'none');
+      currentContainer.style.flexDirection = "column";
       const nicknameContainer = currentContainer.querySelector('.nickname-container');
       nicknameContainer.classList.add('hidden');
+      const roundComplete = currentContainer.querySelector('.round-complete');
+      roundComplete.classList.add('visible');
 
   
       // Log the currently visible container

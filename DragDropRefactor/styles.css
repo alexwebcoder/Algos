@@ -121,12 +121,6 @@ button {
 }
 
 
-.round-complete.show {
-	left: 20px;
-	/* Slide in from the left */
-}
-
-
 @media(max-width: 768px) {
 
 	.game-container,
