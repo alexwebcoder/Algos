@@ -103,6 +103,10 @@ button {
 	display: block;
 }
 
+.trophies {
+	display: flex;
+}
+
 .hidden {
 	display: none;
 }

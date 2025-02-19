@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drag and Drop Game</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="index.js" type="module"></script>
 </head>
 <body>
     <button id="startButton">Start Round 1</button>
@@ -31,7 +32,6 @@
         </section>
     </div>
     
-    <!-- Button to start the game -->
     
     <!-- Round 1 that loads on push of start button-->
     <div class="game-container round-1 flex hidden" id="round1Content">
@@ -47,7 +47,9 @@
         
         <section class="round-complete" aria-live="polite">
             <h1>Round 1 completed</h1>
-            <img src="trophy.png" alt="Trophy" class="trophy-icon">
+            <div class="trophies flex">
+                <img src="trophy.png" alt="Trophy" class="trophy-icon">
+             </div>
         </section>
         
         <section class="player-container flex">
@@ -75,9 +77,11 @@
         
         <section class="round-complete" aria-live="polite">
             <h1>Round 2 completed</h1>
-            <img src="trophy.png" alt="Trophy" class="trophy-icon">
-            <img src="trophy.png" alt="Trophy" class="trophy-icon">
-        </section>
+            <div class="trophies flex">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+              </div>
+          </section>
         
         <section class="player-container flex">
             <h1 class="column-title capitalized">Players</h1>
@@ -89,7 +93,53 @@
             </div>
         </section>
     </div>
+
+    <!-- Round 3 that loads after round 2 completes-->
+    <div class="game-container round-3 flex hidden" id="round3Content">
+        <section class="nickname-container flex">
+            <h1 class="column-title capitalized">Nicknames</h1>
+            <div class="column nicknames">
+                <div class="draggable rectangle" data-match="five" tabindex="0" role="button" aria-label="Draggable One">Five</div>
+                <div class="draggable rectangle" data-match="six" tabindex="0" role="button" aria-label="Draggable Two">Six</div>
+                <div class="draggable rectangle" data-match="seven" tabindex="0" role="button" aria-label="Draggable Three">Seven</div>
+                <div class="draggable rectangle" data-match="eight" tabindex="0" role="button" aria-label="Draggable Four">Eight</div>
+            </div>
+        </section>
+        
+        <section class="round-complete" aria-live="polite">
+            <h1>Round 3 completed</h1>
+            <div class="trophies flex">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+              </div>
+          </section>
+        
+        <section class="player-container flex">
+            <h1 class="column-title capitalized">Players</h1>
+            <div class="column">
+                <div class="dropzone rectangle" data-match="five" tabindex="0" role="button" aria-label="Drop here for four">Five</div>
+                <div class="dropzone rectangle" data-match="six" tabindex="0" role="button" aria-label="Drop here for three">Six</div>
+                <div class="dropzone rectangle" data-match="seven" tabindex="0" role="button" aria-label="Drop here for two">Seven</div>
+                <div class="dropzone rectangle" data-match="eight" tabindex="0" role="button" aria-label="Drop here for one">Eight</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Game Over Round-->
+    <div class="game-container game-over flex hidden" id="gameOver">
+        
+        <section class="round-complete" aria-live="polite">
+            <h1>Game Over</h1>
+            <p>You made the Hall of Fame</p>
+            <div class="trophies flex">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+                 <img src="trophy.png" alt="Trophy" class="trophy-icon">
+              </div>
+          </section>
+        
+    </div>
     
-    <script src="index.js" type="module"></script>
 </body>
 </html>

@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Set a timeout to transition to the next round
           setTimeout(() => {
               // Hide the current container
-            //   currentContainer.style.display = 'none';
+              currentContainer.style.display = 'none';
   
               // Increment the index for the next container
               currentIndex++;
@@ -210,12 +210,12 @@ document.addEventListener("DOMContentLoaded", () => {
               // Check if there's a next container
               if (currentIndex < gameContainers.length) {
                   const nextContainer = gameContainers[currentIndex];
-                  // nextContainer.style.display = 'block';
+                  nextContainer.style.display = 'flex';
               } else {
                   // Handle case when all rounds are completed
                   console.log("All rounds completed!");
               }
-          }, 5000); // 5 seconds delay
+          }, 8000); // 5 seconds delay
       }
   }
   
