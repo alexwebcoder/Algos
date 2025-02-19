@@ -164,6 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
       // Find the currently visible game container
       const currentContainer = gameContainers.find(container => container.style.display !== 'none');
+      const nicknameContainer = currentContainer.querySelector('.nickname-container');
+      nicknameContainer.classList.add('hidden');
+
   
       // Log the currently visible container
       if (currentContainer) {
@@ -196,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Set a timeout to transition to the next round
           setTimeout(() => {
               // Hide the current container
-              currentContainer.style.display = 'none';
+            //   currentContainer.style.display = 'none';
   
               // Increment the index for the next container
               currentIndex++;
@@ -204,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
               // Check if there's a next container
               if (currentIndex < gameContainers.length) {
                   const nextContainer = gameContainers[currentIndex];
-                  nextContainer.style.display = 'block'; // Show the next container
+                  // nextContainer.style.display = 'block';
               } else {
                   // Handle case when all rounds are completed
                   console.log("All rounds completed!");
