@@ -1,0 +1,50 @@
+.my-div {
+    display: none; /* Hide all divs by default */
+}
+
+.my-div:first-child {
+    display: block; /* Show only the first div */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the divs horizontally */
+    justify-content: center; /* Center the divs vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.my-div {
+    width: 200px; /* Set width */
+    height: 200px; /* Set height */
+    display: none; /* Hide all divs by default */
+    margin: 10px; /* Space between divs */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: white; /* Text color */
+    font-size: 24px; /* Text size */
+}
+
+.my-div:nth-child(1) {
+    background-color: red; /* Color for Div 1 */
+}
+
+.my-div:nth-child(2) {
+    background-color: blue; /* Color for Div 2 */
+}
+
+.my-div:nth-child(3) {
+    background-color: green; /* Color for Div 3 */
+}
+
+.my-div:nth-child(4) {
+    background-color: orange; /* Color for Div 4 */
+}
+
+button {
+    margin-top: 20px; /* Space above button */
+    padding: 10px 20px; /* Button padding */
+    font-size: 18px; /* Button text size */
+}

@@ -1,16 +1,24 @@
-document.getElementById('startButton').addEventListener('click', () => {
-    document.getElementById('startButton').disabled = true;
-    // Hide the grayed-out rectangles (round1)
-    document.querySelector('.page-load').style.display = 'none';
- 
-    // Show the round 1 content (round1Content)
-    document.querySelector('.round-1').style.display = 'flex';
- });
 
- 
- 
- document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".draggable");
+
+
+document.addEventListener("DOMContentLoaded", () => {
+   const items = document.querySelectorAll(".draggable");
+   document.getElementById('startButton').addEventListener('click', () => {
+      document.getElementById('startButton').disabled = true;
+      // Hide the grayed-out rectangles (page-load)
+      document.querySelector('.page-load').style.display = 'none';
+   
+      // Store all game containers except the one with class 'page-load'
+      const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
+   
+      // Show the round 1 content (round1Content)
+      gameContainers[0].style.display = 'flex';
+      console.log(gameContainers[0])
+   
+   });
+
+
+
     const targets = document.querySelectorAll(".dropzone");
     let draggedItem = null;
     let originalParent = null;
@@ -150,52 +158,44 @@ document.getElementById('startButton').addEventListener('click', () => {
        item.style.border = "3px solid #1b3a6b";
        originalParent.insertBefore(item, originalParent.children[index]);
     }
- 
     function onFinalMatch() {
-       const visibleNicknameContainers = document.querySelectorAll(
-          '.nickname-container:not(.hidden):not(.game-container[style*="display: none"] .nickname-container)'
-       );
-       const lastVisible = visibleNicknameContainers[visibleNicknameContainers.length - 1];
- 
-       if (lastVisible) {
-          lastVisible.classList.add('hidden');
-       }
- 
-       
-       
-       const visibleGameContainers = document.querySelectorAll(
-          '.game-container:not([style*="display: none"])'
-         );
-         
-         visibleGameContainers.forEach(container => {
-            container.classList.add('round-complete-active');
-         });
-         
+      const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
+      console.log(gameContainers); // Log all game containers
+  
+      // Find the currently visible game container
+      const currentContainer = gameContainers.find(container => container.style.display !== 'none');
+  
+      // Log the currently visible container
+      if (currentContainer) {
+          console.log(`${currentContainer.classList.contains('round-1') ? 'Game Container 1' : 'Game Container 2'} passes`);
+      } else {
+          console.log('No visible game container found');
       }
+  }
+  
+  
+  
       
-      function checkIfRoundComplete() {
-         
-         const allMatched = Array.from(document.querySelectorAll('.dropzone')).every(target => {
-            const droppedItem = target.children[0];
-            return droppedItem && droppedItem.dataset.match === target.dataset.match;
-         });
-         
-         if (allMatched) {
-            onFinalMatch();
-            const winSound = new Audio('calvaryCharge.mp3');
-            winSound.play();
-            const roundComplete = document.querySelector('.game-container:not([style*="display: none"]) .round-complete');
-            roundComplete.classList.add('visible');
+  function checkIfRoundComplete() {
+   // Select the current game container that is visible
+   const currentContainer = document.querySelector('.game-container:not([style*="display: none"])');
+   
+   // Select the dropzones within the current container
+   const dropzones = currentContainer.querySelectorAll('.dropzone');
 
-            const lastContainerShowing = document.querySelector('.game-container:not([style*="display: none"])');
-            
-        setTimeout(() => {
-         // roundComplete.classList.remove('visible');
-         lastContainerShowing.style='display:none;';
-         console.log(lastContainerShowing)
-          console.log(roundComplete)
-          }, 8000); 
-       }
-    }
+   // Check if all dropzones have the correct matches
+   const allMatched = Array.from(dropzones).every(target => {
+       const droppedItem = target.children[0];
+       return droppedItem && droppedItem.dataset.match === target.dataset.match;
+   });
+
+   if (allMatched) {
+       onFinalMatch();
+       const winSound = new Audio('calvaryCharge.mp3');
+       winSound.play();
+   }
+}
+
+
     
  });

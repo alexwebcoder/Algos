@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drag and Drop Game</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="index.js" type="module"></script>
 </head>
 <body>
     <button id="startButton">Start Round 1</button>
@@ -20,7 +19,7 @@
                 <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
             </div>
         </section>
-    
+        
         <section class="player-container flex">
             <h1 class="column-title capitalized">Players</h1>
             <div class="column" id="right-column">
@@ -31,29 +30,29 @@
             </div>
         </section>
     </div>
-
+    
     <!-- Button to start the game -->
-
+    
     <!-- Round 1 that loads on push of start button-->
-    <div class="game-container round-1 flex" id="round1Content" style="display: none;">
+    <div class="game-container round-1 flex hidden" id="round1Content">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
-            <div class="column nicknames" id="left-column">
+            <div class="column nicknames">
                 <div class="draggable rectangle" data-match="fruit" tabindex="0" role="button" aria-label="Draggable Banana">Banana</div>
                 <div class="draggable rectangle" data-match="beverage" tabindex="0" role="button" aria-label="Draggable Soda">Soda</div>
                 <div class="draggable rectangle" data-match="animal" tabindex="0" role="button" aria-label="Draggable Horse">Horse</div>
                 <div class="draggable rectangle" data-match="car" tabindex="0" role="button" aria-label="Draggable Porsche">Porsche</div>
             </div>
         </section>
-
+        
         <section class="round-complete" aria-live="polite">
             <h1>Round 1 completed</h1>
             <img src="trophy.png" alt="Trophy" class="trophy-icon">
         </section>
-
+        
         <section class="player-container flex">
             <h1 class="column-title capitalized">Players</h1>
-            <div class="column" id="right-column">
+            <div class="column">
                 <div class="dropzone rectangle" data-match="beverage" tabindex="0" role="button" aria-label="Drop here for Beverage">Beverage</div>
                 <div class="dropzone rectangle" data-match="animal" tabindex="0" role="button" aria-label="Drop here for Animal">Animal</div>
                 <div class="dropzone rectangle" data-match="fruit" tabindex="0" role="button" aria-label="Drop here for Fruit">Fruit</div>
@@ -61,35 +60,36 @@
             </div>
         </section>
     </div>
-
+    
     <!-- Round 2 that loads after round 1 completes-->
-    <!-- <div class="game-container round-2 flex" id="round2Content" style="display: none;">
+    <div class="game-container round-2 flex hidden" id="round2Content">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
-            <div class="column nicknames" id="left-column">
+            <div class="column nicknames">
                 <div class="draggable rectangle" data-match="one" tabindex="0" role="button" aria-label="Draggable One">One</div>
                 <div class="draggable rectangle" data-match="two" tabindex="0" role="button" aria-label="Draggable Two">Two</div>
                 <div class="draggable rectangle" data-match="three" tabindex="0" role="button" aria-label="Draggable Three">Three</div>
                 <div class="draggable rectangle" data-match="four" tabindex="0" role="button" aria-label="Draggable Four">Four</div>
             </div>
         </section>
-
+        
         <section class="round-complete" aria-live="polite">
             <h1>Round 2 completed</h1>
             <img src="trophy.png" alt="Trophy" class="trophy-icon">
             <img src="trophy.png" alt="Trophy" class="trophy-icon">
         </section>
-
+        
         <section class="player-container flex">
             <h1 class="column-title capitalized">Players</h1>
-            <div class="column" id="right-column">
+            <div class="column">
                 <div class="dropzone rectangle" data-match="four" tabindex="0" role="button" aria-label="Drop here for four">Four</div>
                 <div class="dropzone rectangle" data-match="three" tabindex="0" role="button" aria-label="Drop here for three">Three</div>
                 <div class="dropzone rectangle" data-match="two" tabindex="0" role="button" aria-label="Drop here for two">Two</div>
                 <div class="dropzone rectangle" data-match="one" tabindex="0" role="button" aria-label="Drop here for one">One</div>
             </div>
         </section>
-    </div> -->
-
+    </div>
+    
+    <script src="index.js" type="module"></script>
 </body>
 </html>
