@@ -176,25 +176,43 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
       
+  let currentIndex = 0; // Variable to track the current game container
+
   function checkIfRoundComplete() {
-   // Select the current game container that is visible
-   const currentContainer = document.querySelector('.game-container:not([style*="display: none"])');
-   
-   // Select the dropzones within the current container
-   const dropzones = currentContainer.querySelectorAll('.dropzone');
-
-   // Check if all dropzones have the correct matches
-   const allMatched = Array.from(dropzones).every(target => {
-       const droppedItem = target.children[0];
-       return droppedItem && droppedItem.dataset.match === target.dataset.match;
-   });
-
-   if (allMatched) {
-       onFinalMatch();
-       const winSound = new Audio('calvaryCharge.mp3');
-       winSound.play();
-   }
-}
+      const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
+      const currentContainer = gameContainers[currentIndex];
+      
+      const dropzones = currentContainer.querySelectorAll('.dropzone');
+      const allMatched = Array.from(dropzones).every(target => {
+          const droppedItem = target.children[0];
+          return droppedItem && droppedItem.dataset.match === target.dataset.match;
+      });
+  
+      if (allMatched) {
+          onFinalMatch();
+          const winSound = new Audio('calvaryCharge.mp3');
+          winSound.play();
+  
+          // Set a timeout to transition to the next round
+          setTimeout(() => {
+              // Hide the current container
+              currentContainer.style.display = 'none';
+  
+              // Increment the index for the next container
+              currentIndex++;
+  
+              // Check if there's a next container
+              if (currentIndex < gameContainers.length) {
+                  const nextContainer = gameContainers[currentIndex];
+                  nextContainer.style.display = 'block'; // Show the next container
+              } else {
+                  // Handle case when all rounds are completed
+                  console.log("All rounds completed!");
+              }
+          }, 5000); // 5 seconds delay
+      }
+  }
+  
 
 
     
