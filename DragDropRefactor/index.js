@@ -185,39 +185,36 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0; // Variable to track the current game container
 
   function checkIfRoundComplete() {
-      const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
-      const currentContainer = gameContainers[currentIndex];
-      
-      const dropzones = currentContainer.querySelectorAll('.dropzone');
-      const allMatched = Array.from(dropzones).every(target => {
-          const droppedItem = target.children[0];
-          return droppedItem && droppedItem.dataset.match === target.dataset.match;
-      });
-  
-      if (allMatched) {
-          onFinalMatch();
-          const winSound = new Audio('calvaryCharge.mp3');
-          winSound.play();
-  
-          // Set a timeout to transition to the next round
-          setTimeout(() => {
-              // Hide the current container
-              currentContainer.style.display = 'none';
-  
-              // Increment the index for the next container
-              currentIndex++;
-  
-              // Check if there's a next container
-              if (currentIndex < gameContainers.length) {
-                  const nextContainer = gameContainers[currentIndex];
-                  nextContainer.style.display = 'flex';
-              } else {
-                  // Handle case when all rounds are completed
-                  console.log("All rounds completed!");
-              }
-          }, 8000); // 5 seconds delay
-      }
-  }
+   const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
+   const gameOverContainer = document.querySelector('.game-over'); // Get the game-over container
+   const currentContainer = gameContainers[currentIndex];
+
+   const dropzones = currentContainer.querySelectorAll('.dropzone');
+   const allMatched = Array.from(dropzones).every(target => {
+       const droppedItem = target.children[0];
+       return droppedItem && droppedItem.dataset.match === target.dataset.match;
+   });
+
+   if (allMatched) {
+       onFinalMatch();
+       const winSound = new Audio('calvaryCharge.mp3');
+       winSound.play();
+
+       // Set a timeout to transition to the next round or show game-over
+       setTimeout(() => {
+           currentContainer.style.display = 'none'; // Hide the current container
+           currentIndex++; // Move to the next round
+
+           if (currentIndex < gameContainers.length) {
+               const nextContainer = gameContainers[currentIndex];
+               nextContainer.style.display = 'flex'; // Show the next round
+           } else {
+               gameOverContainer.style.display = 'flex'; // Show game-over if all rounds are complete
+           }
+       }, 8000); // 8-second delay
+   }
+}
+
   
 
 
