@@ -197,21 +197,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
    if (allMatched) {
        onFinalMatch();
-       const winSound = new Audio('calvaryCharge.mp3');
+       const winSound = new Audio('calvary-charge.mp3');
        winSound.play();
 
        // Set a timeout to transition to the next round or show game-over
        setTimeout(() => {
-           currentContainer.style.display = 'none'; // Hide the current container
-           currentIndex++; // Move to the next round
-
-           if (currentIndex < gameContainers.length) {
-               const nextContainer = gameContainers[currentIndex];
-               nextContainer.style.display = 'flex'; // Show the next round
-           } else {
-               gameOverContainer.style.display = 'flex'; // Show game-over if all rounds are complete
-           }
-       }, 8000); // 8-second delay
+         currentContainer.style.display = 'none';
+         currentIndex++;
+     
+         if (currentIndex < gameContainers.length) {
+             const nextContainer = gameContainers[currentIndex];
+             nextContainer.style.display = 'flex';
+         } else {
+             gameOverContainer.style.display = 'flex';
+         }
+     }, 8000);
    }
 }
 
