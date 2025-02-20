@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gameContainers[0].style.display = 'flex';
       gameContainers[0].classList.add('active');
       setTimeout(() => {
-         nextContainer.classList.remove('active'); // Remove after animation runs
+         gameContainers[0].classList.remove('active'); // Remove after animation runs
      }, 1000); 
       console.log(gameContainers[0])
    
