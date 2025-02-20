@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
    
       // Show the round 1 content (round1Content)
       gameContainers[0].style.display = 'flex';
+      gameContainers[0].classList.add('active');
       console.log(gameContainers[0])
    
    });
@@ -207,7 +208,9 @@ document.addEventListener("DOMContentLoaded", () => {
      
          if (currentIndex < gameContainers.length) {
              const nextContainer = gameContainers[currentIndex];
-             nextContainer.style.display = 'flex';
+             gameContainers.forEach(container => container.classList.remove('active'));
+            nextContainer.style.display = 'flex';
+            nextContainer.classList.add('active');
          } else {
              gameOverContainer.style.display = 'flex';
          }
