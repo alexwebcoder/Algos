@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
    const items = document.querySelectorAll(".draggable");
    document.getElementById('startButton').addEventListener('click', () => {
@@ -16,157 +13,154 @@ document.addEventListener("DOMContentLoaded", () => {
       gameContainers[0].classList.add('active');
       setTimeout(() => {
          gameContainers[0].classList.remove('active'); // Remove after animation runs
-     }, 1000); 
-      console.log(gameContainers[0])
-   
+      }, 1000); 
+      console.log(gameContainers[0]);
    });
 
+   const targets = document.querySelectorAll(".dropzone");
+   let draggedItem = null;
+   let originalParent = null;
+   let startX = 0;
+   let startY = 0;
+   let offsetX = 0;
+   let offsetY = 0;
+   let originalWidth = 0;
+   let isDragging = false;
+   let moveThreshold = 5;
 
+   items.forEach((item, index) => {
+      item.style.touchAction = "none";
+      item.dataset.index = index;
+      item.addEventListener("pointerdown", (e) => {
+         if (item.classList.contains("locked")) {
+            e.preventDefault();
+            return;
+         }
+         e.preventDefault(); // Prevent scrolling on mobile
+         draggedItem = item;
+         originalParent = item.parentElement;
+         const rect = item.getBoundingClientRect();
+         startX = e.pageX;
+         startY = e.pageY;
+         // Update offsetX and offsetY to include scroll position
+         offsetX = rect.left + window.scrollX; // Include scroll position
+         offsetY = rect.top + window.scrollY;  // Include scroll position
+         originalWidth = rect.width;
 
-    const targets = document.querySelectorAll(".dropzone");
-    let draggedItem = null;
-    let originalParent = null;
-    let startX = 0;
-    let startY = 0;
-    let offsetX = 0;
-    let offsetY = 0;
-    let originalWidth = 0;
-    let isDragging = false;
-    let moveThreshold = 5;
- 
-    items.forEach((item, index) => {
-       item.style.touchAction = "none";
-       item.dataset.index = index;
-       item.addEventListener("pointerdown", (e) => {
-        
- 
-          if (item.classList.contains("locked")) {
-             e.preventDefault();
-             return;
-          }
- 
-          e.preventDefault(); // Prevent scrolling on mobile
-          draggedItem = item;
-          originalParent = item.parentElement;
-          const rect = item.getBoundingClientRect();
-          startX = e.pageX;
-          startY = e.pageY;
-          offsetX = rect.left;
-          offsetY = rect.top;
-          originalWidth = rect.width;
- 
-          // Prevent scrolling while dragging
-          document.body.style.touchAction = "none";
- 
-          // Start listening for movement
-          document.addEventListener("pointermove", onPointerMove, {
-             passive: false
-          });
-          document.addEventListener("pointerup", onPointerUp);
-       });
-    });
- 
-    function onPointerMove(e) {
-       if (!draggedItem) return;
- 
-       let deltaX = e.pageX - startX;
-       let deltaY = e.pageY - startY;
- 
-       if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
-          isDragging = true;
- 
-          draggedItem.style.position = "absolute";
-          draggedItem.style.width = `${originalWidth}px`;
-          draggedItem.style.left = `${offsetX}px`;
-          draggedItem.style.top = `${offsetY}px`;
-          draggedItem.style.zIndex = "1000";
-          draggedItem.classList.add("dragging");
- 
-          draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
-          draggedItem.style.border = "4px solid #0099ff";
-       }
- 
-       if (isDragging) {
-          draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-       }
-    }
- 
-    function onPointerUp(e) {
-       if (!draggedItem) return;
- 
-       document.removeEventListener("pointermove", onPointerMove);
-       document.removeEventListener("pointerup", onPointerUp);
- 
-       if (!isDragging) {
+         // Prevent scrolling while dragging
+         document.body.style.touchAction = "none";
+
+         // Start listening for movement
+         document.addEventListener("pointermove", onPointerMove, {
+            passive: false
+         });
+         document.addEventListener("pointerup", onPointerUp);
+      });
+   });
+
+   function onPointerMove(e) {
+      if (!draggedItem) return;
+
+      let deltaX = e.pageX - startX;
+      let deltaY = e.pageY - startY;
+
+      if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
+         isDragging = true;
+
+         draggedItem.style.position = "absolute";
+         draggedItem.style.width = `${originalWidth}px`;
+         draggedItem.style.left = `${offsetX}px`;
+         draggedItem.style.top = `${offsetY}px`;
+         draggedItem.style.zIndex = "1000";
+         draggedItem.classList.add("dragging");
+
+         draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
+         draggedItem.style.border = "4px solid #0099ff";
+      }
+
+      if (isDragging) {
+         draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+      }
+   }
+
+   function onPointerUp(e) {
+      if (!draggedItem) return;
+
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+
+      if (!isDragging) {
          draggedItem = null;
-
          return;
-       }
- 
-       let dropped = false;
-       const sound = new Audio('Catch-catchers-gloves.mp3');
- 
-       targets.forEach(target => {
-          let rect = target.getBoundingClientRect();
-          if (
-             e.pageX >= rect.left && e.pageX <= rect.right &&
-             e.pageY >= rect.top && e.pageY <= rect.bottom
-          ) {
-             if (target.dataset.match === draggedItem.dataset.match) {
-                target.appendChild(draggedItem);
-                draggedItem.style.position = "static";
-                draggedItem.style.transform = "none";
-                draggedItem.style.width = "100%";
-                draggedItem.style.zIndex = "auto";
-                draggedItem.style.backgroundColor = "transparent";
-                draggedItem.style.border = "none";
-                draggedItem.style.borderRadius = 0;
-                draggedItem.style.borderTop = "3px solid #FFF";
-                draggedItem.style.padding = 0;
-                draggedItem.style.marginBottom = 0;
-                draggedItem.style.color = "#FFF";
- 
-                sound.play();
-                target.style.border = "3px solid green";
-                target.style.backgroundColor = "green";
-                target.style.color = "#FFF";
-                dropped = true;
- 
-                draggedItem.classList.add("locked");
-                draggedItem.classList.remove("dragging");
-             }
-          }
-       });
- 
-       if (!dropped) {
-          resetItemPosition(draggedItem);
-          draggedItem.classList.remove("locked");
-       }
- 
-       draggedItem = null;
-       isDragging = false;
-       document.body.style.touchAction = "auto";
- 
-       checkIfRoundComplete();
-    }
- 
-    function resetItemPosition(item) {
-       const index = item.dataset.index;
-       item.style.transform = "none";
-       item.style.position = "relative";
-       item.style.left = "auto";
-       item.style.top = "auto";
-       item.style.width = "auto";
-       item.style.zIndex = "auto";
- 
-       item.style.backgroundColor = "transparent";
-       item.style.border = "3px solid #1b3a6b";
-       originalParent.insertBefore(item, originalParent.children[index]);
-    }
-    function onFinalMatch() {
+      }
+
+      let dropped = false;
+      const sound = new Audio('Catch-catchers-gloves.mp3');
+
+      targets.forEach(target => {
+         let rect = target.getBoundingClientRect();
+         const scrollY = window.scrollY; // Capture current scroll position
+         // Adjust drop zone detection to account for scroll position
+         if (
+            e.pageX >= rect.left + window.scrollX && e.pageX <= rect.right + window.scrollX &&
+            e.pageY >= rect.top + scrollY && e.pageY <= rect.bottom + scrollY
+         ) {
+            if (target.dataset.match === draggedItem.dataset.match) {
+               target.appendChild(draggedItem);
+               draggedItem.style.position = "static";
+               draggedItem.style.transform = "none";
+               draggedItem.style.width = "100%";
+               draggedItem.style.zIndex = "auto";
+               draggedItem.style.backgroundColor = "transparent";
+               draggedItem.style.border = "none";
+               draggedItem.style.borderRadius = 0;
+               draggedItem.style.borderTop = "3px solid #FFF";
+               draggedItem.style.padding = 0;
+               draggedItem.style.marginBottom = 0;
+               draggedItem.style.color = "#FFF";
+
+               sound.play();
+               target.style.border = "3px solid green";
+               target.style.backgroundColor = "green";
+               target.style.color = "#FFF";
+               dropped = true;
+
+               draggedItem.classList.add("locked");
+               draggedItem.classList.remove("dragging");
+            }
+         }
+      });
+
+      if (!dropped) {
+         resetItemPosition(draggedItem);
+         draggedItem.classList.remove("locked");
+      }
+
+      draggedItem = null;
+      isDragging = false;
+      document.body.style.touchAction = "auto";
+
+      checkIfRoundComplete();
+   }
+
+   function resetItemPosition(item) {
+      const index = item.dataset.index;
+      item.style.transform = "none";
+      item.style.position = "relative";
+      item.style.left = "auto";
+      item.style.top = "auto";
+      item.style.width = "auto";
+      item.style.zIndex = "auto";
+
+      item.style.backgroundColor = "transparent";
+      item.style.border = "3px solid #1b3a6b";
+      originalParent.insertBefore(item, originalParent.children[index]);
+   }
+
+   function onFinalMatch() {
       const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
       console.log(gameContainers); // Log all game containers
-  
+
       // Find the currently visible game container
       const currentContainer = gameContainers.find(container => container.style.display !== 'none');
       currentContainer.style.flexDirection = "column";
@@ -175,58 +169,49 @@ document.addEventListener("DOMContentLoaded", () => {
       const roundComplete = currentContainer.querySelector('.round-complete');
       roundComplete.classList.add('visible');
 
-  
       // Log the currently visible container
       if (currentContainer) {
           console.log(`${currentContainer.classList.contains('round-1') ? 'Game Container 1' : 'Game Container 2'} passes`);
       } else {
           console.log('No visible game container found');
       }
-  }
-  
-  
-  
-      
-  let currentIndex = 0; // Variable to track the current game container
-
-  function checkIfRoundComplete() {
-   const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
-   const gameOverContainer = document.querySelector('.game-over'); // Get the game-over container
-   const currentContainer = gameContainers[currentIndex];
-
-   const dropzones = currentContainer.querySelectorAll('.dropzone');
-   const allMatched = Array.from(dropzones).every(target => {
-       const droppedItem = target.children[0];
-       return droppedItem && droppedItem.dataset.match === target.dataset.match;
-   });
-
-   if (allMatched) {
-       onFinalMatch();
-       const winSound = new Audio('calvary-charge.mp3');
-       winSound.play();
-
-       // Set a timeout to transition to the next round or show game-over
-       setTimeout(() => {
-         currentContainer.style.display = 'none';
-         currentIndex++;
-     
-         if (currentIndex < gameContainers.length) {
-             const nextContainer = gameContainers[currentIndex];
-             gameContainers.forEach(container => container.classList.remove('active'));
-            nextContainer.style.display = 'flex';
-            nextContainer.classList.add('active');
-            setTimeout(() => {
-               nextContainer.classList.remove('active');
-           }, 1000); 
-         } else {
-             gameOverContainer.style.display = 'flex';
-         }
-     }, 8000);
    }
-}
 
-  
+   let currentIndex = 0; // Variable to track the current game container
 
+   function checkIfRoundComplete() {
+      const gameContainers = [...document.querySelectorAll('.game-container:not(.page-load)')];
+      const gameOverContainer = document.querySelector('.game-over'); // Get the game-over container
+      const currentContainer = gameContainers[currentIndex];
 
-    
- });
+      const dropzones = currentContainer.querySelectorAll('.dropzone');
+      const allMatched = Array.from(dropzones).every(target => {
+          const droppedItem = target.children[0];
+          return droppedItem && droppedItem.dataset.match === target.dataset.match;
+      });
+
+      if (allMatched) {
+          onFinalMatch();
+          const winSound = new Audio('calvary-charge.mp3');
+          winSound.play();
+
+          // Set a timeout to transition to the next round or show game-over
+          setTimeout(() => {
+              currentContainer.style.display = 'none';
+              currentIndex++;
+
+              if (currentIndex < gameContainers.length) {
+                  const nextContainer = gameContainers[currentIndex];
+                  gameContainers.forEach(container => container.classList.remove('active'));
+                  nextContainer.style.display = 'flex';
+                  nextContainer.classList.add('active');
+                  setTimeout(() => {
+                      nextContainer.classList.remove('active');
+                  }, 1000); 
+              } else {
+                  gameOverContainer.style.display = 'flex';
+              }
+          }, 8000);
+      }
+   }
+});
