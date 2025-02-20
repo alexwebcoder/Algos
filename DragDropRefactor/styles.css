@@ -6,14 +6,14 @@
 }
 
 button {
-    display: block;
-    width: auto;
-    margin: 0 auto;
-    padding: 20px;
+	display: block;
+	width: auto;
+	margin: 0 auto;
+	padding: 20px;
 }
 
-
 .game-container {
+	position: relative;
 	justify-content: space-between;
 	gap: 20px;
 	max-width: 1100px;
@@ -62,7 +62,7 @@ button {
 	padding: 15px 0;
 	width: 100%;
 	max-width: 100%;
-  min-width: 0;
+	min-width: 0;
 }
 
 .rectangle:last-child {
@@ -70,10 +70,10 @@ button {
 }
 
 .grayed {
-  background-color: #d1d1d1;
-  min-height: 65px;
-  border: none;
-  cursor:default;
+	background-color: #d1d1d1;
+	min-height: 65px;
+	border: none;
+	cursor: default;
 }
 
 .game-container.active .rectangle {
@@ -82,15 +82,17 @@ button {
 
 @keyframes gameStartAnimation {
 	0% {
-	  transform: scale(1);
+		transform: scale(1);
 	}
+
 	50% {
-	  transform: scale(1.1);
+		transform: scale(1.1);
 	}
+
 	100% {
-	  transform: scale(1);
+		transform: scale(1);
 	}
-  }
+}
 
 .draggable {
 	cursor: grab;
@@ -136,14 +138,12 @@ button {
 .nickname-container.hidden {
 	display: none;
 	pointer-events: none;
-	/* Disable interaction while hidden */
 }
 
 .round-complete.visible {
 	opacity: 1;
 	display: block;
 	pointer-events: auto;
-	/* Enable interaction when visible */
 }
 
 .hall-of-fame {
@@ -155,7 +155,7 @@ button {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-.hall-of-fame > * {
+.hall-of-fame>* {
 	background-color: #decb27;
 	align-self: stretch;
 	color: #1b3a6b;
@@ -181,6 +181,25 @@ button {
 }
 
 
+.top-stars,
+.bottom-stars {
+    height: 20px; /* Adjust height as needed */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 19,7.5 13,12 15,19 10,15 5,19 7,12 1,7.5 7.5,7.5" fill="blue"/></svg>') repeat-x;
+    background-size: 20px 20px; /* Size of the star */
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.top-stars {
+    top: 72px; /* Position at the top */
+}
+
+.bottom-stars {
+    bottom: 72px; /* Position at the bottom */
+}
+
+
 @media(max-width: 768px) {
 
 	.game-container,
@@ -189,11 +208,12 @@ button {
 		margin: 0 10px 0 10px;
 	}
 
-	.round-complete h1, .column-title{
+	.round-complete h1,
+	.column-title {
 		font-size: 1.4rem;
 	}
 
-	
+
 	.column {
 		font-size: 1.2rem;
 	}
@@ -203,18 +223,18 @@ button {
 @media(max-width: 375px) {
 	.game-container {
 		gap: 10px;
-		padding: 10px; 
-	  }
+		padding: 10px;
+	}
 
-	  .rectangle {
+	.rectangle {
 		margin-bottom: 15px;
 
-	  }
+	}
 
-	  .grayed {
+	.grayed {
 		min-height: 50px;
-	  }
-	
+	}
+
 }
 
 @media(max-width: 330px) {
@@ -222,8 +242,11 @@ button {
 	.game-container {
 		justify-content: center;
 	}
-	.round-complete h1, .column-title, .column {
-        font-size: 1rem;
-    }
+
+	.round-complete h1,
+	.column-title,
+	.column {
+		font-size: 1rem;
+	}
 
 }
