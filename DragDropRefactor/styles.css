@@ -18,7 +18,7 @@ button {
 	gap: 20px;
 	max-width: 1100px;
 	margin: 0 auto;
-	padding: 35px 20px 20px 20px;
+	padding: 35px 20px 35px 20px;
 	background-color: #f9f9f9;
 	border-radius: 12px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -44,14 +44,13 @@ button {
 }
 
 .column {
-	/* padding: 10px; */
-	font-size: 2rem;
+	font-size: 1.4rem;
 	text-align: center;
 }
 
 .rectangle {
 	border: 3px solid #1b3a6b;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
@@ -60,7 +59,10 @@ button {
 	font-weight: bold;
 	color: #1b3a6b;
 	transition: background-color 0.5s ease-in-out;
-	padding: 10px;
+	padding: 15px 0;
+	width: 100%;
+	max-width: 100%;
+  min-width: 0;
 }
 
 .rectangle:last-child {
@@ -187,13 +189,30 @@ button {
 		margin: 0 10px 0 10px;
 	}
 
-	.round-complete h1 {
+	.round-complete h1, .column-title{
 		font-size: 1.4rem;
 	}
 
-	.column-title,
+	
 	.column {
 		font-size: 1.2rem;
 	}
 
+}
+
+@media(max-width: 375px) {
+	.game-container {
+		gap: 10px;
+		padding: 10px; 
+	  }
+
+	  .rectangle {
+		margin-bottom: 15px;
+
+	  }
+
+	  .grayed {
+		min-height: 50px;
+	  }
+	
 }
