@@ -13,7 +13,6 @@ button {
 }
 
 .game-container {
-	position: relative;
 	justify-content: space-between;
 	gap: 20px;
 	max-width: 1100px;
@@ -59,7 +58,7 @@ button {
 	font-weight: bold;
 	color: #1b3a6b;
 	transition: background-color 0.5s ease-in-out;
-	padding: 15px 0;
+	padding: 18px 0;
 	width: 100%;
 	max-width: 100%;
 	min-width: 0;
@@ -78,6 +77,10 @@ button {
 
 .game-container.active .rectangle {
 	animation: gameStartAnimation 0.5s ease-in-out;
+}
+
+.game-over {
+	position: relative;
 }
 
 @keyframes gameStartAnimation {
@@ -123,8 +126,9 @@ button {
 }
 
 .round-complete img {
-	max-width: 6%;
+	/* max-width: 6%; */
 	display: block;
+	width: 50px;
 }
 
 .trophies {
@@ -183,20 +187,20 @@ button {
 
 .top-stars,
 .bottom-stars {
-    height: 20px; /* Adjust height as needed */
+    height: 37px; /* Adjust height as needed */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="10,1 12.5,7.5 19,7.5 13,12 15,19 10,15 5,19 7,12 1,7.5 7.5,7.5" fill="blue"/></svg>') repeat-x;
-    background-size: 20px 20px; /* Size of the star */
+    background-size: 37px 37px; /* Size of the star */
     position: absolute;
     left: 0;
     right: 0;
 }
 
 .top-stars {
-    top: 72px; /* Position at the top */
+    top: 87px; /* Position at the top */
 }
 
 .bottom-stars {
-    bottom: 72px; /* Position at the bottom */
+    bottom: 87px; /* Position at the bottom */
 }
 
 
@@ -218,6 +222,12 @@ button {
 		font-size: 1.2rem;
 	}
 
+	.round-complete img {
+		/* max-width: 6%; */
+		display: block;
+		width: 34px;
+	}
+
 }
 
 @media(max-width: 375px) {
@@ -235,6 +245,16 @@ button {
 		min-height: 50px;
 	}
 
+	.game-over {
+		padding: 0;
+	}
+
+	.round-complete img {
+		/* max-width: 6%; */
+		display: block;
+		width: 25px;
+	}
+
 }
 
 @media(max-width: 330px) {
@@ -247,6 +267,10 @@ button {
 	.column-title,
 	.column {
 		font-size: 1rem;
+	}
+
+	.game-over h1 {
+		font-size: 2rem;
 	}
 
 }
