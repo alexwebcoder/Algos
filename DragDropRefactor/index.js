@@ -98,8 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
        document.removeEventListener("pointerup", onPointerUp);
  
        if (!isDragging) {
-          draggedItem.style.backgroundColor = "transparent";
-          draggedItem.style.border = "none";
+         draggedItem = null;
+
+         return;
        }
  
        let dropped = false;
