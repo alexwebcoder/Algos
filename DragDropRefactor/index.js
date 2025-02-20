@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Show the round 1 content (round1Content)
       gameContainers[0].style.display = 'flex';
       gameContainers[0].classList.add('active');
+      setTimeout(() => {
+         nextContainer.classList.remove('active'); // Remove after animation runs
+     }, 1000); 
       console.log(gameContainers[0])
    
    });
@@ -211,6 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
              gameContainers.forEach(container => container.classList.remove('active'));
             nextContainer.style.display = 'flex';
             nextContainer.classList.add('active');
+            setTimeout(() => {
+               nextContainer.classList.remove('active');
+           }, 1000); 
          } else {
              gameOverContainer.style.display = 'flex';
          }
