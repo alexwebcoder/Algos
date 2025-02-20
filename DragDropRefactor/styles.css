@@ -216,3 +216,14 @@ button {
 	  }
 	
 }
+
+@media(max-width: 330px) {
+
+	.game-container {
+		justify-content: center;
+	}
+	.round-complete h1, .column-title, .column {
+        font-size: 1rem;
+    }
+
+}
