@@ -67,29 +67,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
  
     function onPointerMove(e) {
-       if (!draggedItem) return;
- 
-       let deltaX = e.pageX - startX;
-       let deltaY = e.pageY - startY;
- 
-       if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
+      if (!draggedItem) return;
+  
+      const scrollThreshold = 50; // Distance from edge to trigger scroll
+      const scrollSpeed = 10; // Adjust for faster/slower scrolling
+  
+      if (e.clientY < scrollThreshold) {
+          // Scroll up if near the top
+          window.scrollBy(0, -scrollSpeed);
+      } else if (e.clientY > window.innerHeight - scrollThreshold) {
+          // Scroll down if near the bottom
+          window.scrollBy(0, scrollSpeed);
+      }
+  
+      let deltaX = e.pageX - startX;
+      let deltaY = e.pageY - startY; // Remove window.scrollY from here
+  
+      if (!isDragging && (Math.abs(deltaX) > moveThreshold || Math.abs(deltaY) > moveThreshold)) {
           isDragging = true;
- 
+  
           draggedItem.style.position = "absolute";
           draggedItem.style.width = `${originalWidth}px`;
           draggedItem.style.left = `${offsetX}px`;
           draggedItem.style.top = `${offsetY}px`;
           draggedItem.style.zIndex = "1000";
           draggedItem.classList.add("dragging");
- 
+  
           draggedItem.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
           draggedItem.style.border = "4px solid #0099ff";
-       }
- 
-       if (isDragging) {
+      }
+  
+      if (isDragging) {
+          // Calculate position based on pointer's position
           draggedItem.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-       }
-    }
+      }
+  }
+  
  
     function onPointerUp(e) {
        if (!draggedItem) return;
