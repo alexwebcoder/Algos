@@ -106,13 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
        const sound = new Audio('Catch-catchers-gloves.mp3');
 
        targets.forEach(target => {
-           let rect = target.getBoundingClientRect();
-           const scrollY = window.scrollY; // Capture current scroll position
-           // Adjust drop zone detection to account for scroll position
-           if (
-               e.pageX >= rect.left + window.scrollX && e.pageX <= rect.right + window.scrollX &&
-               e.pageY >= rect.top + scrollY && e.pageY <= rect.bottom + scrollY
-           ) {
+        let rect = target.getBoundingClientRect();
+        const scrollY = window.scrollY; 
+    
+        let draggedRect = draggedItem.getBoundingClientRect();
+    
+        let overlapX = Math.max(0, Math.min(draggedRect.right, rect.right) - Math.max(draggedRect.left, rect.left));
+        let requiredOverlapX = rect.width * 0.8; // 80% of the target width
+    
+        if (
+            overlapX >= requiredOverlapX && // Ensure at least 80% horizontal overlap
+            e.pageY >= rect.top + scrollY && e.pageY <= rect.bottom + scrollY
+        ){
                if (target.dataset.match === draggedItem.dataset.match) {
                    target.appendChild(draggedItem);
                    draggedItem.style.position = "static";
