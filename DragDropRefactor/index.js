@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let requiredOverlapX = rect.width * 0.8; // 80% of the target width
     
         if (
-            overlapX >= requiredOverlapX && // Ensure at least 80% horizontal overlap
+            overlapX >= requiredOverlapX && // At least 80% horizontal overlap
             e.pageY >= rect.top + scrollY && e.pageY <= rect.bottom + scrollY
         ){
                if (target.dataset.match === draggedItem.dataset.match) {
