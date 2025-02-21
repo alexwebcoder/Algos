@@ -163,6 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
        item.style.backgroundColor = "transparent";
        item.style.border = "3px solid #1b3a6b";
        originalParent.insertBefore(item, originalParent.children[index]);
+
+       item.classList.add("snap-back");
+       
+      setTimeout(() => {
+         item.classList.remove("snap-back");
+      }, 1000);
    }
 
    function onFinalMatch() {
