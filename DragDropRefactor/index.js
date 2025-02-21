@@ -124,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
                    draggedItem.style.borderRadius = 0;
                    draggedItem.style.borderTop = "3px solid #FFF";
                    draggedItem.style.padding = 0;
+                   draggedItem.style.paddingTop = "7px";
                    draggedItem.style.marginBottom = 0;
+                   draggedItem.style.marginTop = "7px";
                    draggedItem.style.color = "#FFF";
 
                    sound.play();

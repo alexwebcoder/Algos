@@ -10,7 +10,7 @@
 <body>
     <button id="startButton">Start Round 1</button>
     <!-- Grayed out rectangles that will load on page load -->
-    <div class="game-container page-load flex" id="emptyRectangles">
+    <div class="game-container page-load" id="emptyRectangles">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames" id="left-column">
@@ -34,7 +34,7 @@
     
     
     <!-- Round 1 that loads on push of start button-->
-    <div class="game-container round-1 flex hidden" id="round1Content">
+    <div class="game-container round-1 hidden" id="round1Content">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames">
@@ -72,7 +72,7 @@
     </div>
     
     <!-- Round 2 that loads after round 1 completes-->
-    <div class="game-container round-2 flex hidden" id="round2Content">
+    <div class="game-container round-2 hidden" id="round2Content">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames">
@@ -103,7 +103,7 @@
     </div>
 
     <!-- Round 3 that loads after round 2 completes-->
-    <div class="game-container round-3 flex hidden" id="round3Content">
+    <div class="game-container round-3 hidden" id="round3Content">
         <section class="nickname-container flex">
             <h1 class="column-title capitalized">Nicknames</h1>
             <div class="column nicknames">
@@ -135,12 +135,13 @@
     </div>
 
     <!-- Game Over Round-->
-    <div class="game-container game-over flex hidden" id="gameOver">
+    <div class="game-container game-over hidden" id="gameOver">
         <div class="stars top-stars"></div>
         <section class="hall-of-fame flex" aria-live="polite">
-            <h1>Game Over</h1>
-            <p>You made the Hall of Fame</p>
-            <audio id="gameOverSound" src="game-over-sound.mp3"></audio>
+            <div>
+                <h1>Game Over</h1>
+                <p>You made the Hall of Fame</p>
+            </div>
           </section>
           <div class="stars bottom-stars"></div>
     </div>
