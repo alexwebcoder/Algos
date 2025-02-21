@@ -199,27 +199,35 @@ document.addEventListener("DOMContentLoaded", () => {
        });
 
        if (allMatched) {
-           onFinalMatch();
-           const winSound = new Audio('calvary-charge.mp3');
-           winSound.play();
-
-           // Set a timeout to transition to the next round or show game-over
-           setTimeout(() => {
-               currentContainer.style.display = 'none';
-               currentIndex++;
-
-               if (currentIndex < gameContainers.length) {
-                   const nextContainer = gameContainers[currentIndex];
-                   gameContainers.forEach(container => container.classList.remove('active'));
-                   nextContainer.style.display = 'flex';
-                   nextContainer.classList.add('active');
-                   setTimeout(() => {
-                       nextContainer.classList.remove('active');
-                   }, 1000); 
-               } else {
-                   gameOverContainer.style.display = 'flex';
-               }
-           }, 8000);
-       }
+         onFinalMatch();
+ 
+         // Determine which sound to play
+         if (currentIndex === gameContainers.length - 2) {
+             const finalWinSound = new Audio('game-over-sound.mp3'); // Play different sound for last round
+             finalWinSound.play();
+         } else {
+             const winSound = new Audio('calvary-charge.mp3');
+             winSound.play();
+         }
+ 
+         // Set a timeout to transition to the next round or show game-over
+         setTimeout(() => {
+             currentContainer.style.display = 'none';
+             currentIndex++;
+ 
+             if (currentIndex < gameContainers.length) {
+                 const nextContainer = gameContainers[currentIndex];
+                 gameContainers.forEach(container => container.classList.remove('active'));
+                 nextContainer.style.display = 'flex';
+                 nextContainer.classList.add('active');
+                 setTimeout(() => {
+                     nextContainer.classList.remove('active');
+                 }, 1000); 
+             } else {
+                 gameOverContainer.style.display = 'flex';
+             }
+         }, 8000);
+     }
+ 
    }
 });
