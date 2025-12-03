@@ -1,0 +1,73 @@
+{
+    "roundContent": {
+      "nicknames": [
+        {
+          "name": "Banana",
+          "match": "fruit"
+        },
+        {
+          "name": "Soda",
+          "match": "beverage"
+        },
+        {
+          "name": "Horse",
+          "match": "animal"
+        },
+        {
+          "name": "Porsche",
+          "match": "car"
+        },
+        {
+          "name": "Lamp",
+          "match": "lamp"
+        },
+        {
+          "name": "Sink",
+          "match": "sink"
+        },
+        {
+          "name": "Dog",
+          "match": "dog"
+        },
+        {
+          "name": "Cat",
+          "match": "cat"
+        }
+      ],
+      "players": [
+        {
+          "name": "Animal",
+          "match": "animal"
+        },
+        {
+          "name": "Car",
+          "match": "car"
+        },
+        {
+          "name": "Lamp",
+          "match": "lamp"
+        },
+        {
+          "name": "Sink",
+          "match": "sink"
+        },
+        {
+          "name": "Dog",
+          "match": "dog"
+        },
+        {
+          "name": "Cat",
+          "match": "cat"
+        },
+        {
+          "name": "Beverage",
+          "match": "beverage"
+        },
+        {
+          "name": "Fruit",
+          "match": "fruit"
+        }
+      ]
+    }
+  }
+  

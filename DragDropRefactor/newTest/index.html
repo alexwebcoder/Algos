@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Game</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Add your CSS file if you have one -->
+</head>
+<body>
+    <button id="startButton">Start Round 1</button>
+
+    <div class="game-container page-load" id="emptyRectangles">
+        <section class="nickname-container flex">
+            <h1 class="column-title capitalized">Nicknames</h1>
+            <div class="column nicknames" id="left-column">
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+            </div>
+        </section>
+        
+        <section class="player-container flex">
+            <h1 class="column-title capitalized">Players</h1>
+            <div class="column" id="right-column">
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+                <div class="rectangle grayed" tabindex="0" role="button" aria-label="Empty rectangle"></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="game-container round-1 hidden" id="round1Content">
+        <section class="nickname-container flex">
+            <h1 class="column-title capitalized">Nicknames</h1>
+            <div class="column nicknames" id="left-column">
+                <!-- Nicknames will be dynamically added here -->
+            </div>
+        </section>
+
+        <section class="player-container flex">
+            <h1 class="column-title capitalized">Players</h1>
+            <div class="column" id="right-column">
+                <!-- Players will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="index.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
