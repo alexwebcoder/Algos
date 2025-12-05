@@ -33,7 +33,7 @@ slides.addEventListener('touchend', e => {
 
 function handleSwipe() {
   const diff = endX - startX;
-  if (Math.abs(diff) > 50) { // 50px threshold
+  if (Math.abs(diff) > 50) { // 50px threshold valid swipe
     if (diff < 0) showSlide(index + 1); // swipe left → next
     else showSlide(index - 1);          // swipe right → prev
   }
@@ -43,7 +43,7 @@ function handleSwipe() {
 if (window.innerWidth > 768) {
   setInterval(() => {
     showSlide(index + 1);
-  }, 2000); // change 3000 to adjust speed (ms)
+  }, 2000); // change 2000 to adjust speed (ms) if you like
 }
 
 
